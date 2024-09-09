@@ -1,5 +1,3 @@
-import Content from "./Content";
-
 interface FooterProps {}
 
 const Footer = ({}: FooterProps) => {
