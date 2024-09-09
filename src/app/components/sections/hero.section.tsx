@@ -1,0 +1,48 @@
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import Link from "next/link";
+
+interface HeroSectionProps {}
+
+const HeroSection = ({}: HeroSectionProps) => {
+  return (
+    <section className="h-screen bg-gray-100 hero-section">
+      <div className="grid h-full relative grid-cols-2">
+        <div className="prose p-8 flex flex-col justify-center md:max-w-[90%] items-center">
+          <h1 className="text-5xl mb-0">
+            Empowering vulnerable youth and children
+          </h1>
+          <p>
+            Founded in November 2021, Reves is a non-governmental
+            organisation(NGO) dedicated to empowering vulnerable youth and
+            children, specifically those living in marginalized communities
+            across Africa.
+          </p>
+        </div>
+
+        <div className="w-full h-full overflow-hidden">
+          <Image
+            src={"/hero-image.png"}
+            alt="Hero image"
+            height={1080}
+            width={1080}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        <Link
+          href="https://flutterwave.com/donate/fqla2cajv8yi?_gl=1%2ahjgupl%2a_gcl_au%2aMTU1MDEzNzk2NC4xNzI1ODk5NjE0%2a_ga%2aMTQzMjAwNzc2MC4xNzIzMTE3MzM3%2a_ga_KQ9NSEMFCF%2aMTcyNTg5OTIwMy4yLjEuMTcyNTkwMDA1Ny41OS4wLjA."
+          target="_blank"
+        ></Link>
+        <Button
+          size={"lg"}
+          className="absolute bottom-16 left-[50%] translate-x-[-50%]"
+        >
+          Donate now
+        </Button>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;
