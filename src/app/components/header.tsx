@@ -20,7 +20,7 @@ const Header = ({}: HeaderProps) => {
         </div>
 
         <nav className=" items-center w-max justify-end flex gap-4  font-medium">
-          <ul className="flex gap-8 items-center rounded-full py-2 px-8  bg-gray-100 bg-opacity-75 backdrop-blur-lg">
+          <ul className="flex gap-8 items-center rounded-full py-2 px-8  bg-gray-100 text-gray-900 bg-opacity-75 backdrop-blur-lg">
             <li>
               <Link href={"/"}>Home</Link>
             </li>
@@ -37,7 +37,10 @@ const Header = ({}: HeaderProps) => {
 
           <ul>
             <li>
-              <Link className="bg-green-400 px-4 py-2 rounded-full" href={"/"}>
+              <Link
+                className="bg-green-400 text-gray-900 px-4 py-2 rounded-full"
+                href={"/"}
+              >
                 Contact
               </Link>
             </li>
