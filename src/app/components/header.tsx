@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa6";
 
@@ -9,6 +10,10 @@ interface HeaderProps {}
 
 const Header = ({}: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const currentPath = usePathname();
+
+  const isHome = currentPath === "/";
+
   const heroHeight = 100;
 
   const handleScroll = () => {
@@ -22,18 +27,27 @@ const Header = ({}: HeaderProps) => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
+    if (isHome) {
+      window.addEventListener("scroll", handleScroll);
+    }
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (isHome) {
+        window.removeEventListener("scroll", handleScroll);
+      }
     };
-  }, [heroHeight]);
+  }, [isHome, heroHeight]);
 
   return (
     <header
-      className={`py-2 fixed w-full z-50 top-0 ${isScrolled && "bg-white"}`}
+      className={`py-2 w-full z-50 top-0 transition-colors duration-300 ${
+        isHome
+          ? isScrolled
+            ? "bg-white fixed shadow-md"
+            : "bg-transparent fixed"
+          : "bg-white sticky shadow-md"
+      }`}
     >
-      <div className="container flex justify-between gap-4 transition-all items-center">
+      <div className="container flex justify-between gap-4 items-center">
         <div className="logo w-max relative h-14">
           <Image
             alt="Reves Foundation Logo"
@@ -41,30 +55,30 @@ const Header = ({}: HeaderProps) => {
             height={64}
             loading="lazy"
             width={120}
-            quality={1}
+            quality={75}
             className="h-full w-full object-contain"
           />
         </div>
 
-        <nav className="hidden md:flex items-center w-max justify-end  gap-4  font-medium">
+        <nav className="hidden md:flex items-center w-max justify-end gap-4 font-medium">
           <ul
-            className={`flex gap-8 items-center rounded-full py-2 px-8   text-gray-900 transition-all ${
-              !isScrolled
+            className={`flex gap-8 items-center rounded-full py-2 px-8 text-gray-900 transition-all ${
+              isHome && !isScrolled
                 ? "bg-gray-100 bg-opacity-75 backdrop-blur-lg"
                 : "bg-transparent"
-            } `}
+            }`}
           >
             <li>
               <Link href={"/"}>Home</Link>
             </li>
             <li>
-              <Link href={"/"}>About</Link>
+              <Link href={"/about"}>About</Link> {/* Fixed routes */}
             </li>
             <li>
-              <Link href={"/"}>Portfolio</Link>
+              <Link href={"/portfolio"}>Portfolio</Link>
             </li>
             <li>
-              <Link href={"/"}>News</Link>
+              <Link href={"/news"}>News</Link>
             </li>
           </ul>
 
@@ -72,7 +86,7 @@ const Header = ({}: HeaderProps) => {
             <li>
               <Link
                 className="bg-green-400 text-gray-900 px-4 py-2 rounded-full"
-                href={"/"}
+                href={"/contact"}
               >
                 Contact
               </Link>
