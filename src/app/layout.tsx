@@ -18,7 +18,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Reves Foundation (RAYCD)",
   description:
-    "We are centered at bridging gaps through technology in minority African communities.",
+    "We are centred on bridging gaps through technology in the minority African communities.",
 };
 
 export default function RootLayout({

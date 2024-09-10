@@ -1,13 +1,39 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 interface HeaderProps {}
 
 const Header = ({}: HeaderProps) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const heroHeight = 100;
+
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > heroHeight) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [heroHeight]);
+
   return (
-    <header className="py-2 fixed w-full z-50 top-0">
-      <div className="container flex justify-between items-center">
-        <div className="logo bg-gray-50  bg-opacity-75 backdrop-blur-lg w-max relative h-14">
+    <header
+      className={`py-2 fixed w-full z-50 top-0 ${isScrolled && "bg-white"}`}
+    >
+      <div className="container flex justify-between gap-4 transition-all items-center">
+        <div className="logo w-max relative h-14">
           <Image
             alt="Reves Foundation Logo"
             src={"/reves-logo-dark.png"}
@@ -20,7 +46,13 @@ const Header = ({}: HeaderProps) => {
         </div>
 
         <nav className=" items-center w-max justify-end flex gap-4  font-medium">
-          <ul className="flex gap-8 items-center rounded-full py-2 px-8  bg-gray-100 text-gray-900 bg-opacity-75 backdrop-blur-lg">
+          <ul
+            className={`flex gap-8 items-center rounded-full py-2 px-8   text-gray-900 transition-all ${
+              !isScrolled
+                ? "bg-gray-100 bg-opacity-75 backdrop-blur-lg"
+                : "bg-transparent"
+            } `}
+          >
             <li>
               <Link href={"/"}>Home</Link>
             </li>

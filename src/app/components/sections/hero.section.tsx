@@ -7,8 +7,8 @@ interface HeroSectionProps {}
 const HeroSection = ({}: HeroSectionProps) => {
   return (
     <section className="h-screen bg-gray-100 hero-section">
-      <div className="grid h-full relative grid-cols-2">
-        <div className="prose p-8 flex flex-col justify-center md:max-w-[90%] items-center">
+      <div className="flex h-full relative md:grid-cols-2">
+        <div className="prose p-8 w-full md:w-[55%] shrink-0 flex flex-col justify-center  items-center md:pr-24">
           <h1 className="text-5xl mb-0">
             Empowering vulnerable youth and children
           </h1>
@@ -20,7 +20,7 @@ const HeroSection = ({}: HeroSectionProps) => {
           </p>
         </div>
 
-        <div className="w-full h-full overflow-hidden">
+        <div className="hidden md:flex w-full h-full overflow-hidden">
           <Image
             src={"/hero-image.png"}
             alt="Hero image"
