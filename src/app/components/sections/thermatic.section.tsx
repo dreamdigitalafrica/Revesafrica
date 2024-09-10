@@ -11,7 +11,7 @@ const ThermaticSection = ({}: ThermaticSectionProps) => {
         <h1 className="">Our Thermatic Areas</h1>
       </div>
 
-      <Marquee pauseOnHover>
+      <Marquee delay={2} pauseOnHover>
         {Array.from({ length: 8 }).map((_, index) => (
           <div
             key={index}
