@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { FaBars } from "react-icons/fa6";
 
 interface HeaderProps {}
 
@@ -45,7 +46,7 @@ const Header = ({}: HeaderProps) => {
           />
         </div>
 
-        <nav className=" items-center w-max justify-end flex gap-4  font-medium">
+        <nav className="hidden md:flex items-center w-max justify-end  gap-4  font-medium">
           <ul
             className={`flex gap-8 items-center rounded-full py-2 px-8   text-gray-900 transition-all ${
               !isScrolled
@@ -78,6 +79,10 @@ const Header = ({}: HeaderProps) => {
             </li>
           </ul>
         </nav>
+
+        <div className="menu-toggle md:hidden">
+          <FaBars size={20} />
+        </div>
       </div>
     </header>
   );
