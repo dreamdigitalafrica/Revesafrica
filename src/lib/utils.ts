@@ -44,7 +44,7 @@ export const getPostBySlug = async (slug: string) => {
 // Get metadata for all posts
 export const getPostsMetaData = async () => {
   const files = fs.readdirSync(rootDir);
-  let posts = [];
+  const posts = [];
   for (const fileName of files) {
     // Ensure the filename matches the MDX extension
     if (fileName.endsWith(".mdx")) {
