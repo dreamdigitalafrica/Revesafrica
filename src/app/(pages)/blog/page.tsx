@@ -3,8 +3,6 @@ import React from "react";
 import Link from "next/link";
 import { getPostsMetaData } from "@/lib/utils";
 
-type Props = {};
-
 type PostMetaData = {
   title: string;
   author: string;
