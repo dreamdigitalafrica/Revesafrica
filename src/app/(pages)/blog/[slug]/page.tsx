@@ -14,8 +14,7 @@ const getPageData = async (slug: string) => {
 };
 
 export async function generateMetadata({ params }: Props) {
-  const { meta } = await getPageData(params.slug);
-
+  //   const { meta } = await getPageData(params.slug);
   //   TODO: Fix Meta title
   //   return { title: meta.title };
 }

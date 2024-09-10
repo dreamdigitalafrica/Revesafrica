@@ -12,7 +12,7 @@ type PostMetaData = {
   slug: string;
 };
 
-export default async function page({}: Props) {
+export default async function page() {
   const posts = (await getPostsMetaData()) as PostMetaData[];
 
   return (
