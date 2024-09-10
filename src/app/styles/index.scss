@@ -66,5 +66,20 @@ body {
 }
 
 .container {
-  @apply w-full px-4 md:px-8;
+  @apply w-full mx-auto max-w-7xl px-4 md:px-8;
+}
+
+.form-container form {
+  @apply flex flex-col gap-4;
+}
+
+input,
+textarea {
+  @apply border rounded-sm w-full py-2 px-4 placeholder:text-sm text-base;
+}
+
+#contact-us {
+  .label {
+    @apply font-semibold;
+  }
 }

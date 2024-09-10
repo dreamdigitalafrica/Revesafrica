@@ -8,7 +8,7 @@ const HeroSection = ({}: HeroSectionProps) => {
   return (
     <section className="h-screen bg-gray-100 hero-section">
       <div className="flex h-full relative md:grid-cols-2">
-        <div className="prose p-8 w-full md:w-[55%] shrink-0 flex flex-col justify-center  items-center md:pr-24">
+        <div className="prose py-8 px-4 md:px-16 w-full md:w-[55%] shrink-0 flex flex-col justify-center  items-center md:pr-24">
           <h1 className="text-5xl mb-0">
             Empowering vulnerable youth and children
           </h1>

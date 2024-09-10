@@ -1,7 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { FaFacebook } from "react-icons/fa6";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaXTwitter,
+} from "react-icons/fa6";
 
 interface FooterProps {}
 
@@ -27,17 +32,22 @@ const Footer = ({}: FooterProps) => {
             </div>
           </div>
 
-          <div className="socials">
-            <Link href={""}>
-              <FaFacebook />
+          <div className="socials flex gap-4 md:gap-6">
+            <Link href={"#"}>
+              <FaFacebook size={18} />
             </Link>
-          </div>
-          <div className="flex flex-col gap-2">
-            <h3 className="mb-2 uppercase text-[#ffffff80]">Education</h3>
-            <p>News</p>
-            <p>Learn</p>
-            <p>Certification</p>
-            <p>Publications</p>
+
+            <Link href={"#"}>
+              <FaLinkedin size={18} />
+            </Link>
+
+            <Link href={"#"}>
+              <FaXTwitter size={18} />
+            </Link>
+
+            <Link href={"#"}>
+              <FaInstagram size={18} />
+            </Link>
           </div>
         </div>
       </div>
