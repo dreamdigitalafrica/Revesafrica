@@ -16,9 +16,24 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://revesfoundation.org/"),
   title: "Reves Foundation (RAYCD)",
   description:
     "We are centred on bridging gaps through technology in the minority African communities.",
+  openGraph: {
+    title: "Reves Foundation (RAYCD)",
+    description:
+      "We are centred on bridging gaps through technology in the minority African communities",
+    images: [
+      {
+        url: "/reves-logo-dark.png", // Path to your OG image
+        width: 1200,
+        height: 630,
+        alt: "Reves Foundation OG Image", // Alt text for the image
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({
