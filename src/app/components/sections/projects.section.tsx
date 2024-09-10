@@ -3,7 +3,6 @@ import Link from "next/link";
 import { getPostsMetaData } from "@/lib/utils";
 import Image from "next/image";
 
-type Props = {};
 
 type PostMetaData = {
   title: string;
@@ -13,7 +12,7 @@ type PostMetaData = {
   featuredImg?: string;
 };
 
-export default async function ProjectsSection({}: Props) {
+export default async function ProjectsSection() {
   const posts = (await getPostsMetaData()) as PostMetaData[];
 
   return (
