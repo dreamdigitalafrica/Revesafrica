@@ -81,7 +81,7 @@ const Header = ({}: HeaderProps) => {
         </nav>
 
         <div className="menu-toggle md:hidden">
-          <FaBars size={20} />
+          <FaBars size={24} />
         </div>
       </div>
     </header>
