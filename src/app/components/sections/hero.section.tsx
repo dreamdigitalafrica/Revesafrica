@@ -36,7 +36,7 @@ const HeroSection = ({}: HeroSectionProps) => {
         >
           <Button
             size={"lg"}
-            className="absolute bottom-16 text-xl bg-blue-700 left-[50%] translate-x-[-50%]"
+            className="absolute bottom-16 text-base md:text-xl bg-blue-700 left-[50%] translate-x-[-50%]"
           >
             Donate now
           </Button>
