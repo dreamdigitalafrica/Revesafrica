@@ -15,7 +15,7 @@ const ThermaticSection = ({}: ThermaticSectionProps) => {
         {Array.from({ length: 8 }).map((_, index) => (
           <div
             key={index}
-            className="h-[14rem] md:h-[16em] cursor-pointer w-[16rem] md:w-[17rem] mr-4 md:mr-6 overflow-hidden relative flex-shrink-0 shadow-sm border p-4 rounded-xl"
+            className="h-[12.5rem] md:h-[13.7rem] cursor-pointer w-[14rem] md:w-[15rem] mr-4 md:mr-6 overflow-hidden relative flex-shrink-0 shadow-sm border p-4 rounded-xl"
           >
             <Image
               loading="lazy"
