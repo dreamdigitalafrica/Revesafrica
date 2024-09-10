@@ -16,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://revesfoundation.org/"),
+  metadataBase: new URL("https://www.revesfoundation.org/"),
   title: "Reves Foundation (RAYCD)",
   description:
     "We are centred on bridging gaps through technology in the minority African communities.",
