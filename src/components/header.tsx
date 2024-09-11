@@ -48,14 +48,14 @@ const Header = ({}: HeaderProps) => {
       }`}
     >
       <div className="container flex justify-between gap-4 items-center">
-        <Link href={"/"} className="logo w-max relative h-14">
+        <Link href={"/"} className="logo w-max relative h-12 md:h-14">
           <Image
             alt="Reves Foundation Logo"
             src={"/reves-logo-dark.png"}
             height={64}
             loading="lazy"
             width={120}
-            quality={75}
+            quality={100}
             className="h-full w-full object-contain"
           />
         </Link>

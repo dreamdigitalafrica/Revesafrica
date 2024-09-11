@@ -23,8 +23,8 @@ export default async function page({ params }: Props) {
   const { content } = await getPageData(params.slug);
 
   return (
-    <section className="p-4">
-      <div className="container py-4 prose">{content}</div>
+    <section className="">
+      <article className="container py-4 prose max-w-none">{content}</article>
     </section>
   );
 }
