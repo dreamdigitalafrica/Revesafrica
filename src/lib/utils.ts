@@ -5,7 +5,7 @@ import path from "path";
 import { compileMDX } from "next-mdx-remote/rsc";
 
 // Class name utility
-export async function cn(...inputs: ClassValue[]) {
+export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
