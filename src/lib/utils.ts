@@ -5,7 +5,7 @@ import path from "path";
 import { compileMDX } from "next-mdx-remote/rsc";
 
 // Class name utility
-export function cn(...inputs: ClassValue[]) {
+export async function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
@@ -42,15 +42,24 @@ export const getPostBySlug = async (slug: string) => {
 };
 
 // Get metadata for all posts
+
+// Function to fetch metadata for posts
 export const getPostsMetaData = async () => {
+  const rootDir = path.join(process.cwd(), "src", "blog-posts");
   const files = fs.readdirSync(rootDir);
   const posts = [];
+
   for (const fileName of files) {
-    // Ensure the filename matches the MDX extension
     if (fileName.endsWith(".mdx")) {
-      const { meta } = await getPostBySlug(fileName.replace(".mdx", ""));
-      posts.push(meta);
+      const filePath = path.join(rootDir, fileName);
+      const fileContent = fs.readFileSync(filePath, { encoding: "utf8" });
+      const { frontmatter } = await compileMDX({
+        source: fileContent,
+        options: { parseFrontmatter: true },
+      });
+      posts.push({ ...frontmatter, slug: fileName.replace(".mdx", "") });
     }
   }
+
   return posts;
 };
