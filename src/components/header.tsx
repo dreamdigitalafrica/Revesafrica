@@ -48,7 +48,7 @@ const Header = ({}: HeaderProps) => {
       }`}
     >
       <div className="container flex justify-between gap-4 items-center">
-        <div className="logo w-max relative h-14">
+        <Link href={"/"} className="logo w-max relative h-14">
           <Image
             alt="Reves Foundation Logo"
             src={"/reves-logo-dark.png"}
@@ -58,7 +58,7 @@ const Header = ({}: HeaderProps) => {
             quality={75}
             className="h-full w-full object-contain"
           />
-        </div>
+        </Link>
 
         <nav className="hidden md:flex items-center w-max justify-end gap-4 font-medium">
           <ul
