@@ -52,10 +52,10 @@ const Header = ({}: HeaderProps) => {
           <Image
             alt="Reves Foundation Logo"
             src={"/reves-logo-dark.png"}
-            height={64}
+            height={120}
             loading="lazy"
-            width={120}
-            quality={100}
+            width={200}
+            quality={1}
             className="h-full w-full object-contain"
           />
         </Link>
