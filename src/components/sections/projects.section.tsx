@@ -2,7 +2,6 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ScrollArea, ScrollBar } from "../ui/scroll-area";
 
 export default function ProjectsSection({ posts }: { posts: PostMetaData[] }) {
   return (
