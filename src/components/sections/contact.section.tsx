@@ -70,7 +70,7 @@ const ContactUsSection = ({}: ContactUsSectionProps) => {
             </form>
           </div>
           {/*  */}.
-          <div className="flex flex-col w-full max-w-xs pt-4">
+          <div className="flex flex-col w-full md:max-w-sm pt-4">
             {/* Address */}
             <div className="flex gap-2">
               <p className="label">Address:</p>
