@@ -5,6 +5,7 @@ import ProjectsSection from "../../components/sections/projects.section";
 import SupportUsSection from "../../components/sections/support.section";
 import ThermaticSection from "../../components/sections/thermatic.section";
 import MainLayout from "../layout/MainLayout";
+import AboutUsSection from "@/components/sections/about-us.section";
 // import { PostMetaData } from "@/types";
 
 export default async function Home() {
@@ -12,6 +13,7 @@ export default async function Home() {
   return (
     <MainLayout>
       <HeroSection />
+      <AboutUsSection />
       <ThermaticSection />
       <SupportUsSection />
       <ProjectsSection posts={posts} />

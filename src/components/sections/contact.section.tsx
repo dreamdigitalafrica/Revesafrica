@@ -12,8 +12,8 @@ const ContactUsSection = ({}: ContactUsSectionProps) => {
   return (
     <section className="py-8" id="contact-us">
       <div className="container">
-        <div className="section-header md:max-w-lg prose">
-          <h1 className="my-0">Get in Touch</h1>
+        <div className="section-header md:max-w-lg flex flex-col gap-4">
+          <h1 className="my-0 text-4xl font-medium">Get in Touch</h1>
           <p>
             Please fill out the form on this section to contact with me. Or call
             between 9:00 a.m. and 8:00 p.m. WAT, Monday through Friday.
@@ -78,7 +78,7 @@ const ContactUsSection = ({}: ContactUsSectionProps) => {
                 href="https://maps.app.goo.gl/voAYeCq4WAi5VyMj7"
                 target="_blank"
                 rel="noreferrer"
-                className="lowercase"
+                className=""
               >
                 No. 22, Jahi 2, Jahi district off Katampe extension, beside St.
                 Brendan Catholic Church, Abuja, Nigeria.
