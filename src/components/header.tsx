@@ -29,11 +29,11 @@ const Header = ({}: HeaderProps) => {
   };
 
   const openMenuOnMobile = () => {
-    setMenuOnMobile((prev) => (prev = true));
+    setMenuOnMobile(true);
   };
 
   const closeMenuOnMobile = () => {
-    setMenuOnMobile((prev) => (prev = false));
+    setMenuOnMobile(false);
   };
 
   useEffect(() => {
