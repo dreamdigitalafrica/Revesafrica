@@ -50,7 +50,9 @@ const Footer = ({}: FooterProps) => {
             </Link>
           </div>
 
-          <p className="uppercase">Everyone deserves the best</p>
+          <p className="uppercase text-sm leading-none">
+            Everyone deserves the best
+          </p>
         </div>
       </div>
     </footer>
