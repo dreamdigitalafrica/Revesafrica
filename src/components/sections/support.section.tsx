@@ -4,7 +4,7 @@ interface SupportUsSectionProps {}
 
 const SupportUsSection = ({}: SupportUsSectionProps) => {
   return (
-    <section className="container py-8">
+    <section className="container py-8" id="support">
       <div className="bg-bluen w-full py-12 text-white rounded-xl flex items-center flex-col gap-4 px-4 text-center justify-center">
         <h2 className="text-white mb-2 text-2xl lg:text-4xl font-medium">
           Support us so we can be an even greater blessing to others.

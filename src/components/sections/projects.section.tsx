@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function ProjectsSection({ posts }: { posts: PostMetaData[] }) {
   return (
-    <section className="py-8 md:py-12 container">
+    <section className="py-8 md:py-12 container" id="projects">
       <h1 className="text-4xl text-center font-mediumv">Latest Projects</h1>
 
       <div className="overflow-x-auto py-2">

@@ -60,7 +60,7 @@ const Header = ({}: HeaderProps) => {
           />
         </Link>
 
-        <nav className="hidden md:flex items-center w-max justify-end gap-4 font-medium">
+        <nav className="hidden md:flex text-sm items-center w-max justify-end gap-4 font-medium">
           <ul
             className={`flex gap-8 items-center rounded-full py-2 px-8 text-gray-900 transition-all ${
               isHome && !isScrolled
@@ -72,13 +72,16 @@ const Header = ({}: HeaderProps) => {
               <Link href={"/"}>Home</Link>
             </li>
             <li>
-              <Link href={"/about"}>About</Link> {/* Fixed routes */}
+              <Link href={"#about-us"}>About</Link> {/* Fixed routes */}
             </li>
             <li>
-              <Link href={"/portfolio"}>Portfolio</Link>
+              <Link href={"#projects"}>Projects</Link>
             </li>
             <li>
-              <Link href={"/news"}>News</Link>
+              <Link href={"#projects"}>Blog</Link>
+            </li>
+            <li>
+              <Link href={"#support"}>Donate</Link>
             </li>
           </ul>
 
@@ -86,7 +89,7 @@ const Header = ({}: HeaderProps) => {
             <li>
               <Link
                 className="bg-green-400 text-gray-900 px-4 py-2 rounded-full"
-                href={"/contact"}
+                href={"#contact-us"}
               >
                 Contact
               </Link>

@@ -80,8 +80,7 @@ const ContactUsSection = ({}: ContactUsSectionProps) => {
                 rel="noreferrer"
                 className=""
               >
-                No. 22, Jahi 2, Jahi district off Katampe extension, beside St.
-                Brendan Catholic Church, Abuja, Nigeria.
+                Kubwa, Abuja, Nigeria.
               </a>
             </div>
 

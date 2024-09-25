@@ -4,7 +4,7 @@ interface AboutUsSectionProps {}
 
 const AboutUsSection = ({}: AboutUsSectionProps) => {
   return (
-    <section id="about-section" className="py-12">
+    <section id="about-us" className="py-12">
       <div className="container px-4 flex w-full flex-col gap-8">
         <div className="relative rounded-xl h-[80vh] bg-green-200 w-full">
           <Image

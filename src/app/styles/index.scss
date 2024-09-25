@@ -8,6 +8,11 @@
   --blue: #0038ff;
 }
 
+html,
+body {
+  scroll-padding-top: 72px;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
