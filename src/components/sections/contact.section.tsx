@@ -13,14 +13,14 @@ const ContactUsSection = ({}: ContactUsSectionProps) => {
     <section className="py-8" id="contact-us">
       <div className="container">
         <div className="section-header md:max-w-lg prose">
-          <h1>Get in Touch</h1>
+          <h1 className="my-0">Get in Touch</h1>
           <p>
             Please fill out the form on this section to contact with me. Or call
             between 9:00 a.m. and 8:00 p.m. WAT, Monday through Friday
           </p>
         </div>
 
-        <div className="flex md:gap-4 flex-col-reverse md:flex-row py-8">
+        <div className="flex md:gap-8 gap-4 flex-col-reverse md:flex-row py-8">
           <div className="form-container w-full">
             <form action="" onSubmit={handleSubmit}>
               {/* Name */}
@@ -70,7 +70,7 @@ const ContactUsSection = ({}: ContactUsSectionProps) => {
             </form>
           </div>
           {/*  */}.
-          <div className="flex flex-col w-full border-t-2 border-red-300 pt-6">
+          <div className="flex flex-col w-full max-w-72 pt-4">
             {/* Address */}
             <div className="flex gap-2">
               <p className="label">Address:</p>
@@ -78,7 +78,7 @@ const ContactUsSection = ({}: ContactUsSectionProps) => {
                 href="https://maps.app.goo.gl/voAYeCq4WAi5VyMj7"
                 target="_blank"
                 rel="noreferrer"
-                className="uppercase"
+                className="lowercase"
               >
                 NO. 22, JAHI 2, JAHI DISTRICT OFF KATAMPE EXTENSION, BESIDE ST.
                 BRENDAN CATHOLIC CHURCH, ABUJA, NIGERIA

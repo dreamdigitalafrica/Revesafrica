@@ -17,7 +17,7 @@ const Footer = ({}: FooterProps) => {
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
       <div className="h-max sticky bottom-0 text-white bg-black">
-        <div className="flex shrink-0 items-center gap-8 justify-between container py-8">
+        <div className="flex shrink-0 items-center gap-8 justify-between container py-8 md:py-24">
           <div className="flex flex-col gap-2">
             <div className="logo w-max relative h-16">
               <Image
@@ -49,6 +49,8 @@ const Footer = ({}: FooterProps) => {
               <FaInstagram size={18} />
             </Link>
           </div>
+
+          <p className="uppercase">Everyone deserves the best</p>
         </div>
       </div>
     </footer>
