@@ -5,7 +5,7 @@ interface HeroSectionProps {}
 
 const HeroSection = ({}: HeroSectionProps) => {
   return (
-    <section className="h-screen bg-gray-100 hero-section">
+    <section className="h-[calc(100vh-72px)] bg-gray-100 hero-section">
       <div className="flex h-full relative md:grid-cols-2">
         <div className="py-8 gap-4 px-4 md:px-16 w-full md:w-[55%] shrink-0 flex flex-col justify-center  items-center md:pr-24">
           <h1 className="text-4xl lg:text-6xl mb-0 font-medium">

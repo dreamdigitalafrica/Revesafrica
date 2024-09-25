@@ -5,11 +5,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa6";
+import MobileSideBar from "./mobile-sidebar";
 
 interface HeaderProps {}
 
 const Header = ({}: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [menuOnMobile, setMenuOnMobile] = useState(false);
   const currentPath = usePathname();
 
   const isHome = currentPath === "/";
@@ -24,6 +26,14 @@ const Header = ({}: HeaderProps) => {
     } else {
       setIsScrolled(false);
     }
+  };
+
+  const openMenuOnMobile = () => {
+    setMenuOnMobile((prev) => (prev = true));
+  };
+
+  const closeMenuOnMobile = () => {
+    setMenuOnMobile((prev) => (prev = false));
   };
 
   useEffect(() => {
@@ -97,9 +107,11 @@ const Header = ({}: HeaderProps) => {
           </ul>
         </nav>
 
-        <div className="menu-toggle md:hidden">
+        <div className="menu-toggle md:hidden" onClick={openMenuOnMobile}>
           <FaBars size={24} />
         </div>
+
+        {menuOnMobile && <MobileSideBar handleClose={closeMenuOnMobile} />}
       </div>
     </header>
   );
