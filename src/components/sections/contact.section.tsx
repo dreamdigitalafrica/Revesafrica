@@ -16,7 +16,7 @@ const ContactUsSection = ({}: ContactUsSectionProps) => {
           <h1 className="my-0">Get in Touch</h1>
           <p>
             Please fill out the form on this section to contact with me. Or call
-            between 9:00 a.m. and 8:00 p.m. WAT, Monday through Friday
+            between 9:00 a.m. and 8:00 p.m. WAT, Monday through Friday.
           </p>
         </div>
 
