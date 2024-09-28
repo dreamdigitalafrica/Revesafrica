@@ -8,15 +8,17 @@ const AboutUsSection = ({}: AboutUsSectionProps) => {
       <div className="container px-4 flex w-full flex-col gap-8">
         <div className="relative rounded-xl h-[80vh] bg-green-200 w-full">
           <Image
-            src={""}
+            src={"/images/hero-2-img.wbep"}
+            quality={100}
             alt="About Illustration"
             height={1920}
             width={1980}
-            className=""
+            loading="lazy"
+            className="h-full w-full object-cover"
           />
 
           <div className="absolute rounded-tl-xl bg-[#ededed] right-0 bottom-0 py-8  px-12">
-            <h1 className="text-6xl font-bold">
+            <h1 className="text-4xl md:text-6xl font-bold">
               About <br />
               <span className="text-green-600">Us</span>
             </h1>
