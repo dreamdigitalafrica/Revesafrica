@@ -25,7 +25,7 @@ export default async function page() {
               className="p-8 border"
             >
               <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
-              <p className="font-medium">{post.author}</p>
+              <p className="font-semibold">{post.author}</p>
               <p className="italic">{post.publishDate}</p>
             </Link>
           ))}

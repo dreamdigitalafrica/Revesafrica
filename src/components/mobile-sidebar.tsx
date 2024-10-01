@@ -7,7 +7,7 @@ interface MobileSideBarProps {
 
 const MobileSideBar = ({ handleClose }: MobileSideBarProps) => {
   return (
-    <nav className="md:hidden fixed top-0 left-0 flex text-xl max-w-sm flex-col p-8 w-full  bg-white h-full gap-8 font-medium">
+    <nav className="md:hidden fixed top-0 left-0 flex text-xl max-w-sm flex-col p-8 w-full  bg-white h-full gap-8 font-semibold">
       <div
         className="menu-toggle w-max md:hidden ml-auto"
         onClick={handleClose}

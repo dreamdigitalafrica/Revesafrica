@@ -10,7 +10,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 // Root directory for blog posts
-const rootDir = path.join(process.cwd(), "src", "blog-posts");
+const rootDir = path.join(process.cwd(), "src", "projects");
 
 // Fetch post by slug
 export const getPostBySlug = async (slug: string) => {
@@ -45,7 +45,7 @@ export const getPostBySlug = async (slug: string) => {
 
 // Function to fetch metadata for posts
 export const getPostsMetaData = async () => {
-  const rootDir = path.join(process.cwd(), "src", "blog-posts");
+  const rootDir = path.join(process.cwd(), "src", "projects");
   const files = fs.readdirSync(rootDir);
   const posts = [];
 

@@ -8,7 +8,7 @@ const ThermaticSection = ({}: ThermaticSectionProps) => {
   return (
     <section className=" container py-8 md:py-12">
       <div className="mb-8">
-        <h1 className="text-4xl font-medium">Our Thermatic Areas</h1>
+        <h1 className="text-4xl font-semibold">Our Thermatic Areas</h1>
       </div>
 
       <Marquee delay={2} pauseOnHover>

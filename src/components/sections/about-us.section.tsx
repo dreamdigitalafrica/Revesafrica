@@ -8,7 +8,7 @@ const AboutUsSection = ({}: AboutUsSectionProps) => {
       <div className="container px-4 flex w-full flex-col gap-8">
         <div className="relative overflow-hidden rounded-xl h-[80vh] bg-green-200 w-full">
           <Image
-            src={"/images/hero-2-img.wbep"}
+            src={"/images/hero-2-img.webp"}
             quality={100}
             alt="About Illustration"
             height={1920}

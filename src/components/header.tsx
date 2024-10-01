@@ -70,7 +70,7 @@ const Header = ({}: HeaderProps) => {
           />
         </Link>
 
-        <nav className="hidden md:flex text-sm items-center w-max justify-end gap-4 font-medium">
+        <nav className="hidden md:flex text-sm items-center w-max justify-end gap-4 font-semibold">
           <ul
             className={`flex gap-8 items-center rounded-full py-2 px-8 text-gray-900 transition-all ${
               isHome && !isScrolled

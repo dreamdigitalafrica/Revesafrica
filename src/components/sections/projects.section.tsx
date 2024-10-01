@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function ProjectsSection({ posts }: { posts: PostMetaData[] }) {
   return (
     <section className="py-8 md:py-12 container" id="projects">
-      <h1 className="text-4xl text-center font-mediumv">Latest Projects</h1>
+      <h1 className="text-4xl text-center font-semibold">Latest Projects</h1>
 
       <div className="overflow-x-auto py-2">
         <div className="flex gap-4 my-8 w-full">
@@ -29,13 +29,13 @@ export default function ProjectsSection({ posts }: { posts: PostMetaData[] }) {
                       />
                     )}
                   </div>
-                  <h2 className="text-xl font-medium my-2 line-clamp-2">
+                  <h2 className="text-xl font-semibold my-2 line-clamp-2">
                     {post.title}
                   </h2>
                 </div>
 
                 <div className="flex justify-between text-sm mt-4 text-gray-500">
-                  <p className="font-medium">{post.author}</p>
+                  <p className="font-semibold">{post.author}</p>
                   <p className="italic">{post.publishDate}</p>
                 </div>
               </Link>

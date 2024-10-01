@@ -13,7 +13,7 @@ const ContactUsSection = ({}: ContactUsSectionProps) => {
     <section className="py-8" id="contact-us">
       <div className="container">
         <div className="section-header md:max-w-lg flex flex-col gap-4">
-          <h1 className="my-0 text-4xl font-medium">Get in Touch</h1>
+          <h1 className="my-0 text-4xl font-semibold">Get in Touch</h1>
           <p>
             Please fill out the form on this section to contact with me. Or call
             between 9:00 a.m. and 8:00 p.m. WAT, Monday through Friday.
