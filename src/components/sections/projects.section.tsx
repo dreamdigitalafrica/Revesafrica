@@ -2,6 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Marquee from "react-fast-marquee";
 
 export default function ProjectsSection({ posts }: { posts: PostMetaData[] }) {
   return (
@@ -10,13 +11,13 @@ export default function ProjectsSection({ posts }: { posts: PostMetaData[] }) {
         Latest Projects
       </h1>
 
-      <div className="overflow-x-auto py-2">
-        <div className="flex gap-4 my-8 w-full">
+      <Marquee delay={2} pauseOnHover>
+        <div className="flex my-8 w-full">
           {posts &&
             posts.map((post, index) => (
               <div
                 key={index}
-                className="p-4 rounded-xl shrink-0 flex flex-col justify-between gap-2 w-full max-w-xs  border bg-white"
+                className="p-4 mr-4 rounded-xl shrink-0 flex flex-col justify-between gap-2 w-full max-w-xs  border bg-white"
               >
                 <div className="flex flex-col">
                   <div className="h-[10rem] md:h-[12rem] w-full overflow-hidden relative">
@@ -47,7 +48,7 @@ export default function ProjectsSection({ posts }: { posts: PostMetaData[] }) {
               </div>
             ))}
         </div>
-      </div>
+      </Marquee>
     </section>
   );
 }
