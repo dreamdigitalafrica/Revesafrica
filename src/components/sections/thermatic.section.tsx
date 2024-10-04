@@ -6,8 +6,8 @@ interface ThermaticSectionProps {}
 
 const ThermaticSection = ({}: ThermaticSectionProps) => {
   return (
-    <section className=" container py-8 md:py-12">
-      <div className="mb-8">
+    <section className="py-8 md:py-12">
+      <div className="container mb-8">
         <h1 className="text-4xl font-semibold">Our Thermatic Areas</h1>
       </div>
 
@@ -15,7 +15,7 @@ const ThermaticSection = ({}: ThermaticSectionProps) => {
         {Array.from({ length: 8 }).map((_, index) => (
           <div
             key={index}
-            className="h-[11rem] md:h-[12.5rem] cursor-pointer w-[12rem] md:w-[13.3rem] mr-8 md:mr-12 overflow-hidden relative flex-shrink-0 shadow-sm border rounded-xl"
+            className="h-[11rem] md:h-[12rem] cursor-pointer w-[12rem] md:w-[12.5rem] mr-8 md:mr-16 overflow-hidden relative flex-shrink-0 shadow-sm border py-2 rounded-xl"
           >
             <Image
               loading="lazy"

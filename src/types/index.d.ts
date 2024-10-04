@@ -4,4 +4,5 @@ type PostMetaData = {
   publishDate: string;
   slug: string;
   featuredImg?: string;
+  description?: string;
 };

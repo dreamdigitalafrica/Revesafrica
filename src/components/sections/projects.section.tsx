@@ -6,16 +6,17 @@ import Image from "next/image";
 export default function ProjectsSection({ posts }: { posts: PostMetaData[] }) {
   return (
     <section className="py-8 md:py-12 container" id="projects">
-      <h1 className="text-4xl text-center font-semibold">Latest Projects</h1>
+      <h1 className="text-3xl md:text-5xl text-center font-medium">
+        Latest Projects
+      </h1>
 
       <div className="overflow-x-auto py-2">
         <div className="flex gap-4 my-8 w-full">
           {posts &&
             posts.map((post, index) => (
-              <Link
-                href={`/blog/${post.slug}`}
+              <div
                 key={index}
-                className="py-2 px-4 rounded-xl shrink-0 flex flex-col justify-between gap-2 w-full max-w-xs  border bg-[#ededed]"
+                className="p-4 rounded-xl shrink-0 flex flex-col justify-between gap-2 w-full max-w-xs  border bg-white"
               >
                 <div className="flex flex-col">
                   <div className="h-[10rem] md:h-[12rem] w-full overflow-hidden relative">
@@ -29,16 +30,21 @@ export default function ProjectsSection({ posts }: { posts: PostMetaData[] }) {
                       />
                     )}
                   </div>
-                  <h2 className="text-xl font-semibold my-2 line-clamp-2">
+                  <h2 className="text-xl md:text-2xl leading-tight font-normal my-2 line-clamp-3">
                     {post.title}
                   </h2>
+                  <p className="line-clamp-3">{post.description}</p>
                 </div>
 
                 <div className="flex justify-between text-sm mt-4 text-gray-500">
-                  <p className="font-semibold">{post.author}</p>
-                  <p className="italic">{post.publishDate}</p>
+                  <div className="flex items-center gap-1">
+                    <p className="font-semibold">{post.author}</p> |
+                    <p className="">{post.publishDate}</p>
+                  </div>
+
+                  <Link href={`/blog/${post.slug}`}>Read more</Link>
                 </div>
-              </Link>
+              </div>
             ))}
         </div>
       </div>

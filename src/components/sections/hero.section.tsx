@@ -5,10 +5,10 @@ interface HeroSectionProps {}
 
 const HeroSection = ({}: HeroSectionProps) => {
   return (
-    <section className="h-[calc(100vh-72px)] bg-gray-100 hero-section">
+    <section className="h-[calc(100vh-72px)] md:h-screen bg-gray-100 hero-section">
       <div className="flex h-full relative md:grid-cols-2">
-        <div className="py-8 gap-4 px-4 md:px-16 w-full md:w-[55%] shrink-0 flex flex-col justify-center  items-center md:pr-24">
-          <h1 className="text-4xl lg:text-6xl mb-0 font-semibold">
+        <div className="py-8 gap-6 px-4 md:px-16 w-full md:w-[45%] shrink-0 flex flex-col justify-center items-center md:pr-24">
+          <h1 className="text-5xl lg:text-7xl mb-0 font-medium">
             Empowering vulnerable youth and children
           </h1>
           <p>
@@ -30,7 +30,7 @@ const HeroSection = ({}: HeroSectionProps) => {
         </div>
 
         <Link href="https://forms.gle/qcjw4CUr63nfwV3K9" target="_blank">
-          <button className="absolute bottom-16 px-8 whitespace-nowrap text-white py-4 font-semibold bg-bluen rounded-full left-[50%] translate-x-[-50%]">
+          <button className="absolute bottom-10 px-12 whitespace-nowrap text-white py-4 font-medium bg-bluen rounded-full left-[50%] translate-x-[-50%]">
             Become a Global Champion
           </button>
         </Link>
