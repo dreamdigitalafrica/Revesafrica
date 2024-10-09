@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 interface AboutUsSectionProps {}
 
@@ -31,7 +32,10 @@ const AboutUsSection = ({}: AboutUsSectionProps) => {
           children, specifically those living in marginalized communities across
           Africa. We provide essential support, resources, and opportunities to
           youths to reach their full potential and become active member of their
-          communities.
+          communities.{" "}
+          <Link href="/" className="font-bold text-red-700">
+            Read more
+          </Link>
         </p>
       </div>
     </section>
