@@ -1,4 +1,3 @@
-// components/sections/projects.section.tsx
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -6,22 +5,31 @@ import Marquee from "react-fast-marquee";
 import pbClient, { pbUrl } from "@/lib/pocketbase.util";
 
 export default async function ProjectsSection() {
-  const posts = await pbClient.collection("projects").getFullList({
-    sort: "-created",
-  });
+  let posts: any[] = [];
 
-  console.log(posts);
-  
+  try {
+    posts = await pbClient.collection("projects").getFullList({
+      sort: "-created",
+    });
+  } catch (error: any) {
+    if (error.isAbort) {
+      console.error("Request was aborted: ", error);
+      // Handle auto-cancellation error
+    } else {
+      console.error("An error occurred while fetching posts: ", error);
+    }
+  }
+
   return (
     <section className="py-8 md:py-12 container" id="projects">
       <h1 className="text-3xl md:text-5xl text-center font-medium">
         Latest Projects
       </h1>
 
-      <Marquee delay={2} pauseOnHover>
-        <div className="flex my-8 w-full">
-          {posts &&
-            posts.map((post, index) => (
+      {posts.length > 0 ? (
+        <Marquee delay={2} pauseOnHover>
+          <div className="flex my-8 w-full">
+            {posts.map((post, index) => (
               <div
                 key={index}
                 className="p-4 mr-4 rounded-xl shrink-0 flex flex-col justify-between gap-2 w-full max-w-xs  border bg-white"
@@ -54,8 +62,11 @@ export default async function ProjectsSection() {
                 </div>
               </div>
             ))}
-        </div>
-      </Marquee>
+          </div>
+        </Marquee>
+      ) : (
+        <p>No projects available at the moment.</p>
+      )}
     </section>
   );
 }
