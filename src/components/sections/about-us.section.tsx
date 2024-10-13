@@ -7,7 +7,7 @@ const AboutUsSection = ({}: AboutUsSectionProps) => {
   return (
     <section id="about-us" className="py-12">
       <div className="container px-4 flex w-full flex-col gap-8">
-        <div className="relative overflow-hidden max-h-[700px] h-[72vh] w-full">
+        <div className="relative overflow-hidden max-h-[400px] md:max-h-[700px] md:h-[64vh] h-[65vh] w-full">
           <Image
             src={"/images/hero-2-img.webp"}
             quality={100}
@@ -15,10 +15,10 @@ const AboutUsSection = ({}: AboutUsSectionProps) => {
             height={1920}
             width={1980}
             loading="lazy"
-            className="h-full w-full object-cover overflow-hidden border-2 rounded-[48px] border-green-500 "
+            className="h-full w-full object-cover overflow-hidden border-2 rounded-3xl md:rounded-[48px] border-green-500 "
           />
 
-          <div className="absolute rounded-tl-3xl rounded-tr-3xl bg-[#ededed] right-0 bottom-0 py-6 px-10">
+          <div className="absolute md:rounded-tr-[48px] md:rounded-tl-[48px] rounded-tl-3xl rounded-tr-3xl bg-[#ededed] right-0 bottom-0 py-6 px-10">
             <h1 className="text-4xl md:text-6xl tracking-wide font-bold">
               About <br />
               <span className="text-green-600">Us</span>
