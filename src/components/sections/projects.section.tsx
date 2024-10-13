@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import pbClient, { pbUrl } from "@/lib/pocketbase.util";
+import { ClientResponseError } from "pocketbase";
 
 // Define types for posts
 interface Post {
@@ -22,8 +23,8 @@ export default async function ProjectsSection() {
     posts = await pbClient.collection("projects").getFullList({
       sort: "-created",
     });
-  } catch (error: any) {
-    if (error.isAbort) {
+  } catch (error) {
+    if (error instanceof ClientResponseError) {
       console.error("Request was aborted: ", error);
       // Handle auto-cancellation error
     } else {
