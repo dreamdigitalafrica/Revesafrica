@@ -4,8 +4,19 @@ import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import pbClient, { pbUrl } from "@/lib/pocketbase.util";
 
+// Define types for posts
+interface Post {
+  id: string;
+  collectionId: string;
+  title: string;
+  description: string;
+  featuredImage: string;
+  author: string;
+  publishDate: string;
+}
+
 export default async function ProjectsSection() {
-  let posts: any[] = [];
+  let posts: Post[] = [];
 
   try {
     posts = await pbClient.collection("projects").getFullList({
