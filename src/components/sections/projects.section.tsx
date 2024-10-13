@@ -1,11 +1,11 @@
+"use client"; // Mark this component as a client-side component
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
-import useSWR from "swr";
+import useSWR from "swr"; // Correct SWR import
 import pbClient, { pbUrl } from "@/lib/pocketbase.util";
-import { GetStaticProps } from "next";
-import { Metadata } from "next";
 
 // Define types for posts
 interface Post {
@@ -19,7 +19,7 @@ interface Post {
 }
 
 // Fetch the posts during static generation
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps = async () => {
   let posts: Post[] = [];
 
   try {
@@ -39,7 +39,7 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 // Use SWR for client-side revalidation and updating the posts
-const fetcher = (url: string) =>
+const fetcher = async () =>
   pbClient.collection("projects").getFullList<Post>({ sort: "-created" });
 
 export default function ProjectsSection({
@@ -47,10 +47,14 @@ export default function ProjectsSection({
 }: {
   posts: Post[];
 }) {
-  const { data: posts = initialPosts, error } = useSWR("projects", fetcher, {
-    fallbackData: initialPosts, // Use the static data as fallback
-    revalidateOnFocus: false, // Revalidate only on reload
-  });
+  const { data: posts = initialPosts, error } = useSWR<Post[]>(
+    "projects",
+    fetcher,
+    {
+      fallbackData: initialPosts, // Use the static data as fallback
+      revalidateOnFocus: false, // Revalidate only on reload
+    }
+  );
 
   if (error) {
     console.error("Error loading projects:", error);
@@ -63,7 +67,7 @@ export default function ProjectsSection({
         Latest Projects
       </h1>
 
-      {posts.length > 0 ? (
+      {posts && posts.length > 0 ? (
         <Marquee delay={2} pauseOnHover>
           <div className="flex my-8 w-full">
             {posts.map((post: Post, index: number) => (
@@ -107,32 +111,3 @@ export default function ProjectsSection({
     </section>
   );
 }
-
-// Dynamically generate metadata for SEO
-export const generateMetadata = async (): Promise<Metadata> => {
-  const posts: Post[] = await pbClient.collection("projects").getFullList({
-    sort: "-created",
-  });
-
-  const latestPost = posts[0] || {
-    title: "Latest Projects",
-    description: "Explore our latest projects.",
-  };
-
-  return {
-    title: latestPost.title,
-    description: latestPost.description,
-    openGraph: {
-      title: latestPost.title,
-      description: latestPost.description,
-      images: [
-        {
-          url: `${pbUrl}api/files/${latestPost.collectionId}/${latestPost.id}/${latestPost.featuredImage}`,
-          width: 1080,
-          height: 920,
-          alt: latestPost.title,
-        },
-      ],
-    },
-  };
-};
