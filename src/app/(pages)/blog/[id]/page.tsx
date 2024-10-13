@@ -3,8 +3,6 @@ import { pbUrl } from "@/lib/pocketbase.util";
 import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
-import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 
 type Props = {
   params: {
