@@ -3,8 +3,15 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
+import pbClient, { pbUrl } from "@/lib/pocketbase.util";
 
-export default function ProjectsSection({ posts }: { posts: PostMetaData[] }) {
+export default async function ProjectsSection() {
+  const posts = await pbClient.collection("projects").getFullList({
+    sort: "-created",
+  });
+
+  console.log(posts);
+  
   return (
     <section className="py-8 md:py-12 container" id="projects">
       <h1 className="text-3xl md:text-5xl text-center font-medium">
@@ -21,9 +28,9 @@ export default function ProjectsSection({ posts }: { posts: PostMetaData[] }) {
               >
                 <div className="flex flex-col">
                   <div className="h-[10rem] md:h-[12rem] w-full overflow-hidden relative">
-                    {post.featuredImg && (
+                    {post.featuredImage && (
                       <Image
-                        src={post.featuredImg}
+                        src={`${pbUrl}api/files/${post.collectionId}/${post.id}/${post.featuredImage}`}
                         alt={post.title}
                         fill
                         quality={100}

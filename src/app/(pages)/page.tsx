@@ -16,7 +16,7 @@ export default async function Home() {
       <AboutUsSection />
       <ThermaticSection />
       <SupportUsSection />
-      <ProjectsSection posts={posts} />
+      <ProjectsSection />
       <ContactUsSection />
     </MainLayout>
   );
