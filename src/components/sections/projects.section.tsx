@@ -50,7 +50,7 @@ export default async function ProjectsSection() {
                     <p className="">{post.publishDate}</p>
                   </div>
 
-                  <Link href={`/blog/${post.slug}`}>Read more</Link>
+                  <Link href={`/blog/${post.id}`}>Read more</Link>
                 </div>
               </div>
             ))}
