@@ -19,9 +19,9 @@ const Footer = ({}: FooterProps) => {
       <div className="h-max sticky bottom-0 text-white bg-black">
         <div className="flex shrink-0 md:items-center gap-12 md:gap-8  justify-between container flex-col md:flex-row py-12 md:py-32">
           <div className="flex flex-col gap-2">
-            <div className="logo w-max relative h-16">
+            <Link href={"/"} className="logo w-max relative h-16">
               <Image
-                alt="Reves Foundation Logo"
+                alt="Reves Afrcan Foundation Logo"
                 src={"/reves-logo-trans.png"}
                 height={72}
                 loading="lazy"
@@ -29,7 +29,7 @@ const Footer = ({}: FooterProps) => {
                 quality={1}
                 className="h-full w-full object-contain"
               />
-            </div>
+            </Link>
           </div>
 
           <div className="socials flex gap-4 md:gap-6">
