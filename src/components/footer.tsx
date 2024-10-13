@@ -33,19 +33,35 @@ const Footer = ({}: FooterProps) => {
           </div>
 
           <div className="socials flex gap-4 md:gap-6">
-            <Link href={"#"}>
+            <Link
+              target="_blank"
+              rel="noreferrer"
+              href={"https://m.facebook.com/RAYCDFOUNDATION/"}
+            >
               <FaFacebook size={18} />
             </Link>
 
-            <Link href={"#"}>
+            <Link
+              target="_blank"
+              rel="noreferrer"
+              href={"https://ng.linkedin.com/company/revesfoundation"}
+            >
               <FaLinkedin size={18} />
             </Link>
 
-            <Link href={"#"}>
+            <Link
+              target="_blank"
+              rel="noreferrer"
+              href={"https://twitter.com/Revesfoundation"}
+            >
               <FaXTwitter size={18} />
             </Link>
 
-            <Link href={"#"}>
+            <Link
+              target="_blank"
+              rel="noreferrer"
+              href={"https://www.instagram.com/revesfoundation/"}
+            >
               <FaInstagram size={18} />
             </Link>
           </div>
