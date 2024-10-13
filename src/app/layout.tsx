@@ -17,11 +17,11 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.revesfoundation.org/"),
-  title: "Reves Foundation (RAYCD)",
+  title: "Reves African Youth and Children Development Foundation (RAYCD)",
   description:
     "We are centred on bridging gaps through technology in the minority African communities.",
   openGraph: {
-    title: "Reves Foundation (RAYCD)",
+    title: "Reves African Youth and Children Development Foundation (RAYCD)",
     description:
       "We are centred on bridging gaps through technology in the minority African communities",
     images: [

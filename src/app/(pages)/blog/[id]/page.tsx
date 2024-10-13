@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${post.title} - Reves African Foundation`,
     description: post.excerpt || post.content.slice(0, 160), // Use post excerpt or a slice of content
     openGraph: {
-      title: post.title,
+      title: `${post.title} - Reves African Foundation`,
       description: post.excerpt || post.content.slice(0, 160),
       images: [
         {
