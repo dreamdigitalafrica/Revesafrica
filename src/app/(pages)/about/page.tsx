@@ -72,7 +72,7 @@ const About = ({}: AboutProps) => {
         </section>
 
         <section>
-          <h2 className="section-title !bg-green-300">Our Vision</h2>
+          <h2 className="section-title before:bg-green-300">Our Vision</h2>
           <p>
             We envision a world where all African youth and children have equal
             opportunities to thrive and contribute to the development of their
@@ -82,7 +82,7 @@ const About = ({}: AboutProps) => {
 
         {/*  */}
         <section>
-          <h2 className="section-title bg-yellow-400">Core Values</h2>
+          <h2 className="section-title before:bg-yellow-400">Core Values</h2>
 
           <ol className="list-decimal pl-8 flex flex-col gap-4">
             {coreValuesData.map((coreValue, index) => (
