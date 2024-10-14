@@ -1,6 +1,5 @@
 import SupportUsSection from "@/components/sections/support.section";
 import Image from "next/image";
-import Link from "next/link";
 
 interface AboutProps {}
 
