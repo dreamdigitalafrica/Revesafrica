@@ -7,13 +7,12 @@ const AboutUsSection = ({}: AboutUsSectionProps) => {
   return (
     <section id="about-us" className="py-12">
       <div className="container px-4 flex w-full flex-col gap-8">
-        <div className="relative overflow-hidden max-h-[400px] md:max-h-[700px] md:h-[64vh] h-[65vh] w-full">
+        <div className="relative overflow-hidden max-h-[400px] md:max-h-[700px] md:h-[83vh] h-[65vh] w-full">
           <Image
             src={"/images/hero-2-img.webp"}
             quality={100}
             alt="About Illustration"
-            height={1920}
-            width={1980}
+            fill
             loading="lazy"
             className="h-full w-full object-cover overflow-hidden border-2 rounded-3xl md:rounded-[48px] border-green-500 "
           />
@@ -33,7 +32,7 @@ const AboutUsSection = ({}: AboutUsSectionProps) => {
           Africa. We provide essential support, resources, and opportunities to
           youths to reach their full potential and become active member of their
           communities.&nbsp;&nbsp;
-          <Link href="/" className="font-semibold text-sm text-red-600">
+          <Link href="/about" className="font-semibold text-sm text-red-600">
             Read more
           </Link>
         </p>
