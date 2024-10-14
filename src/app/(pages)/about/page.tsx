@@ -146,7 +146,7 @@ const About = ({}: AboutProps) => {
         <section>
           <h2 className="section-title before:bg-yellow-400">Core Values</h2>
 
-          <ol className="list-decimal pl-8 flex flex-col gap-4">
+          <ol className="list-decimal list-inside pl-8 flex flex-col gap-4">
             {coreValuesData.map((coreValue, index) => (
               <li key={index}>
                 <span>{coreValue.title}</span> {coreValue.description}
@@ -155,8 +155,18 @@ const About = ({}: AboutProps) => {
           </ol>
         </section>
 
+        <section className="h-[520px] my-12 w-full overflow-hidden">
+          <Image
+            src={"/images/reves-foundation-certificate.webp"}
+            alt="Reves foundation certificate"
+            height={1920}
+            width={980}
+            className="h-full w-full object-contain"
+          />
+        </section>
+
         {/*  */}
-        <section className="md:mt-40 mt-12 mb-8">
+        <section className="md:mt-28 mt-12 mb-8">
           <SupportUsSection />
         </section>
       </div>
