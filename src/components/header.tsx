@@ -82,16 +82,16 @@ const Header = ({}: HeaderProps) => {
               <Link href={"/"}>Home</Link>
             </li>
             <li>
-              <Link href={"#about-us"}>About</Link> {/* Fixed routes */}
+              <Link href={"/about"}>About</Link> {/* Fixed routes */}
             </li>
             <li>
-              <Link href={"#projects"}>Projects</Link>
+              <Link href={"/#projects"}>Projects</Link>
             </li>
             <li>
-              <Link href={"#projects"}>Blog</Link>
+              <Link href={"/#projects"}>Blog</Link>
             </li>
             <li>
-              <Link href={"#support"}>Donate</Link>
+              <Link href={"/#support"}>Donate</Link>
             </li>
           </ul>
 
