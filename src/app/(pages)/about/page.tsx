@@ -60,7 +60,7 @@ const About = ({}: AboutProps) => {
               </div>
             </div>
 
-            <p className="w-full md:max-w-[66vw]">
+            <p className="w-full">
               Founded in November 2021, Reves is a non-governmental
               organisation(NGO) dedicated to empowering vulnerable youth and
               children, specifically those living in marginalized communities
