@@ -164,12 +164,12 @@ const About = ({}: AboutProps) => {
             className="h-full w-full object-contain"
           />
         </section>
-
-        {/*  */}
-        <section className="md:mt-28 mt-12 mb-8">
-          <SupportUsSection />
-        </section>
       </div>
+
+      {/*  */}
+      <section className="md:mt-28 mt-12 mb-8">
+        <SupportUsSection />
+      </section>
     </main>
   );
 };
