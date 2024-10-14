@@ -1,7 +1,27 @@
+import SupportUsSection from "@/components/sections/support.section";
 import Image from "next/image";
 import Link from "next/link";
 
 interface AboutProps {}
+
+const objectivesData = [
+  {
+    title: "Empower Digital Inclusion",
+    description:
+      "Equip young adults, particularly girls and people with disabilities, with digital skills to compete equally with their peers and earn a sustainable living.",
+  },
+
+  {
+    title: "Digital Skills for Economic Empowerment",
+    description:
+      "Build the capacity of youth to leverage digital skills for entrepreneurship, employment, and economic growth.",
+  },
+  {
+    title: "Rural Digital Literacy",
+    description:
+      "Improve digital literacy and access to digital resources within rural communities, bridging the digital divide and fostering inclusive development.",
+  },
+];
 
 const coreValuesData = [
   {
@@ -72,12 +92,54 @@ const About = ({}: AboutProps) => {
         </section>
 
         <section>
-          <h2 className="section-title before:bg-green-300">Our Vision</h2>
+          <h2 className="section-title before:bg-[#3AF40C]">Our Vision</h2>
           <p>
             We envision a world where all African youth and children have equal
             opportunities to thrive and contribute to the development of their
             communities.
           </p>
+        </section>
+
+        <section>
+          <h2 className="section-title before:bg-[#ECD400]">
+            Our Mission Statement
+          </h2>
+          <p className="rounded-xl p-4 bg-[#ECD4004D]">
+            Empowering marginalised African youth and children, specifically
+            those limited by poverty and underrepresented to reach their full
+            potential through education, holistic well-being, skills
+            development, and access to economic opportunities, enabling them to
+            become active and contributing members of their communities. 
+          </p>
+        </section>
+
+        {/*  */}
+        <section>
+          <h2 className="section-title before:bg-[#0C4DF4] text-black">
+            Our Goal
+          </h2>
+          <p className="rounded-xl p-4 bg-[#0C4DF44D]">
+            Our goal is to identify and address unique challenges facing
+            marginalised youths and children, designing need-based interventions
+            and programmes that empower them to become active contributors to
+            their communities.
+          </p>
+        </section>
+
+        {/*  */}
+        <section>
+          <h2 className="section-title before:bg-[#3AF40C] text-black">
+            Our Objectives
+          </h2>
+
+          <ul className="pl-8 flex flex-col gap-4">
+            {objectivesData.map((objective, index) => (
+              <li key={index}>
+                <span className="font-bold">{objective.title}:</span>{" "}
+                {objective.description}
+              </li>
+            ))}
+          </ul>
         </section>
 
         {/*  */}
@@ -91,6 +153,11 @@ const About = ({}: AboutProps) => {
               </li>
             ))}
           </ol>
+        </section>
+
+        {/*  */}
+        <section className="md:mt-40 mt-12 mb-8">
+          <SupportUsSection />
         </section>
       </div>
     </main>
