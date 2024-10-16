@@ -1,9 +1,6 @@
 // import { getPostBySlug } from "@/util/util";
-import AllPosts from "@/components/allPosts";
 import { Button } from "@/components/ui/button";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { pbUrl } from "@/lib/pocketbase.util";
-import { ScrollAreaScrollbar } from "@radix-ui/react-scroll-area";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
