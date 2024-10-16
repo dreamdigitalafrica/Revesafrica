@@ -1,4 +1,3 @@
-import Marquee from "react-fast-marquee";
 import { Post } from "./sections/projects.section";
 import Image from "next/image";
 import Link from "next/link";
