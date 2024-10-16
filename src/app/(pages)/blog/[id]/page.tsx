@@ -1,4 +1,5 @@
 // import { getPostBySlug } from "@/util/util";
+import { Post as P } from "@/components/sections/projects.section";
 import { Button } from "@/components/ui/button";
 import { pbUrl } from "@/lib/pocketbase.util";
 import { Metadata } from "next";
@@ -63,7 +64,7 @@ export default async function Post({ params }: Props) {
   const posts = await getAllPosts();
 
   // Find the current post index
-  const currentIndex = posts.findIndex((p: any) => p.id === params.id);
+  const currentIndex = posts.findIndex((p: P) => p.id === params.id);
 
   // Determine the previous and next post IDs
   const prevPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
