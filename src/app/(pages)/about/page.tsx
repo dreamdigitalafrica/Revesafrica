@@ -9,7 +9,6 @@ const objectivesData = [
     description:
       "Equip young adults, particularly girls and people with disabilities, with digital skills to compete equally with their peers and earn a sustainable living.",
   },
-
   {
     title: "Digital Skills for Economic Empowerment",
     description:

@@ -1,19 +1,20 @@
 // import { getPostBySlug } from "@/util/util";
+import AllPosts from "@/components/allPosts";
+import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { pbUrl } from "@/lib/pocketbase.util";
+import { ScrollAreaScrollbar } from "@radix-ui/react-scroll-area";
 import { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import { FaLeftLong, FaRightLong } from "react-icons/fa6";
 
 type Props = {
   params: {
     id: string;
   };
 };
-
-// const getPageData = async (slug: string) => {
-//   const { meta, content } = await getPostBySlug(slug);
-//   return { meta, content };
-// };
 
 // Generate metadata dynamically based on post data
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -49,21 +50,43 @@ async function getPost(id: string) {
   return data;
 }
 
+// Fetch all posts to enable navigation
+async function getAllPosts() {
+  const api = await fetch(`${pbUrl}/api/collections/projects/records`, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await api.json();
+  return data.items;
+}
+
 export default async function Post({ params }: Props) {
   const post = await getPost(params.id);
+  const posts = await getAllPosts();
+
+  // Find the current post index
+  const currentIndex = posts.findIndex((p: any) => p.id === params.id);
+
+  // Determine the previous and next post IDs
+  const prevPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
+  const nextPost =
+    currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
 
   return (
-    <main className="py-12 min-h-[100vh] px-4">
-      <div className="container rounded-xl !max-w-4xl bg-white py-8 px-4">
+    <main className="pb-12 min-h-[100vh]">
+      <section className="">
+        <Image
+          src={`${pbUrl}api/files/${post.collectionId}/${post.id}/${post.featuredImage}`}
+          height={920}
+          width={1080}
+          quality={100}
+          className="h-80 md:h-[76vh] w-full object-cover overflow-hidden mb-6"
+          alt={post.title}
+        />
+      </section>
+      <div className="container rounded-xl  px-4">
         <section className="">
-          <Image
-            src={`${pbUrl}api/files/${post.collectionId}/${post.id}/${post.featuredImage}`}
-            height={920}
-            width={1080}
-            quality={100}
-            className="h-80 w-full object-cover overflow-hidden rounded-lg mb-6"
-            alt={post.title}
-          />
           <div
             className="content prose min-w-full"
             dangerouslySetInnerHTML={{
@@ -71,6 +94,41 @@ export default async function Post({ params }: Props) {
             }}
           />
         </section>
+
+        {/* Previous and Next navigation */}
+        <div className="pages-navigation gap-4 flex items-center justify-between w-full mt-8">
+          {/* Previous Button */}
+          {prevPost ? (
+            <Button className="py-2 h-max" asChild>
+              <Link
+                className="gap-4 flex text-wrap"
+                href={`/blog/${prevPost.id}`}
+              >
+                <FaLeftLong /> {prevPost.title}
+              </Link>
+            </Button>
+          ) : (
+            <Button className="gap-4" disabled>
+              <FaLeftLong /> Previous
+            </Button>
+          )}
+
+          {/* Next Button */}
+          {nextPost ? (
+            <Button className="py-2 h-max" asChild>
+              <Link
+                className="gap-4 flex text-wrap"
+                href={`/blog/${nextPost.id}`}
+              >
+                {nextPost.title} <FaRightLong />
+              </Link>
+            </Button>
+          ) : (
+            <Button className="gap-4" disabled>
+              Next <FaRightLong />
+            </Button>
+          )}
+        </div>
       </div>
     </main>
   );
