@@ -50,7 +50,7 @@ const HeroSection = ({}: HeroSectionProps) => {
         </div>
 
         <div className="relative z-20 self-end h-max  w-full">
-          <h1 className="text-4xl xs:text-5xl pt-6  rounded-tr-[3rem]  mb-0 font-medium bg-white max-w-[68%] px-4">
+          <h1 className="text-4xl xs:text-5xl pt-6 rounded-tr-[3rem]  mb-0 font-medium bg-white max-w-[68%] pl-4 pr-8">
             Empowering vulnerable youth and children
           </h1>
 
