@@ -50,11 +50,11 @@ const HeroSection = ({}: HeroSectionProps) => {
         </div>
 
         <div className="relative z-20 self-end h-max  w-full">
-          <h1 className="text-4xl xs:text-5xl pt-6 rounded-tr-[3rem]  mb-0 font-medium bg-white max-w-[68%] pl-4 pr-8">
+          <h1 className="text-4xl xs:text-5xl pt-6 rounded-tr-[3rem]  mb-0 font-medium bg-[#ededed] max-w-[68%] px-4">
             Empowering vulnerable youth and children
           </h1>
 
-          <div className="bg-white w-full pt-4 pb-8 px-4 rounded-br-[2rem] rounded-tr-[2rem]">
+          <div className="bg-[#ededed] w-full pt-4 pb-8 px-4 rounded-br-[2rem] rounded-tr-[2rem]">
             <p className="text-sm">
               Founded in November 2021, Reves is a non-governmental
               organisation(NGO) dedicated to empowering vulnerable youth and
