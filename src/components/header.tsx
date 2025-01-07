@@ -10,8 +10,8 @@ import MobileSideBar from "./mobile-sidebar";
 interface HeaderProps {}
 
 const Header = ({}: HeaderProps) => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [menuOnMobile, setMenuOnMobile] = useState(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [menuOnMobile, setMenuOnMobile] = useState<boolean>(false);
   const currentPath = usePathname();
 
   const isHome = currentPath === "/";
@@ -28,12 +28,8 @@ const Header = ({}: HeaderProps) => {
     }
   };
 
-  const openMenuOnMobile = () => {
-    setMenuOnMobile(true);
-  };
-
-  const closeMenuOnMobile = () => {
-    setMenuOnMobile(false);
+  const handleMenuOnMobile = () => {
+    setMenuOnMobile((prev) => !prev);
   };
 
   useEffect(() => {
@@ -107,11 +103,11 @@ const Header = ({}: HeaderProps) => {
           </ul>
         </nav>
 
-        <div className="menu-toggle md:hidden" onClick={openMenuOnMobile}>
+        <div className="menu-toggle md:hidden" onClick={handleMenuOnMobile}>
           <FaBars size={24} />
         </div>
 
-        {menuOnMobile && <MobileSideBar handleClose={closeMenuOnMobile} />}
+        {menuOnMobile && <MobileSideBar handleClose={handleMenuOnMobile} />}
       </div>
     </header>
   );
