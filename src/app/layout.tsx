@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Inter } from "next/font/google";
 import "./styles/index.scss";
 import Footer from "../components/shared/footer";
 import Header from "../components/header";
