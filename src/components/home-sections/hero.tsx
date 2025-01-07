@@ -1,5 +1,10 @@
-import { inter } from "@/app/layout";
+import { Inter } from "next/font/google";
 import Image from "next/image";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "600", "800", "900"],
+});
 
 const Hero = () => {
   return (
