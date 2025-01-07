@@ -4,14 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { FaBars } from "react-icons/fa6";
+import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import MobileSideBar from "./mobile-sidebar";
 
 interface HeaderProps {}
 
 const Header = ({}: HeaderProps) => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [menuOnMobile, setMenuOnMobile] = useState(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [menuOnMobile, setMenuOnMobile] = useState<boolean>(false);
   const currentPath = usePathname();
 
   const isHome = currentPath === "/";
@@ -28,12 +28,8 @@ const Header = ({}: HeaderProps) => {
     }
   };
 
-  const openMenuOnMobile = () => {
-    setMenuOnMobile(true);
-  };
-
-  const closeMenuOnMobile = () => {
-    setMenuOnMobile(false);
+  const handleMenuOnMobile = () => {
+    setMenuOnMobile((prev) => !prev);
   };
 
   useEffect(() => {
@@ -66,7 +62,17 @@ const Header = ({}: HeaderProps) => {
             loading="lazy"
             width={200}
             quality={1}
-            className="h-full w-full object-contain"
+            className="h-full w-full hidden object-contain md:block"
+          />
+
+          <Image
+            alt="Reves Foundation Logo"
+            src={"/logo-mobile.png"}
+            height={54}
+            width={49}
+            loading="lazy"
+            quality={1}
+            className="md:hidden"
           />
         </Link>
 
@@ -107,11 +113,14 @@ const Header = ({}: HeaderProps) => {
           </ul>
         </nav>
 
-        <div className="menu-toggle md:hidden" onClick={openMenuOnMobile}>
-          <FaBars size={24} />
+        <div
+          className="menu-toggle p-1 bg-white rounded-md transition md:hidden hover:scale-105"
+          onClick={handleMenuOnMobile}
+        >
+          <HiOutlineMenuAlt1 size={24} color="black" />
         </div>
 
-        {menuOnMobile && <MobileSideBar handleClose={closeMenuOnMobile} />}
+        {menuOnMobile && <MobileSideBar handleClose={handleMenuOnMobile} />}
       </div>
     </header>
   );

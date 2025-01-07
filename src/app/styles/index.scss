@@ -65,7 +65,7 @@ body {
 }
 
 .container {
-  @apply w-full mx-auto max-w-none px-4 md:px-14;
+  @apply w-full mx-auto max-w-none px-5 md:px-14;
 }
 
 .form-container form {
@@ -89,10 +89,14 @@ textarea {
 
     // Add a "before" element (existing)
     &::before {
-      @apply absolute w-full h-full -top-1 right-1 ;
+      @apply absolute w-full h-full -top-1 right-1;
       content: "";
       z-index: -1; // Send the "after" element to the back
       border-radius: 0.5rem;
     }
   }
+}
+
+.hero {
+  @apply w-full h-[112dvh] flex items-center justify-end md:h-dvh md:justify-end;
 }

@@ -19,7 +19,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
     requestAnimationFrame(raf);
   }, []);
 
-  return <main className="">{children}</main>;
+  return <main className="max-w-[100dvw] h-fit flex flex-col">{children}</main>;
 };
 
 export default MainLayout;
