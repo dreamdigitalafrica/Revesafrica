@@ -19,8 +19,8 @@ const Hero = () => {
         src={"/hero-image-mobile.png"}
       />
 
-      <div className="w-full h-full px-5 pt-10 flex flex-col space-y-7 absolute justify-end md:justify-center md:p-11">
-        <h1 className="w-52 pt-10 text-3xl md:w-2/4 md:text-7xl">
+      <div className="w-full h-full px-5 pt-10 flex flex-col space-y-7 absolute justify-end md:justify-center md:p-14">
+        <h1 className="w-52 pt-10 text-3xl md:w-[47%] md:text-7xl">
           Empowering Vulnerable youth and children
         </h1>
 
