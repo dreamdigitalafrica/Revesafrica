@@ -1,5 +1,5 @@
 // import { getPostBySlug } from "@/util/util";
-import { Post as P } from "@/components/sections/projects.section";
+import { Post as P } from "@/components/sections/home/projects.section";
 import { Button } from "@/components/ui/button";
 import { pbUrl } from "@/lib/pocketbase.util";
 import { Metadata } from "next";

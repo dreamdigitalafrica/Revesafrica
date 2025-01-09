@@ -1,24 +1,15 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+
 import { Inter } from "next/font/google";
 import "./styles/index.scss";
-import Footer from "../components/shared/footer";
-import Header from "../components/header";
-import NextTopLoader from "nextjs-toploader";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import Header from "../components/shared/header";
+import NextTopLoader from "nextjs-toploader";
+import Footer from "@/components/shared/footer";
 
 export const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
   weight: ["100", "200", "300", "400", "600", "800", "900"],
 });
 
@@ -50,9 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${inter.variable} antialiased`}>
         <NextTopLoader />
         <Header />
 

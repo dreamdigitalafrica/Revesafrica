@@ -16,7 +16,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-geist-sans);
+  font-family: var(--font-inter);
 }
 
 @layer utilities {
@@ -65,7 +65,7 @@ body {
 }
 
 .container {
-  @apply w-full mx-auto max-w-none px-5 md:px-14;
+  @apply w-full px-5 md:px-14;
 }
 
 .form-container form {
@@ -83,20 +83,19 @@ textarea {
   }
 }
 
-.aboutPage {
-  .section-title {
-    @apply font-bold z-10 w-max pl-1 pr-12 pt-4 pb-1 my-4 drop-shadow-2xl rounded-lg bg-black relative;
+.about-section-con {
+  @apply w-full flex flex-col;
 
-    // Add a "before" element (existing)
-    &::before {
-      @apply absolute w-full h-full -top-1 right-1;
-      content: "";
-      z-index: -1; // Send the "after" element to the back
-      border-radius: 0.5rem;
-    }
+  .about-section-title {
+    box-shadow: 7px 7px rgb(0, 0, 0);
+    @apply w-fit font-semibold rounded-2xl text-lg pl-3 pr-12 py-3 md:py-4 md:text-xl;
+  }
+
+  .about-section-text {
+    @apply pl-3 py-3 pr-10 rounded-xl;
   }
 }
 
 .hero {
-  @apply w-full h-[112dvh] flex items-center justify-end md:h-dvh md:justify-end;
+  @apply w-full h-[105dvh] flex items-center justify-end md:h-dvh md:justify-end;
 }

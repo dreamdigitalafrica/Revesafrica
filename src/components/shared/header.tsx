@@ -104,7 +104,7 @@ const Header = ({}: HeaderProps) => {
           <ul>
             <li>
               <Link
-                className="bg-green-400 text-gray-900 px-4 py-2 rounded-full"
+                className="bg-[#3AF40C] text-gray-900 px-4 py-2 rounded-full"
                 href={"#contact-us"}
               >
                 Contact

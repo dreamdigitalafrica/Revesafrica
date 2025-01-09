@@ -1,4 +1,4 @@
-import { Post } from "./sections/projects.section";
+import { Post } from "./sections/home/projects.section";
 import Image from "next/image";
 import Link from "next/link";
 import { pbUrl } from "@/lib/pocketbase.util";
