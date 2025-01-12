@@ -48,3 +48,10 @@ export const CORE_VALUE_DATA = [
       " We believe in the power of partnerships and collaboration to achieve our goals.",
   },
 ];
+
+export const SUCCESS_STORIES_DATA = [
+  { title: "Success Story One", src: "/images/projects/project-2.jpg" },
+  { title: "Success Story Two", src: "/images/projects/project-2.jpg" },
+  { title: "Success Story Three", src: "/images/projects/project-2.jpg" },
+  { title: "Success Story Four", src: "/images/projects/project-2.jpg" },
+];

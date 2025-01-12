@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-
 import { Inter } from "next/font/google";
+import NextTopLoader from "nextjs-toploader";
+
 import "./styles/index.scss";
 
 import Header from "../components/shared/header";
-import NextTopLoader from "nextjs-toploader";
 import Footer from "@/components/shared/footer";
 
 export const inter = Inter({

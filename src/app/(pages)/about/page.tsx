@@ -1,6 +1,8 @@
-import SupportUsSection from "@/components/sections/support.section";
-import { CORE_VALUE_DATA, OBJECTIVES_DATA } from "@/lib/constants";
 import Image from "next/image";
+
+import { CORE_VALUE_DATA, OBJECTIVES_DATA } from "@/lib/constants";
+import SupportUsSection from "@/components/sections/support.section";
+import SuccessStoriesSection from "@/components/shared/success-stories";
 
 const About = () => {
   return (
@@ -116,6 +118,8 @@ const About = () => {
       </section>
 
       <SupportUsSection />
+
+      <SuccessStoriesSection />
     </main>
   );
 };
