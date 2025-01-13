@@ -31,9 +31,12 @@ const HeroSection = () => {
         </p>
 
         <div className="w-full flex items-center justify-center md:w-3/4">
-          <button className="px-7 py-3 text-base shadow-xl text-white rounded-full font-medium bg-[#0038FF] md:text-lg md:p-4">
+          <a
+            href="https://forms.gle/qcjw4CUr63nfwV3K9"
+            className="px-7 py-3 text-base shadow-xl text-white rounded-full font-medium bg-[#0038FF] md:text-lg md:p-4"
+          >
             Become a Global Champion
-          </button>
+          </a>
         </div>
       </div>
     </aside>
