@@ -4,7 +4,7 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 import useSWR from "swr"; // Import SWR for client-side fetching
 import pbClient from "@/lib/pocketbase.util";
-import AllPosts from "../allPosts";
+import AllPosts from "../../allPosts";
 
 // Define types for posts
 export interface Post {

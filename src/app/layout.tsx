@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./styles/index.scss";
-import Footer from "../components/shared/footer";
-import Header from "../components/header";
+import { Inter } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+import "./styles/index.scss";
+import Header from "../components/shared/header";
+import Footer from "@/components/shared/footer";
+
+export const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  weight: ["100", "200", "300", "400", "600", "800", "900"],
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-}); 
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.revesfoundation.org/"),
@@ -44,9 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${inter.variable} antialiased`}>
         <NextTopLoader />
         <Header />
 

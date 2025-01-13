@@ -6,10 +6,10 @@ interface ThermaticSectionProps {}
 
 const ThermaticSection = ({}: ThermaticSectionProps) => {
   return (
-    <section className="py-8 md:py-12">
-      <div className="container mb-8">
-        <h1 className="text-4xl font-semibold">Our Thermatic Areas</h1>
-      </div>
+    <section className="flex flex-col px-5 space-y-5 py-5 md:px-14 md:py-10">
+      <h1 className="text-[27px] font-medium  md:text-[40px]">
+        Our Thermatic Areas
+      </h1>
 
       <Marquee delay={2} pauseOnHover>
         {Array.from({ length: 8 }).map((_, index) => (

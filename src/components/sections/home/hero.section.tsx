@@ -1,14 +1,8 @@
-import { Inter } from "next/font/google";
 import Image from "next/image";
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "600", "800", "900"],
-});
-
-const Hero = () => {
+const HeroSection = () => {
   return (
-    <aside className={`hero ${inter.className} relative`}>
+    <aside className="hero relative">
       <Image
         alt=""
         height={645}
@@ -18,18 +12,18 @@ const Hero = () => {
       />
       <Image
         alt=""
-        width={360}
+        width={370}
         height={606}
         className="md:hidden"
         src={"/hero-image-mobile.png"}
       />
 
-      <div className="w-full h-full px-5 pt-10 flex flex-col space-y-7 absolute justify-end md:justify-center md:p-14">
-        <h1 className="w-52 pt-10 text-3xl md:w-[47%] md:text-7xl">
+      <div className="w-full h-full px-5 flex flex-col space-y-5 absolute justify-end md:space-y-7 md:justify-center md:p-14">
+        <h1 className="w-56 text-3xl md:w-[47%] md:text-7xl">
           Empowering Vulnerable youth and children
         </h1>
 
-        <p className="w-[320px] text-sm md:w-[600px] md:text-lg">
+        <p className="w-[320px] text-xs md:w-[550px] md:text-lg">
           Founded in November 2021, Reves is a non-governmental
           organisation(NGO) dedicated to empowering vulnerable youth and
           children, specifically those living in marginalized communities across
@@ -37,13 +31,16 @@ const Hero = () => {
         </p>
 
         <div className="w-full flex items-center justify-center md:w-3/4">
-          <button className="px-7 py-3 text-base text-white rounded-full font-medium bg-[#0038FF] md:text-lg md:p-4">
+          <a
+            href="https://forms.gle/qcjw4CUr63nfwV3K9"
+            className="px-7 py-3 text-base shadow-xl text-white rounded-full font-medium bg-[#0038FF] md:text-lg md:p-4"
+          >
             Become a Global Champion
-          </button>
+          </a>
         </div>
       </div>
     </aside>
   );
 };
 
-export default Hero;
+export default HeroSection;
