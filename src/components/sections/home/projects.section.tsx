@@ -1,28 +1,12 @@
-"use client"; // Make this component a client-side component
-
+"use client";
 import React from "react";
 import Marquee from "react-fast-marquee";
-import useSWR from "swr"; // Import SWR for client-side fetching
-import pbClient from "@/lib/pocketbase.util";
+
 import AllPosts from "../../allPosts";
-
-// Define types for posts
-export interface Post {
-  id: string;
-  collectionId: string;
-  title: string;
-  description: string;
-  featuredImage: string;
-  author: string;
-  publishDate: string;
-}
-
-// Fetcher function for SWR
-const fetcher = async () =>
-  pbClient.collection("projects").getFullList<Post>({ sort: "-created" });
+import { useRevesProject } from "@/lib/hook";
 
 export default function ProjectsSection() {
-  const { data: posts, error } = useSWR<Post[]>("projects", fetcher);
+  const { data: posts, error } = useRevesProject();
 
   if (error) {
     console.error("Error loading projects:", error);
@@ -34,7 +18,7 @@ export default function ProjectsSection() {
   }
 
   return (
-    <section className="py-8 md:py-12 container" id="projects">
+    <section className="container md:py-12" id="projects">
       <h1 className="text-3xl md:text-5xl text-center font-medium">
         Latest Projects
       </h1>

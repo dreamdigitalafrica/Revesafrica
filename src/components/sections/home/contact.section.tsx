@@ -10,7 +10,7 @@ const ContactUsSection = ({}: ContactUsSectionProps) => {
   };
 
   return (
-    <section className="py-8 md:py-12 bg-white" id="contact-us">
+    <section className="bg-white md:py-12" id="contact-us">
       <div className="container">
         <div className="section-header md:max-w-lg flex flex-col gap-4">
           <h1 className="my-0 text-3xl md:text-5xl font-normal">

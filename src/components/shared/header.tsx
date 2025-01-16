@@ -80,7 +80,7 @@ const Header = ({}: HeaderProps) => {
           <ul
             className={`flex gap-8 items-center rounded-full py-2 px-8 text-gray-900 transition-all ${
               isHome && !isScrolled
-                ? "bg-gray-100 bg-opacity-75 backdrop-blur-lg"
+                ? "bg-gray-100 bg-opacity-15 backdrop-blur-lg"
                 : "bg-transparent"
             }`}
           >
@@ -91,13 +91,15 @@ const Header = ({}: HeaderProps) => {
               <Link href={"/about"}>About</Link> {/* Fixed routes */}
             </li>
             <li>
-              <Link href={"/#projects"}>Projects</Link>
+              <Link href={"/projects"}>Projects</Link>
             </li>
             <li>
               <Link href={"/#projects"}>Blog</Link>
             </li>
             <li>
-              <Link href={"/#support"}>Donate</Link>
+              <Link href="https://flutterwave.com/donate/fqla2cajv8yi?_gl=1%2ahjgupl%2a_gcl_au%2aMTU1MDEzNzk2NC4xNzI1ODk5NjE0%2a_ga%2aMTQzMjAwNzc2MC4xNzIzMTE3MzM3%2a_ga_KQ9NSEMFCF%2aMTcyNTg5OTIwMy4yLjEuMTcyNTkwMDA1Ny41OS4wLjA.">
+                Donate
+              </Link>
             </li>
           </ul>
 

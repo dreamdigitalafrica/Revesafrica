@@ -43,7 +43,7 @@ export default function RootLayout({
       <body className={`${inter.variable} antialiased`}>
         <NextTopLoader />
         <Header />
-        <main>{children}</main>
+        {children}
         <Footer />
       </body>
     </html>

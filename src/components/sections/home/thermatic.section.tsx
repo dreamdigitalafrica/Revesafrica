@@ -6,7 +6,7 @@ interface ThermaticSectionProps {}
 
 const ThermaticSection = ({}: ThermaticSectionProps) => {
   return (
-    <section className="flex flex-col px-5 space-y-5 py-5 md:px-14 md:py-10">
+    <section className="flex flex-col px-5 space-y-5 md:px-14">
       <h1 className="text-[27px] font-medium  md:text-[40px]">
         Our Thermatic Areas
       </h1>

@@ -1,34 +1,24 @@
 "use client";
-import { Variants, motion } from "framer-motion";
+import Link from "next/link";
 import Image from "next/image";
-import {
-  computeScale,
-  computeZindex,
-  getVariant,
-  translate,
-} from "./helper-function";
 import { useEffect, useState } from "react";
+import { FaGreaterThan } from "react-icons/fa";
+import { Variants, motion } from "framer-motion";
+
+import { Post } from "@/types";
+import { pbUrl } from "@/lib/pocketbase.util";
+import { computeZindex, getVariant, translate } from "./helper-function";
 
 interface Props {
-  src: string;
-  title: string;
+  post: Post;
   itemsLen: number;
   itemIndex: number;
   activeIndex: number;
 }
 
-const OverLayItem = ({
-  src,
-  title,
-  itemsLen,
-  itemIndex,
-  activeIndex,
-}: Props) => {
+const OverLayItem = ({ post, itemsLen, itemIndex, activeIndex }: Props) => {
   const [z, setZ] = useState<number>(() =>
     computeZindex({ activeIndex, itemIndex, itemsLen })
-  );
-  const [scale, setScale] = useState<number>(() =>
-    computeScale({ activeIndex, itemIndex })
   );
 
   const [variant, setVariant] = useState<"active" | "inactive">(() =>
@@ -37,45 +27,52 @@ const OverLayItem = ({
 
   useEffect(() => {
     setVariant(getVariant({ itemIndex, activeIndex }));
+
     setZ(computeZindex({ activeIndex, itemIndex, itemsLen }));
-    setScale(computeScale({ activeIndex, itemIndex }));
   }, [activeIndex, itemIndex, itemsLen]);
 
   const variants: Variants = {
     active: {
       scale: 1,
       zIndex: z,
+      opacity: 1,
     },
     inactive: {
       zIndex: z,
-      scale: scale,
+      scale: 0.9,
     },
   };
 
   return (
     <motion.section
-      variants={variants}
       initial={variant}
       animate={variant}
-      style={{ left: translate(itemIndex) }}
-      className={`p-3 absolute rounded-lg shadow-xl flex flex-col space-y-4 bg-gray-300 z-[${z}]`}
+      variants={variants}
+      style={{
+        left: activeIndex === itemIndex ? undefined : translate(itemIndex),
+      }}
+      className={`p-3 w-96 h-80 absolute rounded-lg shadow-xl flex flex-col justify-between bg-gray-300 z-[${z}]`}
     >
-      <div className="w-fit h-fit">
+      <div className="w-full h-3/5 overflow-hidden relative">
         <Image
-          width={370}
-          height={400}
-          src={src}
-          className="rounded-lg"
-          alt="success stories image"
+          fill
+          quality={100}
+          alt={post.title}
+          className="w-full h-full object-cover rounded-lg"
+          src={`${pbUrl}api/files/${post.collectionId}/${post.id}/${post.featuredImage}`}
         />
       </div>
 
       <div className="w-full flex flex-col space-y-2 px-2">
-        <h3 className="font-bold text-lg">{title}</h3>
+        <h3 className="font-bold text-lg">{post.title}</h3>
 
-        <div className="w-full flex justify-end text-gray-700 font-light text-sm">
-          see more
-        </div>
+        <Link
+          href={`/blog/${post.id}`}
+          className="w-full flex items-center space-x-2 justify-end text-gray-700 text-sm"
+        >
+          <span className="font-light">see more</span>
+          <FaGreaterThan className="font-extralight" />
+        </Link>
       </div>
     </motion.section>
   );
