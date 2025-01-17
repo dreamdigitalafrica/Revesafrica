@@ -11,7 +11,8 @@ import {
   computeScale,
   computeZindex,
   getVariant,
-  translate,
+  // translate,
+  computeNumber,
 } from "./helper-function";
 
 interface Props {
@@ -59,7 +60,10 @@ const OverLayItem = ({ post, itemsLen, itemIndex, activeIndex }: Props) => {
       animate={variant}
       variants={variants}
       style={{
-        left: activeIndex === itemIndex ? undefined : translate(itemIndex),
+        left:
+          activeIndex === itemIndex
+            ? undefined
+            : computeNumber({ activeIndex, itemIndex }),
       }}
       className={`p-3 w-96 h-80 absolute rounded-lg shadow-xl flex flex-col justify-between bg-gray-300 z-[${z}]`}
     >

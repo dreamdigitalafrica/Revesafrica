@@ -56,3 +56,15 @@ export const translate = (input: number): number => {
 
   return result;
 };
+
+export const computeNumber = ({ activeIndex, itemIndex }: ComputeTwo) => {
+  if (activeIndex > itemIndex) {
+    // Case 1: activeIndex is greater than itemIndex
+    return 200 + itemIndex * 40;
+  }
+
+  if (activeIndex < itemIndex) {
+    // Case 2: activeIndex is less than itemIndex
+    return 500 + itemIndex * 40;
+  }
+};
