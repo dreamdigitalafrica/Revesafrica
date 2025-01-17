@@ -11,7 +11,6 @@ import {
   computeScale,
   computeZindex,
   getVariant,
-  // translate,
   computeNumber,
 } from "./helper-function";
 

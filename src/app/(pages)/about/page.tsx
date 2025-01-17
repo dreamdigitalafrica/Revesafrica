@@ -7,7 +7,7 @@ import VisionMissionSection from "@/components/sections/about/vision-mission.sec
 
 const About = () => {
   return (
-    <main className="w-full h-fit flex flex-col px-4 space-y-10 md:space-y-20 md:px-14">
+    <main className="w-full h-fit flex flex-col px-4 py-10 space-y-10 md:space-y-20 md:px-14">
       <HeroSection />
       <VisionMissionSection />
       <CertificationSection />

@@ -48,15 +48,6 @@ export const computeScale = ({
   return fraction;
 };
 
-export const translate = (input: number): number => {
-  // Start from 300 and increase in steps of 100
-  const base = 300;
-  const increment = 100; // The scale of increment
-  const result = base + input * increment;
-
-  return result;
-};
-
 export const computeNumber = ({ activeIndex, itemIndex }: ComputeTwo) => {
   if (activeIndex > itemIndex) {
     // Case 1: activeIndex is greater than itemIndex
