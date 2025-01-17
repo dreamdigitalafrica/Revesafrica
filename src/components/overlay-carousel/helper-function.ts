@@ -43,7 +43,7 @@ export const computeScale = ({
   const difference = Math.abs(activeIndex - itemIndex);
 
   // Scale the fraction in 0.1 units, ensuring it doesn't go below 0.1
-  const fraction = Math.max(1 - difference * 0.1, 0.1);
+  const fraction = Math.max(1 - difference * 0.05, 0.1);
 
   return fraction;
 };

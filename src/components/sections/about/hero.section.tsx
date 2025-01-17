@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const HeroSection = () => {
   return (
-    <aside className="w-full flex flex-col space-y-10 md:relative">
+    <aside className="w-full flex flex-col items-center justify-center space-y-10">
       <div className="w-full flex flex-col space-y-2 md:space-y-0 md:relative">
         <Image
           alt=""

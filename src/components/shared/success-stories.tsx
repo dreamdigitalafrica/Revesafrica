@@ -33,7 +33,7 @@ const SuccessStoriesSection = () => {
   }
 
   return (
-    <main className="w-full h-fit px-5 md:px-14">
+    <main className="w-full h-fit px-4 md:px-14">
       <OverLayStack
         controller={controller}
         autoplayController={autoplayController}

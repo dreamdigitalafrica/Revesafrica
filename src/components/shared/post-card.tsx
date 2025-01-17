@@ -23,7 +23,7 @@ const PostCard = ({
   featuredImage,
 }: Props) => {
   return (
-    <section className="p-4 mr-4 rounded-xl flex flex-col justify-between gap-2 w-full max-w-xs border bg-white">
+    <section className="p-4 mr-4 rounded-xl flex flex-col justify-between gap-2 w-full max-w-sm border bg-white">
       <div className="flex flex-col">
         <div className="h-[10rem] md:h-[12rem] w-full overflow-hidden relative">
           {featuredImage && (

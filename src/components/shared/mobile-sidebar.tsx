@@ -17,7 +17,7 @@ const MobileSideBar = ({ handleClose }: MobileSideBarProps) => {
       <Link onClick={handleClose} href={"/"}>
         Home
       </Link>
-      <Link onClick={handleClose} href={"#about-us"}>
+      <Link onClick={handleClose} href={"/about"}>
         About
       </Link>{" "}
       {/* Fixed routes */}

@@ -7,7 +7,12 @@ import { Variants, motion } from "framer-motion";
 
 import { Post } from "@/types";
 import { pbUrl } from "@/lib/pocketbase.util";
-import { computeZindex, getVariant, translate } from "./helper-function";
+import {
+  computeScale,
+  computeZindex,
+  getVariant,
+  translate,
+} from "./helper-function";
 
 interface Props {
   post: Post;
@@ -17,6 +22,9 @@ interface Props {
 }
 
 const OverLayItem = ({ post, itemsLen, itemIndex, activeIndex }: Props) => {
+  const [scale, setScale] = useState<number>(() =>
+    computeScale({ activeIndex, itemIndex })
+  );
   const [z, setZ] = useState<number>(() =>
     computeZindex({ activeIndex, itemIndex, itemsLen })
   );
@@ -27,6 +35,8 @@ const OverLayItem = ({ post, itemsLen, itemIndex, activeIndex }: Props) => {
 
   useEffect(() => {
     setVariant(getVariant({ itemIndex, activeIndex }));
+
+    setScale(computeScale({ activeIndex, itemIndex }));
 
     setZ(computeZindex({ activeIndex, itemIndex, itemsLen }));
   }, [activeIndex, itemIndex, itemsLen]);
@@ -39,7 +49,7 @@ const OverLayItem = ({ post, itemsLen, itemIndex, activeIndex }: Props) => {
     },
     inactive: {
       zIndex: z,
-      scale: 0.9,
+      scale: scale,
     },
   };
 
