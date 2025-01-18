@@ -17,7 +17,7 @@ export default async function page() {
     <section className="p-4">
       <h1 className="text-3xl font-semibold">My Blog Posts</h1>
       <div className="flex gap-4 my-8">
-        {posts &&
+        {posts ? (
           posts.map((post, index) => (
             <Link
               href={`/blog/${post.slug}`}
@@ -28,7 +28,10 @@ export default async function page() {
               <p className="font-semibold">{post.author}</p>
               <p className="italic">{post.publishDate}</p>
             </Link>
-          ))}
+          ))
+        ) : (
+          <h1 className="text-3xl font-extrabold">No Blog Post ...</h1>
+        )}
       </div>
     </section>
   );

@@ -9,7 +9,10 @@ interface ComputeTwo {
   activeIndex: number;
 }
 
-export const getVariant = ({ activeIndex, itemIndex }: ComputeTwo) => {
+export const getVariant = ({
+  activeIndex,
+  itemIndex,
+}: ComputeTwo): "active" | "inactive" => {
   return itemIndex === activeIndex ? "active" : "inactive";
 };
 
@@ -17,7 +20,7 @@ export const computeZindex = ({
   activeIndex,
   itemIndex,
   itemsLen,
-}: ComputeOne) => {
+}: ComputeOne): number => {
   // Compute the absolute difference between activeIndex and itemIndex
   const difference = Math.abs(activeIndex - itemIndex);
 
@@ -40,16 +43,19 @@ export const computeScale = ({
   const difference = Math.abs(activeIndex - itemIndex);
 
   // Scale the fraction in 0.1 units, ensuring it doesn't go below 0.1
-  const fraction = Math.max(1 - difference * 0.1, 0.1);
+  const fraction = Math.max(1 - difference * 0.05, 0.1);
 
   return fraction;
 };
 
-export const translate = (input: number) => {
-  // Start from 300 and increase in steps of 100
-  const base = 300;
-  const increment = 100; // The scale of increment
-  const result = base + input * increment;
+export const computeNumber = ({ activeIndex, itemIndex }: ComputeTwo) => {
+  if (activeIndex > itemIndex) {
+    // Case 1: activeIndex is greater than itemIndex
+    return 200 + itemIndex * 40;
+  }
 
-  return result;
+  if (activeIndex < itemIndex) {
+    // Case 2: activeIndex is less than itemIndex
+    return 500 + itemIndex * 40;
+  }
 };

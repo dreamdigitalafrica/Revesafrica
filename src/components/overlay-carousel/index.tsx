@@ -1,21 +1,21 @@
 "use client";
 import React, { HTMLAttributes, useEffect } from "react";
 
-export type TItemControl = (itemLen: number) => void;
+export type ItemControl = (itemLen: number) => void;
 
 interface Props extends HTMLAttributes<HTMLElement> {
   itemLength: number;
   currentIndex: number;
-  controller: TItemControl;
+  controller: ItemControl;
   autoplayController(): void;
 }
 
 const OverLayStack = ({
-  controller,
-  itemLength,
-  currentIndex,
-  className,
   children,
+  className,
+  itemLength,
+  controller,
+  currentIndex,
   autoplayController,
 }: Props) => {
   useEffect(() => {

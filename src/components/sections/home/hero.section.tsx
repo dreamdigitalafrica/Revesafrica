@@ -3,20 +3,22 @@ import Image from "next/image";
 const HeroSection = () => {
   return (
     <aside className="hero relative">
-      <Image
-        alt=""
-        height={645}
-        width={698}
-        className="hidden md:block"
-        src={"/hero-image.png"}
-      />
-      <Image
-        alt=""
-        width={370}
-        height={606}
-        className="md:hidden"
-        src={"/hero-image-mobile.png"}
-      />
+      <>
+        <Image
+          width={698}
+          height={645}
+          alt="hero-image"
+          src={"/hero-image.png"}
+          className="hidden md:block"
+        />
+        <Image
+          width={370}
+          height={606}
+          alt="hero-image"
+          className="md:hidden"
+          src={"/hero-image-mobile.png"}
+        />
+      </>
 
       <div className="w-full h-full px-5 flex flex-col space-y-5 absolute justify-end md:space-y-7 md:justify-center md:p-14">
         <h1 className="w-56 text-3xl md:w-[47%] md:text-7xl">

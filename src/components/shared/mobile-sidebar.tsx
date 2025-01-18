@@ -17,17 +17,20 @@ const MobileSideBar = ({ handleClose }: MobileSideBarProps) => {
       <Link onClick={handleClose} href={"/"}>
         Home
       </Link>
-      <Link onClick={handleClose} href={"#about-us"}>
+      <Link onClick={handleClose} href={"/about"}>
         About
       </Link>{" "}
       {/* Fixed routes */}
-      <Link onClick={handleClose} href={"#projects"}>
+      <Link onClick={handleClose} href={"/projects"}>
         Projects
       </Link>
       <Link onClick={handleClose} href={"#projects"}>
         Blog
       </Link>
-      <Link onClick={handleClose} href={"#support"}>
+      <Link
+        onClick={handleClose}
+        href="https://flutterwave.com/donate/fqla2cajv8yi?_gl=1%2ahjgupl%2a_gcl_au%2aMTU1MDEzNzk2NC4xNzI1ODk5NjE0%2a_ga%2aMTQzMjAwNzc2MC4xNzIzMTE3MzM3%2a_ga_KQ9NSEMFCF%2aMTcyNTg5OTIwMy4yLjEuMTcyNTkwMDA1Ny41OS4wLjA."
+      >
         Donate
       </Link>
       <Link

@@ -4,25 +4,27 @@ import React from "react";
 
 const AboutUsSection = () => {
   return (
-    <section className="w-full h-fit flex flex-col space-y-4 py-10 md:space-y-7 md:px-14">
+    <section className="w-full h-fit flex flex-col space-y-4 md:space-y-7 md:px-14">
       <aside className="w-full flex flex-col space-y-5 md:space-y-0 md:relative">
-        <Image
-          alt=""
-          width={677}
-          height={316.06}
-          className="w-full md:hidden"
-          src={"/about-us-mobile.png"}
-        />
+        <>
+          <Image
+            alt=""
+            width={677}
+            height={316.06}
+            className="w-full md:hidden"
+            src={"/about-us-mobile.png"}
+          />
 
-        <Image
-          alt=""
-          width={1478}
-          height={690}
-          loading="lazy"
-          quality={100}
-          src={"/about-us-desktop.png"}
-          className="w-full hidden md:block"
-        />
+          <Image
+            alt=""
+            width={1478}
+            height={690}
+            loading="lazy"
+            quality={100}
+            src={"/about-us-desktop.png"}
+            className="w-full hidden md:block"
+          />
+        </>
 
         <h3 className="px-5 flex space-x-3 text-4xl md:absolute md:flex-col md:right-16 md:bottom-16 md:space-y-1 md:space-x-0 md:text-7xl font-extrabold">
           <span>About</span>
