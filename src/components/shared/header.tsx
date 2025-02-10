@@ -45,7 +45,7 @@ const Header = ({}: HeaderProps) => {
 
   return (
     <header
-      className={`py-2 w-full z-50 top-0 transition-colors duration-300 ${
+      className={`w-fit z-50 top-0 transition-colors duration-300 ${
         isHome
           ? isScrolled
             ? "bg-white fixed shadow-md"
@@ -53,7 +53,7 @@ const Header = ({}: HeaderProps) => {
           : "bg-white sticky shadow-md"
       }`}
     >
-      <div className="container flex justify-between gap-4 items-center">
+      <div className="w-screen px-5 md:px-14 flex justify-between items-center">
         <Link href={"/"} className="logo w-max relative h-12 md:h-14">
           <Image
             alt="Reves Foundation Logo"
@@ -76,11 +76,11 @@ const Header = ({}: HeaderProps) => {
           />
         </Link>
 
-        <nav className="hidden md:flex text-sm items-center w-max justify-end gap-4 font-semibold">
+        <nav className="hidden md:flex text-sm items-center justify-end gap-4 font-semibold">
           <ul
             className={`flex gap-8 items-center rounded-full py-2 px-8 text-gray-900 transition-all ${
               isHome && !isScrolled
-                ? "bg-gray-100 bg-opacity-15 backdrop-blur-lg"
+                ? "bg-gray-100 bg-opacity-30 backdrop-blur-lg"
                 : "bg-transparent"
             }`}
           >
