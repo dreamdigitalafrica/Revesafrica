@@ -1,11 +1,17 @@
 import Link from "next/link";
-import { FaTimes } from "react-icons/fa";
+import { FaArrowDown, FaTimes } from "react-icons/fa";
 
 interface MobileSideBarProps {
+  isDropDownOpen: boolean;
   handleClose: () => void;
+  handleDropDown: () => void;
 }
 
-const MobileSideBar = ({ handleClose }: MobileSideBarProps) => {
+const MobileSideBar = ({
+  handleClose,
+  handleDropDown,
+  isDropDownOpen,
+}: MobileSideBarProps) => {
   return (
     <nav className="md:hidden fixed top-0 left-0 flex text-xl max-w-sm flex-col p-8 w-full  bg-white h-full gap-8 font-semibold">
       <div
@@ -17,9 +23,24 @@ const MobileSideBar = ({ handleClose }: MobileSideBarProps) => {
       <Link onClick={handleClose} href={"/"}>
         Home
       </Link>
-      <Link onClick={handleClose} href={"/about"}>
-        About
-      </Link>{" "}
+
+      <div className="flex flex-col">
+        <div
+          onClick={handleDropDown}
+          className="flex cursor-pointer items-center space-x-4"
+        >
+          <span>Who we are</span>
+          <FaArrowDown />
+        </div>
+
+        {isDropDownOpen && (
+          <div className="w-fit flex flex-col space-y-4 items-center px-7 py-3 rounded-lg">
+            <Link href={"/about"}>About</Link>
+            <Link href={"/team"}>Team</Link>
+          </div>
+        )}
+        {/* Fixed routes */}
+      </div>
       {/* Fixed routes */}
       <Link onClick={handleClose} href={"/projects"}>
         Projects

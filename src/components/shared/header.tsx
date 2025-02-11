@@ -6,16 +6,17 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import MobileSideBar from "./mobile-sidebar";
+import { FaArrowDown } from "react-icons/fa6";
 
 interface HeaderProps {}
 
 const Header = ({}: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [menuOnMobile, setMenuOnMobile] = useState<boolean>(false);
+  const [isDropDownOpen, setIsDropDownOpen] = useState<boolean>(false);
+
   const currentPath = usePathname();
-
   const isHome = currentPath === "/";
-
   const heroHeight = 100;
 
   const handleScroll = () => {
@@ -30,6 +31,9 @@ const Header = ({}: HeaderProps) => {
 
   const handleMenuOnMobile = () => {
     setMenuOnMobile((prev) => !prev);
+  };
+  const handleDropDown = () => {
+    setIsDropDownOpen((prev) => !prev);
   };
 
   useEffect(() => {
@@ -53,7 +57,7 @@ const Header = ({}: HeaderProps) => {
           : "bg-white sticky shadow-md"
       }`}
     >
-      <div className="w-screen px-5 md:px-14 flex justify-between items-center">
+      <div className="w-screen px-5 py-3 md:px-14 flex justify-between items-center">
         <Link href={"/"} className="logo w-max relative h-12 md:h-14">
           <Image
             alt="Reves Foundation Logo"
@@ -78,7 +82,7 @@ const Header = ({}: HeaderProps) => {
 
         <nav className="hidden md:flex text-sm items-center justify-end gap-4 font-semibold">
           <ul
-            className={`flex gap-8 items-center rounded-full py-2 px-8 text-gray-900 transition-all ${
+            className={`flex gap-9 items-center rounded-full py-2 px-8 text-gray-900 transition-all ${
               isHome && !isScrolled
                 ? "bg-gray-100 bg-opacity-30 backdrop-blur-lg"
                 : "bg-transparent"
@@ -87,8 +91,32 @@ const Header = ({}: HeaderProps) => {
             <li>
               <Link href={"/"}>Home</Link>
             </li>
-            <li>
-              <Link href={"/about"}>About</Link> {/* Fixed routes */}
+            <li className="relative">
+              <div
+                onClick={handleDropDown}
+                className="flex cursor-pointer items-center space-x-2"
+              >
+                <span>Who we are</span>
+                <FaArrowDown />
+              </div>
+
+              {isDropDownOpen && (
+                <div className="w-fit flex flex-col items-center space-y-2 bg-gray-200 top-8 p-2 absolute shadow-md rounded-lg">
+                  <Link
+                    href={"/about"}
+                    className="w-20 py-2 px-2 pr-4 rounded-lg hover:bg-gray-300"
+                  >
+                    About
+                  </Link>
+                  <Link
+                    href={"/team"}
+                    className="w-20 py-2 px-2 pr-4 rounded-lg hover:bg-gray-300"
+                  >
+                    Team
+                  </Link>
+                </div>
+              )}
+              {/* Fixed routes */}
             </li>
             <li>
               <Link href={"/projects"}>Projects</Link>
@@ -122,7 +150,13 @@ const Header = ({}: HeaderProps) => {
           <HiOutlineMenuAlt1 size={24} color="black" />
         </div>
 
-        {menuOnMobile && <MobileSideBar handleClose={handleMenuOnMobile} />}
+        {menuOnMobile && (
+          <MobileSideBar
+            handleDropDown={handleDropDown}
+            isDropDownOpen={isDropDownOpen}
+            handleClose={handleMenuOnMobile}
+          />
+        )}
       </div>
     </header>
   );
