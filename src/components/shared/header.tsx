@@ -6,30 +6,29 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import MobileSideBar from "./mobile-sidebar";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
-interface HeaderProps {}
+interface HeaderProps { }
 
-const Header = ({}: HeaderProps) => {
+const Header = ({ }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [menuOnMobile, setMenuOnMobile] = useState<boolean>(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const currentPath = usePathname();
-
   const isHome = currentPath === "/";
 
   const heroHeight = 100;
 
   const handleScroll = () => {
-    const currentScrollY = window.scrollY;
-
-    if (currentScrollY > heroHeight) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
-    }
+    setIsScrolled(window.scrollY > heroHeight);
   };
 
   const handleMenuOnMobile = () => {
     setMenuOnMobile((prev) => !prev);
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen((prev) => !prev);
   };
 
   useEffect(() => {
@@ -41,33 +40,32 @@ const Header = ({}: HeaderProps) => {
         window.removeEventListener("scroll", handleScroll);
       }
     };
-  }, [isHome, heroHeight]);
+  }, [isHome]);
 
   return (
     <header
-      className={`w-fit z-50 top-0 transition-colors duration-300 ${
-        isHome
-          ? isScrolled
-            ? "bg-white fixed shadow-md"
-            : "bg-transparent fixed"
-          : "bg-white sticky shadow-md"
-      }`}
+      className={`w-fit z-50 top-0 transition-colors duration-300 ${isHome
+        ? isScrolled
+          ? "bg-white fixed shadow-md"
+          : "bg-transparent fixed"
+        : "bg-white sticky shadow-md"
+        }`}
     >
       <div className="w-screen px-5 md:px-14 flex justify-between items-center">
-        <Link href={"/"} className="logo w-max relative h-12 md:h-14">
+        {/* Logo */}
+        <Link href="/" className="logo w-max relative h-12 md:h-14">
           <Image
             alt="Reves Foundation Logo"
-            src={"/reves-logo-dark.png"}
+            src="/reves-logo-dark.png"
             height={120}
-            loading="lazy"
             width={200}
+            loading="lazy"
             quality={1}
             className="h-full w-full hidden object-contain md:block"
           />
-
           <Image
             alt="Reves Foundation Logo"
-            src={"/logo-mobile.png"}
+            src="/logo-mobile.png"
             height={54}
             width={49}
             loading="lazy"
@@ -76,30 +74,57 @@ const Header = ({}: HeaderProps) => {
           />
         </Link>
 
+        {/* Navigation */}
         <nav className="hidden md:flex text-sm items-center justify-end gap-4 font-semibold">
           <ul
-            className={`flex gap-8 items-center rounded-full py-2 px-8 text-gray-900 transition-all ${
-              isHome && !isScrolled
-                ? "bg-gray-100 bg-opacity-30 backdrop-blur-lg"
-                : "bg-transparent"
-            }`}
+            className={`flex gap-8 items-center rounded-full py-2 px-8 text-gray-900 transition-all ${isHome && !isScrolled
+              ? "bg-gray-100 bg-opacity-30 backdrop-blur-lg"
+              : "bg-transparent"
+              }`}
           >
             <li>
-              <Link href={"/"}>Home</Link>
+              <Link href="/">Home</Link>
             </li>
             <li>
-              <Link href={"/about"}>About</Link> {/* Fixed routes */}
+              <Link href="/about">About</Link>
             </li>
             <li>
-              <Link href={"/projects"}>Projects</Link>
+              <Link href="/projects">Projects</Link>
             </li>
             <li>
-              <Link href={"/#projects"}>Blog</Link>
+              <Link href="/#projects">Blog</Link>
             </li>
-            <li>
-              <Link href="https://flutterwave.com/donate/fqla2cajv8yi?_gl=1%2ahjgupl%2a_gcl_au%2aMTU1MDEzNzk2NC4xNzI1ODk5NjE0%2a_ga%2aMTQzMjAwNzc2MC4xNzIzMTE3MzM3%2a_ga_KQ9NSEMFCF%2aMTcyNTg5OTIwMy4yLjEuMTcyNTkwMDA1Ny41OS4wLjA.">
-                Donate
-              </Link>
+
+            {/* Donate Dropdown */}
+            <li
+              className="relative cursor-pointer"
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+
+            >
+              <span className="flex gap-2 items-center" onClick={toggleDropdown}>Donate{!isDropdownOpen ? <FaChevronDown size={12} /> : <FaChevronUp size={12} />}</span>
+              {isDropdownOpen && (
+                <ul
+                  onMouseLeave={() => setIsDropdownOpen(false)}
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  className="absolute p-4 flex flex-col gap-4 bg-white top-8 left-0 rounded-xl shadow-lg">
+                  <li>
+                    <Link
+                      href="https://flutterwave.com/donate/fqla2cajv8yi"
+                      target="_blank"
+                    >
+                      Flutterwave
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="https://paystack.com/pay/it-supplies-training"
+                      target="_blank"
+                    >
+                      PayStack
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </li>
           </ul>
 
@@ -115,6 +140,7 @@ const Header = ({}: HeaderProps) => {
           </ul>
         </nav>
 
+        {/* Mobile Menu */}
         <div
           className="menu-toggle p-1 bg-white rounded-md transition md:hidden hover:scale-105"
           onClick={handleMenuOnMobile}
