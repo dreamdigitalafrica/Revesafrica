@@ -35,7 +35,7 @@ const HeroSection = () => {
         <div className="w-full flex items-center justify-center md:w-3/4">
           <a
             href="https://forms.gle/qcjw4CUr63nfwV3K9"
-            className="px-7 py-3 text-base shadow-xl text-white rounded-full font-medium bg-[#0038FF] md:text-lg md:p-4"
+            className="px-7 py-3 text-base shadow-xl text-white rounded-full font-medium bg-[#0038FF] md:text-lg md:px-8 md:py-4"
           >
             Become a Global Champion
           </a>
