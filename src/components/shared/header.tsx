@@ -6,17 +6,28 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import MobileSideBar from "./mobile-sidebar";
+
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
-interface HeaderProps { }
+interface HeaderProps {}
 
-const Header = ({ }: HeaderProps) => {
+export interface IDropDown {
+  donate: boolean;
+  whoWeAre: boolean;
+}
+
+export type THandleDropDown = "donate" | "whoWeAre" | "both";
+
+const Header = ({}: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [menuOnMobile, setMenuOnMobile] = useState<boolean>(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+  const [isDropDownOpen, setIsDropDownOpen] = useState<IDropDown>({
+    donate: false,
+    whoWeAre: false,
+  });
+
   const currentPath = usePathname();
   const isHome = currentPath === "/";
-
   const heroHeight = 100;
 
   const handleScroll = () => {
@@ -26,9 +37,16 @@ const Header = ({ }: HeaderProps) => {
   const handleMenuOnMobile = () => {
     setMenuOnMobile((prev) => !prev);
   };
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen((prev) => !prev);
+  const handleDropDown = (dropItem: "donate" | "whoWeAre" | "both") => {
+    setIsDropDownOpen((prev) => {
+      if (dropItem === "donate") {
+        return { ...prev, donate: !prev.donate };
+      } else if (dropItem === "whoWeAre") {
+        return { ...prev, whoWeAre: !prev.whoWeAre };
+      } else {
+        return { donate: false, whoWeAre: false };
+      }
+    });
   };
 
   useEffect(() => {
@@ -44,16 +62,16 @@ const Header = ({ }: HeaderProps) => {
 
   return (
     <header
-      className={`w-fit z-50 top-0 transition-colors duration-300 ${isHome
-        ? isScrolled
-          ? "bg-white fixed shadow-md"
-          : "bg-transparent fixed"
-        : "bg-white sticky shadow-md"
-        }`}
+      className={`w-fit z-50 top-0 transition-colors duration-300 ${
+        isHome
+          ? isScrolled
+            ? "bg-white fixed shadow-md"
+            : "bg-transparent fixed"
+          : "bg-white sticky shadow-md"
+      }`}
     >
-      <div className="w-screen px-5 md:px-14 flex justify-between items-center">
-        {/* Logo */}
-        <Link href="/" className="logo w-max relative h-12 md:h-14">
+      <div className="w-screen px-5 py-3 md:px-14 flex justify-between items-center">
+        <Link href={"/"} className="logo w-max relative h-12 md:h-14">
           <Image
             alt="Reves Foundation Logo"
             src="/reves-logo-dark.png"
@@ -77,16 +95,55 @@ const Header = ({ }: HeaderProps) => {
         {/* Navigation */}
         <nav className="hidden md:flex text-sm items-center justify-end gap-4 font-semibold">
           <ul
-            className={`flex gap-8 items-center rounded-full py-2 px-8 text-gray-900 transition-all ${isHome && !isScrolled
-              ? "bg-gray-100 bg-opacity-30 backdrop-blur-lg"
-              : "bg-transparent"
-              }`}
+            className={`flex gap-8 items-center rounded-full py-2 px-8 text-gray-900 transition-all ${
+              isHome && !isScrolled
+                ? "bg-gray-100 bg-opacity-30 backdrop-blur-lg"
+                : "bg-transparent"
+            }`}
           >
             <li>
               <Link href="/">Home</Link>
             </li>
-            <li>
-              <Link href="/about">About</Link>
+            <li className="relative">
+              <div
+                onClick={() => handleDropDown("whoWeAre")}
+                className="flex cursor-pointer items-center space-x-2"
+              >
+                <span>Who we are</span>
+                {!isDropDownOpen.whoWeAre ? (
+                  <FaChevronDown size={12} />
+                ) : (
+                  <FaChevronUp size={12} />
+                )}
+              </div>
+
+              {isDropDownOpen.whoWeAre && (
+                <ul
+                  onClick={() => {
+                    handleDropDown("both");
+                  }}
+                  className="absolute p-4 flex flex-col gap-4 bg-white top-8 left-0 rounded-xl shadow-lg"
+                >
+                  <li>
+                    <Link
+                      href={"/about"}
+                      className="w-20 py-2 px-2 pr-4 rounded-lg"
+                    >
+                      About
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      href={"/team"}
+                      className="w-20 py-2 px-2 pr-4 rounded-lg"
+                    >
+                      Team
+                    </Link>
+                  </li>
+                </ul>
+              )}
+              {/* Fixed routes */}
             </li>
             <li>
               <Link href="/projects">Projects</Link>
@@ -98,15 +155,23 @@ const Header = ({ }: HeaderProps) => {
             {/* Donate Dropdown */}
             <li
               className="relative cursor-pointer"
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-
+              onClick={() => handleDropDown("donate")}
             >
-              <span className="flex gap-2 items-center" onClick={toggleDropdown}>Donate{!isDropdownOpen ? <FaChevronDown size={12} /> : <FaChevronUp size={12} />}</span>
-              {isDropdownOpen && (
+              <span className="flex gap-2 items-center">
+                Donate
+                {!isDropDownOpen.donate ? (
+                  <FaChevronDown size={12} />
+                ) : (
+                  <FaChevronUp size={12} />
+                )}
+              </span>
+              {isDropDownOpen.donate && (
                 <ul
-                  onMouseLeave={() => setIsDropdownOpen(false)}
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="absolute p-4 flex flex-col gap-4 bg-white top-8 left-0 rounded-xl shadow-lg">
+                  onClick={() => {
+                    handleDropDown("both");
+                  }}
+                  className="absolute p-4 flex flex-col gap-4 bg-white top-8 left-0 rounded-xl shadow-lg"
+                >
                   <li>
                     <Link
                       href="https://flutterwave.com/donate/fqla2cajv8yi"
@@ -148,7 +213,13 @@ const Header = ({ }: HeaderProps) => {
           <HiOutlineMenuAlt1 size={24} color="black" />
         </div>
 
-        {menuOnMobile && <MobileSideBar handleClose={handleMenuOnMobile} />}
+        {menuOnMobile && (
+          <MobileSideBar
+            handleDropDown={handleDropDown}
+            isDropDownOpen={isDropDownOpen}
+            handleClose={handleMenuOnMobile}
+          />
+        )}
       </div>
     </header>
   );
