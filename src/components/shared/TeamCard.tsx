@@ -19,7 +19,6 @@ type TeacmCardProps = {
 export default function TeamCard({
   id,
   name,
-  bio,
   role,
   profile_image,
   collectionId,

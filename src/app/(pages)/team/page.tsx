@@ -1,4 +1,3 @@
-import MainLayout from "@/app/layout/MainLayout";
 import OurTeamSection from "@/components/sections/team/our-team";
 import React from "react";
 
