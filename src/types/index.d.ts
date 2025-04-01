@@ -16,3 +16,16 @@ export interface Post {
   author: string;
   publishDate: string;
 }
+
+export interface TeamMember {
+  id: string;
+  name: string;
+  profile_image: string;
+  bio: string;
+  role: string;
+  collectionId: string;
+  socials: {
+    name: string;
+    handle: string;
+  };
+}

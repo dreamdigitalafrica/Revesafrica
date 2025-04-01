@@ -18,7 +18,7 @@ const PostCard = ({
   title,
   pbUrl,
   author,
-  publishDate,
+  publishDate, 
   collectionId,
   featuredImage,
 }: Props) => {
