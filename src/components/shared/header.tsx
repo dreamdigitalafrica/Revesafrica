@@ -70,30 +70,30 @@ const Header = ({}: HeaderProps) => {
           : "bg-white sticky shadow-md"
       }`}
     >
-      <div className="w-screen px-5 py-3 md:px-14 flex justify-between items-center">
+      <div className="w-screen px-5 py-4 md:px-14 flex justify-between items-center">
         <Link href={"/"} className="logo w-max relative h-12 md:h-14">
           <Image
             alt="Reves Foundation Logo"
             src="/reves-logo-dark.png"
-            height={120}
-            width={200}
+            height={800}
+            width={1200}
             loading="lazy"
-            quality={1}
+            quality={100}
             className="h-full w-full hidden object-contain md:block"
           />
           <Image
             alt="Reves Foundation Logo"
             src="/logo-mobile.png"
-            height={54}
-            width={49}
+            height={540}
+            width={490}
             loading="lazy"
-            quality={1}
-            className="md:hidden"
+            quality={100}
+            className="md:hidden h-14 w-auto object-contain"
           />
         </Link>
 
         {/* Navigation */}
-        <nav className="hidden md:flex text-sm items-center justify-end gap-4 font-semibold">
+        <nav className="hidden md:flex text-base items-center justify-end gap-4 font-semibold">
           <ul
             className={`flex gap-8 items-center rounded-full py-2 px-8 text-gray-900 transition-all ${
               isHome && !isScrolled
