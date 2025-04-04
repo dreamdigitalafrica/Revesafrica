@@ -1,7 +1,8 @@
 import { pbUrl } from "@/lib/pocketbase.util";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
-import { FaFacebook, FaLinkedin } from "react-icons/fa6";
+import { FaInstagram, FaLinkedin } from "react-icons/fa6";
 
 type TeacmCardProps = {
   id: string;
@@ -9,6 +10,7 @@ type TeacmCardProps = {
   profile_image: string;
   bio: string;
   role: string;
+  username: string;
   collectionId: string;
   socials: {
     name: string;
@@ -21,10 +23,14 @@ export default function TeamCard({
   name,
   role,
   profile_image,
+  username,
   collectionId,
 }: TeacmCardProps) {
   return (
-    <div className="rounded-xl w-full max-w-full flex flex-col gap-4 p-2">
+    <Link
+      href={`/team/${username}`}
+      className="rounded-xl w-full max-w-full flex flex-col gap-2 p-2"
+    >
       <Image
         src={`${pbUrl}api/files/${collectionId}/${id}/${profile_image}`}
         alt={`${name} image`}
@@ -32,15 +38,20 @@ export default function TeamCard({
         width={1080}
         quality={75}
         loading="lazy"
-        className="h-96 rounded-xl w-full object-cover shadow-md drop-shadow-md"
+        className="h-[24rem] md:h-[28.5rem] rounded-xl w-full object-cover shadow-md drop-shadow-md"
       />
-      <h2 className="text-2xl md:text-4xl font-medium">{name}</h2>
 
-      <div className="flex flex-col gap-1">{role}</div>
-      <div className="flex gap-2 items-center">
-        <FaFacebook size={24} />
-        <FaLinkedin size={24} />
+      <div className="flex flex-col">
+        <h2 className="text-2xl line-clamp-1 text-ellipsis md:text-3xl text-gray-700 font-semibold">
+          {name}
+        </h2>
+
+        <p className="text-gray-500 font-medium">{role}</p>
+        <div className="flex gap-4 mt-1 items-center">
+          <FaInstagram size={30} />
+          <FaLinkedin size={30} />
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }

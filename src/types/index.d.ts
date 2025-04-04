@@ -23,6 +23,7 @@ export interface TeamMember {
   profile_image: string;
   bio: string;
   role: string;
+  username: string;
   collectionId: string;
   socials: {
     name: string;

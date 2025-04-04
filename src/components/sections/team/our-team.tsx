@@ -18,8 +18,6 @@ export default function OurTeamSection() {
     return <p>Loading...</p>;
   }
 
-  console.log(teamMembers);
-
   return (
     <div className="grid md:grid-cols-3 justify-between gap-x-8 overflow-x-auto gap-y-16 max-w-full">
       {teamMembers.map((teamMember, index) => (
