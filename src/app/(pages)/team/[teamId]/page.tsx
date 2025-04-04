@@ -6,6 +6,8 @@ import React from "react";
 export default function TeamMemberPage() {
   const { teamId } = useParams();
 
+  console.log(teamId);
+
   return (
     <main className="min-h-96">
       <section>
