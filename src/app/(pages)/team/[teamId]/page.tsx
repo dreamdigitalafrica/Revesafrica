@@ -105,8 +105,8 @@ export default async function TeamMemberPage({ params }: Props) {
     <main className="min-h-96 w-full">
       <section className="py-12">
         <div className="mx-auto max-w-6xl px-6 md:px-14">
-          <h2 className="text-4xl mb-12 font-bold md:text-5xl  text-center">
-            Our <span className="text-green-400">Team</span>
+          <h2 className="text-4xl mb-12 font-medium italic md:text-5xl  text-center">
+            Our <span className=" font-bold text-green-400">Team</span>
           </h2>
 
           {/*  */}
@@ -131,13 +131,19 @@ export default async function TeamMemberPage({ params }: Props) {
                 )}
               </div>
 
-              {/* Bio Content */}
-              <div
-                className="content prose flex-1 text-xl " // Removed min-w-full, added flex-1
-                dangerouslySetInnerHTML={{
-                  __html: teamMember.bio || "No bio available.",
-                }}
-              />
+              <div className="flex flex-col">
+                <h2 className="text-3xl md:text-4xl font-semibold mb-4 md:mb-6">
+                  {teamMember.name}
+                </h2>
+
+                {/* Bio Content */}
+                <div
+                  className="content prose flex-1 text-xl " // Removed min-w-full, added flex-1
+                  dangerouslySetInnerHTML={{
+                    __html: teamMember.bio || "No bio available.",
+                  }}
+                />
+              </div>
             </div>
           </Suspense>
         </div>
