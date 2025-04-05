@@ -20,12 +20,12 @@ export interface Post {
 export interface TeamMember {
   id: string;
   name: string;
-  profile_image: string;
+  profile_image?: string;
   bio: string;
   role: string;
   username: string;
-  collectionId: string;
-  socials: {
+  collectionId?: string;
+  socials?: {
     name: string;
     handle: string;
   };

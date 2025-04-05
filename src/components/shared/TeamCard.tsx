@@ -1,38 +1,22 @@
-import { pbUrl } from "@/lib/pocketbase.util";
+import { TeamMember } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaInstagram, FaLinkedin } from "react-icons/fa6";
 
-type TeacmCardProps = {
-  id: string;
-  name: string;
-  profile_image: string;
-  bio: string;
-  role: string;
-  username: string;
-  collectionId: string;
-  socials: {
-    name: string;
-    handle: string;
-  };
-};
-
 export default function TeamCard({
-  id,
   name,
   role,
   profile_image,
   username,
-  collectionId,
-}: TeacmCardProps) {
+}: TeamMember) {
   return (
     <Link
       href={`/team/${username}`}
-      className="rounded-xl w-full max-w-full flex flex-col gap-2 p-2"
+      className="rounded-xl w-full max-w-full flex flex-col gap-2 p-4"
     >
       <Image
-        src={`${pbUrl}api/files/${collectionId}/${id}/${profile_image}`}
+        src={profile_image || ""}
         alt={`${name} image`}
         height={1080}
         width={1080}
