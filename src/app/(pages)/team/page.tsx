@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     url: "/team",
     images: [
       {
-        url: "/team-og-image.jpg", // Replace with an actual image URL for social sharing
+        url: "/reves-logo-dark.png", // Replace with an actual image URL for social sharing
         width: 1200,
         height: 630,
         alt: "Our Team",
