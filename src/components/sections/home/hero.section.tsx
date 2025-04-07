@@ -20,8 +20,8 @@ const HeroSection = () => {
         />
       </>
 
-      <div className="w-full h-full px-5 flex flex-col space-y-5 absolute justify-end md:space-y-7 md:justify-center md:px-14 pt-24">
-        <h1 className="w-72 font-semibold text-3xl md:w-[47%] md:text-7xl">
+      <div className="w-full h-full px-5 flex flex-col space-y-5 absolute  justify-end md:space-y-7 md:justify-center md:px-14 pt-24">
+        <h1 className="max-w-72 md:max-w-none bg-gray-100 md:bg-transparent overflow-hidden w-max rounded-tr-3xl pt-14 md:pt-0 font-semibold text-3xl md:w-[47%] md:text-7xl">
           Empowering Vulnerable youth and children
         </h1>
 
