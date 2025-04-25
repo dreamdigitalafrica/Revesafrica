@@ -12,20 +12,20 @@ const HeroSection = () => {
           className="hidden md:block"
         />
         <Image
-          width={370}
-          height={606}
+          width={1080}
+          height={1086}
           alt="hero-image"
-          className="md:hidden"
+          className="md:hidden h-full pb-8 object-cover w-full"
           src={"/hero-image-mobile.png"}
         />
       </>
 
-      <div className="w-full h-full px-5 flex flex-col space-y-5 absolute  justify-end md:space-y-7 md:justify-center md:px-14 pt-24">
-        <h1 className="max-w-72 md:max-w-none bg-gray-100 md:bg-transparent overflow-hidden w-max rounded-tr-3xl pt-14 md:pt-0 font-semibold text-3xl md:w-[47%] md:text-7xl">
+      <div className="w-full h-full px-5 flex flex-col space-y-4 -mb-9 md:mb-0 absolute justify-end bottom-0 md:space-y-7 md:justify-center md:px-14">
+        <h1 className="max-w-60 md:max-w-none md:bg-transparent overflow-hidden w-max md:pt-0 font-semibold text-2xl md:w-[47%] md:text-7xl">
           Empowering Vulnerable youth and children
         </h1>
 
-        <p className="w-[320px] text-xs md:w-[550px] pb-8 md:pb-0 md:text-lg">
+        <p className="w-full text-sm max-w-60 md:w-[550px] pb-8 md:pb-0 md:text-lg">
           Founded in November 2021, Reves is a non-governmental
           organisation(NGO) dedicated to empowering vulnerable youth and
           children
@@ -36,10 +36,10 @@ const HeroSection = () => {
           .
         </p>
 
-        <div className="w-full flex items-center justify-center md:w-3/4">
+        <div className="w-full flex items-center justify-center  md:w-3/4">
           <a
             href="https://forms.gle/qcjw4CUr63nfwV3K9"
-            className="px-7 py-3 text-base shadow-xl drop-shadow-md text-white rounded-full font-semibold bg-[#0038FF] md:text-lg md:px-8 md:py-4"
+            className="px-7 py-3 text-base shadow-xl drop-shadow-md  text-white rounded-full font-semibold bg-[#0038FF] md:text-lg md:px-8 md:py-4"
           >
             Become a Global Champion
           </a>

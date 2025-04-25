@@ -4,8 +4,8 @@ import React from "react";
 
 const AboutUsSection = () => {
   return (
-    <section className="w-full h-fit flex flex-col space-y-4 md:space-y-7 md:px-14">
-      <aside className="w-full flex flex-col space-y-5 md:space-y-0 md:relative">
+    <section className="w-full h-fit flex flex-col space-y-4  md:space-y-7 md:px-14">
+      <aside className="w-full flex flex-col space-y-5 md:space-y-0 mt-12 md:mt-0 md:relative">
         <>
           <Image
             alt=""
