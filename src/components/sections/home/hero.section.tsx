@@ -25,7 +25,7 @@ const HeroSection = () => {
           Empowering Vulnerable youth and children
         </h1>
 
-        <p className="w-full text-sm max-w-60 md:w-[550px] pb-8 md:pb-0 md:text-lg">
+        <p className="w-full text-sm max-w-60 md:max-w-none md:w-[550px] pb-8 md:pb-0 md:text-lg">
           Founded in November 2021, Reves is a non-governmental
           organisation(NGO) dedicated to empowering vulnerable youth and
           children

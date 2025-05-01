@@ -1,116 +1,123 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import React from "react";
+import React, { useRef, useState } from "react";
+import emailJs from "@emailjs/browser";
 
-interface ContactUsSectionProps {}
+const ContactUsSection = () => {
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [successMsg, setSuccessMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
-const ContactUsSection = ({}: ContactUsSectionProps) => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
+    setSuccessMsg("");
+    setErrorMsg("");
+
+    try {
+      await emailJs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!, // Replace this
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!, // Replace this
+        formRef.current!,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY // Replace this
+      );
+      setSuccessMsg("Message sent successfully!");
+      formRef.current?.reset();
+    } catch (error: any) {
+      setErrorMsg("Failed to send message. Please try again.");
+      console.error("Email error:", error.text || error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <section className="bg-white py-12" id="contact-us">
-      <div className="container mx-auto">
-        <div className="section-header md:max-w-lg flex flex-col gap-4">
-          <h1 className="my-0 text-3xl md:text-5xl font-semibold text-gray-700">
+      <div className="container mx-auto px-4">
+        <div className="section-header md:max-w-lg mb-8">
+          <h1 className="text-3xl md:text-5xl font-semibold text-gray-700">
             Get in Touch
           </h1>
-          <p>
-            Please fill out the form on this section to contact with me. Or call
-            between 9:00 a.m. and 8:00 p.m. WAT, Monday through Friday.
+          <p className="mt-2 text-gray-600">
+            Please fill out the form to contact us. Or call between 9:00 a.m.
+            and 8:00 p.m. WAT, Monday through Friday.
           </p>
         </div>
 
-        <div className="flex md:gap-8 gap-4 flex-col-reverse justify-between md:flex-row py-8 w-full ">
-          <div className="form-container w-full md:max-w-4xl">
-            <form action="" onSubmit={handleSubmit}>
-              {/* Name */}
-              <div className="input-container">
-                <label htmlFor="name"></label>
-                <input
-                  type="text"
-                  placeholder="Name"
-                  className="py-5 text-base"
-                  name="name"
-                  id="name"
-                />
-              </div>
-
-              {/* Email */}
-              <div className="input-container">
-                <label htmlFor="email"></label>
-                <input
-                  type="text"
-                  placeholder="Email"
-                  name="email"
-                  id="email"
-                  className="py-5 text-base"
-                />
-              </div>
-
-              {/* How you heard about us */}
-              <div className="input-container">
-                <label htmlFor="email"></label>
-                <input
-                  type="text"
-                  placeholder="How did you here about us?"
-                  name="email"
-                  id="email"
-                  className="py-5 text-base"
-                />
-              </div>
-
-              {/* How you heard about us */}
-              <div className="input-container">
-                <label htmlFor="email"></label>
-                <textarea
-                  rows={3}
-                  name="email"
-                  placeholder="Message..."
-                  id="message"
-                ></textarea>
-              </div>
-
+        <div className="flex md:flex-row flex-col-reverse gap-8">
+          {/* Contact Form */}
+          <div className="w-full md:max-w-3xl">
+            <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
               <input
-                type="submit"
-                value={"Submit"}
-                className="bg-green-400 font-semibold py-4 text-base cursor-pointer"
+                type="text"
+                placeholder="Your Name"
+                name="user_name"
+                required
+                className="w-full border px-6 md:py-5 py-4 text-base rounded-md"
               />
+              <input
+                type="email"
+                placeholder="Your Email"
+                name="user_email"
+                required
+                className="w-full border px-6 md:py-5 py-4 text-base rounded-md"
+              />
+              <input
+                type="text"
+                placeholder="How did you hear about us?"
+                name="referral"
+                className="w-full border px-6 md:py-5 py-4 text-base rounded-md"
+              />
+              <textarea
+                rows={4}
+                name="message"
+                placeholder="Your Message"
+                required
+                className="w-full border px-6 md:py-5 py-4 text-base rounded-md"
+              ></textarea>
+
+              {successMsg && <p className="text-green-600">{successMsg}</p>}
+              {errorMsg && <p className="text-red-500">{errorMsg}</p>}
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 font-semibold rounded-md disabled:opacity-50"
+              >
+                {loading ? "Sending..." : "Submit"}
+              </button>
             </form>
           </div>
-          {/*  */}.
-          <div className="flex flex-col w-full md:max-w-sm pt-4 gap-4">
-            {/* Address */}
-            <div className="flex gap-2">
-              <p className="label">Address:</p>
+
+          {/* Contact Info */}
+          <div className="w-full md:max-w-sm space-y-4">
+            <div>
+              <p className="font-semibold">Address:</p>
               <a
                 href="https://maps.app.goo.gl/voAYeCq4WAi5VyMj7"
                 target="_blank"
                 rel="noreferrer"
-                className=""
+                className="text-blue-600 underline"
               >
                 Kubwa, Abuja, Nigeria.
               </a>
             </div>
 
-            {/* Email */}
-            <div className="flex gap-2">
-              <p className="label">Email:</p>
+            <div>
+              <p className="font-semibold">Email:</p>
               <a
                 href="mailto:contact@revesfoundation.org"
-                target="_blank"
-                rel="noreferrer"
-                className="underline"
+                className="text-blue-600 underline"
               >
                 contact@revesfoundation.org
               </a>
             </div>
 
-            {/* Phone */}
-            <div className="flex gap-2">
-              <p className="label">Phone:</p>
-              <a href="tel:2347037078046" target="_blank" rel="noreferrer">
+            <div>
+              <p className="font-semibold">Phone:</p>
+              <a href="tel:2347037078046" className="text-blue-600 underline">
                 +234 703 707 8046
               </a>
             </div>

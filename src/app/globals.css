@@ -84,10 +84,16 @@ body {
 
 @layer base {
   * {
-    @apply border-border ;
-    box-sizing: border-box
+    @apply border-border;
+    box-sizing: border-box;
+  }
+  html {
+    @apply h-full w-full
+    scroll-padding-top: 80px;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground h-full w-full;
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
   }
 }
