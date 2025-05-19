@@ -16,7 +16,7 @@ const ProjectGrid = () => {
   }
 
   return (
-    <section className="flex flex-col space-y-5 md:flex-row md:pl-5 md:space-y-0 md:flex-wrap md:gap-y-5">
+    <section className="flex container flex-col space-y-5 md:flex-row md:pl-5 md:space-y-0 md:flex-wrap md:gap-y-5">
       {posts.map((post, i) => (
         <PostCard pbUrl={pbUrl} key={post.title + i} {...post} />
       ))}

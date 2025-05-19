@@ -4,7 +4,10 @@ interface SupportUsSectionProps {}
 
 const SupportUsSection = ({}: SupportUsSectionProps) => {
   return (
-    <section className="px-4 flex justify-center md:px-14" id="support">
+    <section
+      className="px-4 container flex justify-center md:px-14"
+      id="support"
+    >
       <div className="bg-bluen w-full py-8 md:py-20 text-white rounded-3xl flex items-center flex-col space-y-4 px-4 text-center justify-center md:space-y-8">
         <h2 className="w-full text-gray-200 mx-auto text-2xl md:text-5xl font-semibold md:w-4/5">
           Support us so we can be an even greater blessing to others.

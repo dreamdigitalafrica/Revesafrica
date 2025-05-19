@@ -1,6 +1,6 @@
 import MainLayout from "../layout/MainLayout";
 import HeroSection from "@/components/sections/home/hero.section";
-import SupportUsSection from "@/components/shared/support.section";
+import SupportUsSection from "@/components/sections/home/support.section";
 import AboutUsSection from "@/components/sections/home/about-us.section";
 
 import ProjectsSection from "@/components/sections/home/projects.section";

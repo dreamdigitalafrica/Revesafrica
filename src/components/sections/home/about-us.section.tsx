@@ -4,7 +4,7 @@ import React from "react";
 
 const AboutUsSection = () => {
   return (
-    <section className="w-full h-fit flex flex-col space-y-4  md:space-y-7 md:px-14">
+    <section className="w-full container !px-0 h-fit flex flex-col space-y-4  md:space-y-7 ">
       <aside className="w-full flex flex-col space-y-5 md:space-y-0 mt-12 md:mt-0 md:relative">
         <>
           <Image
@@ -26,23 +26,23 @@ const AboutUsSection = () => {
           />
         </>
 
-        <h3 className="px-5 flex space-x-3 text-4xl md:absolute md:flex-col md:right-16 md:bottom-16 md:space-y-1 md:space-x-0 md:text-7xl font-extrabold">
+        <h3 className="px-4 flex space-x-3 text-4xl md:absolute md:flex-col md:right-16 md:bottom-16 md:space-y-1 md:space-x-0 md:text-7xl font-extrabold">
           <span>About</span>
           <span className="text-[#3AF40C]">Us</span>
         </h3>
       </aside>
 
-      <div className="px-5 flex flex-col space-y-3">
-        <p className="text-sm md:w-3/5 md:text-lg">
+      <div className="px-4 flex flex-col space-y-3">
+        <p className="text-base md:w-3/5 md:text-lg line-clamp-5">
           Founded in November 2021, Reves is a non-governmental
           organisation(NGO) dedicated to empowering vulnerable youth and
           children, specifically those living in marginalized communities across
           Africa. We provide essential support, resources, and opportunities to
           youths to reach their full potential and become active member of their
-          communities.{" "}
+          communities.&nbsp;
           <Link
             href="/about"
-            className="hidden font-semibold text-sm text-red-600 md:inline"
+            className="hidden font-semibold underline text-red-600 md:inline"
           >
             Read more
           </Link>
@@ -50,9 +50,9 @@ const AboutUsSection = () => {
 
         <Link
           href="/about"
-          className="font-semibold text-sm text-red-600 md:hidden"
+          className="font-semibold underline text-red-600 md:hidden"
         >
-          Read more
+          Read more 👉🏼
         </Link>
       </div>
     </section>

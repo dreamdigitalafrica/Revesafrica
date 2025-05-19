@@ -1,4 +1,4 @@
-import SupportUsSection from "@/components/shared/support.section";
+import SupportUsSection from "@/components/sections/home/support.section";
 
 import HeroSection from "@/components/sections/about/hero.section";
 import CertificationSection from "@/components/sections/about/certification.section";

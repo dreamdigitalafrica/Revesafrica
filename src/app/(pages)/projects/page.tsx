@@ -1,6 +1,6 @@
 import HeroSection from "@/components/sections/projects/hero.section";
 import ProjectGrid from "@/components/sections/projects/project-grid.section";
-import SupportUsSection from "@/components/shared/support.section";
+import SupportUsSection from "@/components/sections/home/support.section";
 
 const Projects = () => {
   return (

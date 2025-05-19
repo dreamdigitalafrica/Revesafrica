@@ -62,7 +62,7 @@ const Header = ({}: HeaderProps) => {
 
   return (
     <header
-      className={`w-fit z-50 top-0 transition-colors duration-300 ${
+      className={`z-50 w-full top-0 transition-colors duration-300 ${
         isHome
           ? isScrolled
             ? "bg-white fixed shadow-md"
@@ -70,7 +70,7 @@ const Header = ({}: HeaderProps) => {
           : "bg-white sticky shadow-md"
       }`}
     >
-      <div className="w-screen px-5 py-4 md:px-14 flex justify-between items-center">
+      <div className="container w-full px-4 py-4 flex justify-between items-center">
         <Link href={"/"} className="logo w-max relative h-12 md:h-14">
           <Image
             alt="Reves Foundation Logo"

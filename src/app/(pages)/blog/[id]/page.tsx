@@ -1,6 +1,6 @@
 // import { getPostBySlug } from "@/util/util";
 
-import SupportUsSection from "@/components/shared/support.section";
+import SupportUsSection from "@/components/sections/home/support.section";
 import { Button } from "@/components/ui/button";
 import { pbUrl } from "@/lib/pocketbase.util";
 import { Post as P } from "@/types";

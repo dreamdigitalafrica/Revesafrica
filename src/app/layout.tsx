@@ -39,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="">
       <body className={`${inter.variable} antialiased overflow-x-hidden`}>
         <NextTopLoader />
         <Header />

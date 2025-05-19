@@ -1,29 +1,62 @@
 "use client";
+
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 
-interface ThermaticSectionProps {}
+const THEMATIC_AREAS = [
+  {
+    id: 1,
+    title: "Education & Mentorship",
+    image: "/images/thermatic-areas/1.png",
+  },
+  {
+    id: 2,
+    title: "Health & Well-being",
+    image: "/images/thermatic-areas/2.png",
+  },
+  { id: 3, title: "Youth Empowerment", image: "/images/thermatic-areas/3.png" },
+  { id: 4, title: "Gender Equality", image: "/images/thermatic-areas/4.png" },
+  { id: 5, title: "Child Protection", image: "/images/thermatic-areas/5.png" },
+  {
+    id: 6,
+    title: "Community Engagement",
+    image: "/images/thermatic-areas/6.png",
+  },
+  { id: 7, title: "Innovation & Tech", image: "/images/thermatic-areas/7.png" },
+  { id: 8, title: "Sustainability", image: "/images/thermatic-areas/8.png" },
+];
 
-const ThermaticSection = ({}: ThermaticSectionProps) => {
+const ThematicSection = () => {
   return (
-    <section className="flex flex-col px-6 space-y-5 md:px-14 py-8 md:py-12">
-      <h1 className="text-3xl font-semibold text-gray-700  md:text-5xl">
-        Our Thermatic Areas
-      </h1>
+    <section
+      className="flex container flex-col px-6 space-y-6 md:px-14 py-10 md:py-16"
+      aria-labelledby="thematic-title"
+    >
+      <h2
+        id="thematic-title"
+        className="text-3xl md:text-5xl font-semibold text-gray-800"
+      >
+        Our Thematic Areas
+      </h2>
 
-      <Marquee delay={2} pauseOnHover className="p-4">
-        {Array.from({ length: 8 }).map((_, index) => (
+      <Marquee
+        delay={2}
+        pauseOnHover
+        gradient={false}
+        className="pt-4 space-x-4"
+      >
+        {THEMATIC_AREAS.map((area) => (
           <div
-            key={index}
-            className="h-[10rem] md:h-[14rem]  cursor-pointer w-[11rem] md:w-[14.8rem] mr-8 md:mr-16 overflow-hidden relative flex-shrink-0 shadow-sm border py-2 rounded-2xl"
+            key={area.id}
+            className="relative h-40 md:h-56 w-44 md:w-60 mr-6 md:mr-12 flex-shrink-0 rounded-2xl overflow-hidden shadow-md border"
           >
             <Image
-              loading="lazy"
+              src={area.image}
+              alt={area.title}
               fill
-              quality={100}
-              alt={`Thermatic Area ${index + 1}`}
-              className="h-full w-full object-cover"
-              src={`/images/thermatic-areas/${index + 1}.png`}
+              className="object-cover"
+              quality={90}
+              loading="lazy"
             />
           </div>
         ))}
@@ -32,4 +65,4 @@ const ThermaticSection = ({}: ThermaticSectionProps) => {
   );
 };
 
-export default ThermaticSection;
+export default ThematicSection;

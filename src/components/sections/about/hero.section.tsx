@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const HeroSection = () => {
   return (
-    <aside className="w-full flex flex-col items-center justify-center space-y-10">
+    <aside className="w-full container flex flex-col items-center justify-center space-y-10">
       <div className="w-full flex flex-col space-y-2 md:space-y-0 md:relative">
         <Image
           alt=""
@@ -30,7 +30,7 @@ const HeroSection = () => {
         </h3>
       </div>
 
-      <p className="w-full text-lg md:text-xl md:w-11/12">
+      <p className="w-full text-base md:text-lg">
         Founded in November 2021, <span className="font-medium">Reves</span> is
         a non-governmental organisation(NGO)  dedicated to empowering vulnerable
         youth and children, specifically those living in marginalised

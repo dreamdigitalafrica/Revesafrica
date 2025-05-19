@@ -4,7 +4,7 @@ import React from "react";
 const VisionMissionSection = () => {
   return (
     <>
-      <section className="about-section-con space-y-1">
+      <section className="about-section-con container space-y-1">
         <h4 className="about-section-title bg-[#3AF40C]">Our Vision</h4>
 
         <p className="about-section-text">
@@ -14,7 +14,7 @@ const VisionMissionSection = () => {
         </p>
       </section>
 
-      <section className="about-section-con space-y-5">
+      <section className="about-section-con container space-y-5">
         <h4 className="about-section-title bg-[#ecd400]">
           Our Mission Statement
         </h4>
@@ -28,7 +28,7 @@ const VisionMissionSection = () => {
         </p>
       </section>
 
-      <section className="about-section-con space-y-5">
+      <section className="about-section-con container space-y-5">
         <h4 className="about-section-title bg-[#0C4DF4]">Our Goal</h4>
 
         <p className="about-section-text bg-blue-200">
@@ -39,7 +39,7 @@ const VisionMissionSection = () => {
         </p>
       </section>
 
-      <section className="about-section-con space-y-5">
+      <section className="about-section-con container space-y-5">
         <h4 className="about-section-title bg-[#3AF40C]">Our Objectives</h4>
 
         <p className="about-section-text flex flex-col space-y-3 bg-green-200">
@@ -51,7 +51,7 @@ const VisionMissionSection = () => {
         </p>
       </section>
 
-      <section className="about-section-con space-y-5">
+      <section className="about-section-con container space-y-5">
         <h4 className="w-fit font-semibold rounded-2xl text-xl pl-3">
           Core Values
         </h4>
