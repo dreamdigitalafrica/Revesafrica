@@ -2,125 +2,175 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import {
   FaFacebook,
   FaInstagram,
   FaLinkedin,
   FaXTwitter,
 } from "react-icons/fa6";
-import { Moon, Sun } from "lucide-react";
+import { MdLocationOn, MdEmail, MdPhone } from "react-icons/md";
+
+const quickLinks = [
+  { name: "Our Mission", href: "/our-mission" },
+  { name: "Current Programs", href: "/programs" },
+  { name: "Recent Impact", href: "/impact" },
+  { name: "Success Stories", href: "/stories" },
+];
+
+const supportLinks = [
+  { name: "How to Donate", href: "/donate" },
+  { name: "Volunteer Form", href: "/volunteer" },
+  { name: "Partner With Us", href: "/partner" },
+  { name: "Terms of Use", href: "/terms" },
+];
+
+const socialLinks = [
+  {
+    href: "https://m.facebook.com/RAYCDFOUNDATION/",
+    icon: FaFacebook,
+    label: "Facebook",
+  },
+  {
+    href: "https://ng.linkedin.com/company/revesfoundation",
+    icon: FaLinkedin,
+    label: "LinkedIn",
+  },
+  {
+    href: "https://twitter.com/Revesfoundation",
+    icon: FaXTwitter,
+    label: "Twitter",
+  },
+  {
+    href: "https://www.instagram.com/revesfoundation/",
+    icon: FaInstagram,
+    label: "Instagram",
+  },
+];
 
 const Footer = () => {
-  const [darkMode, setDarkMode] = useState(true);
-
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-    document.documentElement.classList.toggle("dark");
-  };
-
   return (
-    <footer
-      className={`w-full ${
-        darkMode ? "bg-black text-white" : "bg-gray-100 text-gray-800"
-      }`}
-    >
-      {/* Top Section */}
-      <div className="container mx-auto px-6 py-10 md:py-20 flex flex-col md:flex-row justify-between gap-10">
-        {/* Logo */}
-        <div className="flex justify-start flex-col gap-4">
-          <Link href="/" className="relative h-12 flex justify-start w-48">
+    <footer className="w-full bg-[#0d1117] text-white">
+      {/* Main grid */}
+      <div className="container mx-auto px-6 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        {/* Col 1 — Brand */}
+        <div className="flex flex-col gap-5">
+          <Link href="/" className="relative h-10 w-44 flex-shrink-0">
             <Image
               alt="Reves African Foundation Logo"
               src="/reves-logo-trans.png"
               fill
-              className="object-contain h-full w-full"
+              className="object-contain object-left"
             />
           </Link>
-
-          <p className="text-sm uppercase tracking-wide">
-            Everyone deserves the best
+          <p className="text-sm text-gray-400 leading-relaxed max-w-xs">
+            Empowering the youth and children of Africa through education,
+            health, and sustainable community development programs since 2014.
           </p>
-        </div>
-
-        {/* Links */}
-        <div className="flex flex-col gap-3">
-          <h3 className="font-semibold mb-2">Quick Links</h3>
-          <Link href="/about" className="hover:underline">
-            About Us
-          </Link>
-          <Link href="/projects" className="hover:underline">
-            Projects
-          </Link>
-          <Link href="/blog" className="hover:underline">
-            Blog
-          </Link>
-          <Link href="/contact" className="hover:underline">
-            Contact
-          </Link>
-        </div>
-
-        {/* Social + Theme + Language */}
-        <div className="flex flex-col items-start gap-4">
-          <div className="flex space-x-4 items-center">
-            <Link
-              href="https://m.facebook.com/RAYCDFOUNDATION/"
-              target="_blank"
-              aria-label="Facebook"
-            >
-              <FaFacebook size={20} className="hover:text-primary transition" />
-            </Link>
-            <Link
-              href="https://ng.linkedin.com/company/revesfoundation"
-              target="_blank"
-              aria-label="LinkedIn"
-            >
-              <FaLinkedin size={20} className="hover:text-primary transition" />
-            </Link>
-            <Link
-              href="https://twitter.com/Revesfoundation"
-              target="_blank"
-              aria-label="Twitter"
-            >
-              <FaXTwitter size={20} className="hover:text-primary transition" />
-            </Link>
-            <Link
-              href="https://www.instagram.com/revesfoundation/"
-              target="_blank"
-              aria-label="Instagram"
-            >
-              <FaInstagram
-                size={20}
-                className="hover:text-primary transition"
-              />
-            </Link>
+          {/* Social icons */}
+          <div className="flex items-center gap-4 mt-1">
+            {socialLinks.map(({ href, icon: Icon, label }) => (
+              <Link
+                key={label}
+                href={href}
+                target="_blank"
+                aria-label={label}
+                className="text-gray-400 hover:text-[#3AF40C] transition-colors"
+              >
+                <Icon size={18} />
+              </Link>
+            ))}
           </div>
+        </div>
 
-          {/* Theme Toggle */}
-          <button
-            onClick={toggleTheme}
-            className="flex items-center gap-2 text-sm hover:underline"
-          >
-            {darkMode ? <Sun size={16} /> : <Moon size={16} />}
-            {darkMode ? "Light Mode" : "Dark Mode"}
-          </button>
+        {/* Col 2 — Quick Links */}
+        <div className="flex flex-col gap-3">
+          <h3 className="text-[#3AF40C] text-xs font-bold uppercase tracking-widest mb-2">
+            Quick Links
+          </h3>
+          {quickLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className="text-gray-300 text-sm hover:text-white transition-colors"
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
 
-          {/* Language Switch (placeholder) */}
-          <select className="bg-transparent border border-white/20 px-2 py-1 rounded text-sm">
-            <option>English</option>
-            <option disabled>French (coming soon)</option>
-          </select>
+        {/* Col 3 — Support */}
+        <div className="flex flex-col gap-3">
+          <h3 className="text-[#3AF40C] text-xs font-bold uppercase tracking-widest mb-2">
+            Support
+          </h3>
+          {supportLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className="text-gray-300 text-sm hover:text-white transition-colors"
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
+
+        {/* Col 4 — Contact */}
+        <div className="flex flex-col gap-4">
+          <h3 className="text-[#3AF40C] text-xs font-bold uppercase tracking-widest mb-2">
+            Contact Information
+          </h3>
+          <div className="flex items-start gap-3 text-sm text-gray-300">
+            <MdLocationOn
+              size={18}
+              className="text-[#3AF40C] mt-0.5 flex-shrink-0"
+            />
+            <span>
+              123 Empowerment Way, Central Business District, Abuja, Nigeria
+            </span>
+          </div>
+          <div className="flex items-center gap-3 text-sm text-gray-300">
+            <MdEmail size={18} className="text-[#3AF40C] flex-shrink-0" />
+            <a
+              href="mailto:contact@revesfoundation.org"
+              className="hover:text-white transition-colors"
+            >
+              contact@revesfoundation.org
+            </a>
+          </div>
+          <div className="flex items-center gap-3 text-sm text-gray-300">
+            <MdPhone size={18} className="text-[#3AF40C] flex-shrink-0" />
+            <a
+              href="tel:+2348003738373"
+              className="hover:text-white transition-colors"
+            >
+              +234 (0) 800 REVES (73837)
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* Bottom Section */}
-      <div
-        className={`border-t ${
-          darkMode ? "border-white/10" : "border-black/10"
-        } py-4 text-center text-xs text-gray-400`}
-      >
-        © {new Date().getFullYear()} Reves African Foundation. All rights
-        reserved.
+      {/* Bottom bar */}
+      <div className="border-t border-white/10 py-5">
+        <div className="container mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
+          <span>
+            © {new Date().getFullYear()} Reves African Youth and Children
+            Development Foundation. All rights reserved.
+          </span>
+          <div className="flex items-center gap-5">
+            <Link
+              href="/privacy"
+              className="hover:text-white transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/tax-info"
+              className="hover:text-white transition-colors"
+            >
+              Tax Info
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   );
