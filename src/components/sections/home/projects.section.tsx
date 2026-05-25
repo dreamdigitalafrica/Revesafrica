@@ -79,8 +79,8 @@ export default function ProjectsSection() {
   const [first, second, third, fourth, ...rest] = posts;
 
   return (
-    <section className="bg-[#f4f6fb] py-16 px-4 md:px-8" id="projects">
-      <div className="text-center mb-10 max-w-2xl mx-auto">
+    <section className="bg-[#f4f6fb] py-16" id="projects">
+      <div className="text-center mb-10  px-4 md:px-8 max-w-2xl mx-auto">
         <p className="text-[#3AF40C] text-xs font-bold uppercase tracking-widest mb-3">
           Our Recent Impact
         </p>

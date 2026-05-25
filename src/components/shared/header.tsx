@@ -120,7 +120,7 @@ const Header = () => {
         </nav>
 
         {/* CTA buttons */}
-        <ul className="flex items-center gap-3">
+        <ul className=" hidden md:flex items-center gap-3">
           {buttonItems.map((item) => {
             const isDonate = item.name === "Donate Now";
             return (
