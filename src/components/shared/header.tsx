@@ -7,10 +7,6 @@ import { useEffect, useState } from "react";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import MobileSideBar from "./mobile-sidebar";
 
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-
-interface HeaderProps {}
-
 export interface IDropDown {
   donate: boolean;
   whoWeAre: boolean;
@@ -18,7 +14,19 @@ export interface IDropDown {
 
 export type THandleDropDown = "donate" | "whoWeAre" | "both";
 
-const Header = ({}: HeaderProps) => {
+const navItems = [
+  { name: "Our Mission", href: "/our-mission" },
+  { name: "Impact", href: "/impact" },
+  { name: "Programs", href: "/programs" },
+  { name: "About Us", href: "/about-us" },
+];
+
+const buttonItems = [
+  { name: "Join Us", href: "/#contact-us" },
+  { name: "Donate Now", href: "/donate" },
+];
+
+const Header = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [menuOnMobile, setMenuOnMobile] = useState<boolean>(false);
   const [isDropDownOpen, setIsDropDownOpen] = useState<IDropDown>({
@@ -34,29 +42,20 @@ const Header = ({}: HeaderProps) => {
     setIsScrolled(window.scrollY > heroHeight);
   };
 
-  const handleMenuOnMobile = () => {
-    setMenuOnMobile((prev) => !prev);
-  };
-  const handleDropDown = (dropItem: "donate" | "whoWeAre" | "both") => {
+  const handleMenuOnMobile = () => setMenuOnMobile((prev) => !prev);
+
+  const handleDropDown = (dropItem: THandleDropDown) => {
     setIsDropDownOpen((prev) => {
-      if (dropItem === "donate") {
-        return { ...prev, donate: !prev.donate };
-      } else if (dropItem === "whoWeAre") {
-        return { ...prev, whoWeAre: !prev.whoWeAre };
-      } else {
-        return { donate: false, whoWeAre: false };
-      }
+      if (dropItem === "donate") return { ...prev, donate: !prev.donate };
+      if (dropItem === "whoWeAre") return { ...prev, whoWeAre: !prev.whoWeAre };
+      return { donate: false, whoWeAre: false };
     });
   };
 
   useEffect(() => {
-    if (isHome) {
-      window.addEventListener("scroll", handleScroll);
-    }
+    if (isHome) window.addEventListener("scroll", handleScroll);
     return () => {
-      if (isHome) {
-        window.removeEventListener("scroll", handleScroll);
-      }
+      if (isHome) window.removeEventListener("scroll", handleScroll);
     };
   }, [isHome]);
 
@@ -71,7 +70,8 @@ const Header = ({}: HeaderProps) => {
       }`}
     >
       <div className="container w-full px-4 py-4 flex justify-between items-center">
-        <Link href={"/"} className="logo w-max relative h-12 md:h-14">
+        {/* Logo */}
+        <Link href="/" className="logo w-max relative h-12 md:h-14">
           <Image
             alt="Reves Foundation Logo"
             src="/reves-logo-dark.png"
@@ -92,8 +92,9 @@ const Header = ({}: HeaderProps) => {
           />
         </Link>
 
-        {/* Navigation */}
-        <nav className="hidden md:flex text-base items-center justify-end gap-4 font-semibold">
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex text-base items-center gap-4 font-semibold">
+          {/* Nav links */}
           <ul
             className={`flex gap-8 items-center rounded-full py-2 px-8 text-gray-900 transition-all ${
               isHome && !isScrolled
@@ -101,111 +102,45 @@ const Header = ({}: HeaderProps) => {
                 : "bg-transparent"
             }`}
           >
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <li className="relative">
-              <div
-                onClick={() => handleDropDown("whoWeAre")}
-                className="flex cursor-pointer items-center space-x-2"
-              >
-                <span>Who we are</span>
-                {!isDropDownOpen.whoWeAre ? (
-                  <FaChevronDown size={12} />
-                ) : (
-                  <FaChevronUp size={12} />
-                )}
-              </div>
-
-              {isDropDownOpen.whoWeAre && (
-                <ul
-                  onClick={() => {
-                    handleDropDown("both");
-                  }}
-                  className="absolute p-4 flex flex-col gap-4 bg-white top-8 left-0 rounded-xl shadow-lg"
+            {navItems.map((item) => (
+              <li key={item.name}>
+                <Link
+                  href={item.href}
+                  className={`hover:opacity-70 transition-opacity ${
+                    currentPath === item.href
+                      ? "underline underline-offset-4"
+                      : ""
+                  }`}
                 >
-                  <li>
-                    <Link
-                      href={"/about"}
-                      className="w-20 py-2 px-2 pr-4 rounded-lg"
-                    >
-                      About
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link
-                      href={"/team"}
-                      className="w-20 py-2 px-2 pr-4 rounded-lg"
-                    >
-                      Team
-                    </Link>
-                  </li>
-                </ul>
-              )}
-              {/* Fixed routes */}
-            </li>
-            <li>
-              <Link href="/projects">Projects</Link>
-            </li>
-            <li>
-              <Link href="/#projects">Blog</Link>
-            </li>
-
-            {/* Donate Dropdown */}
-            <li
-              className="relative cursor-pointer"
-              onClick={() => handleDropDown("donate")}
-            >
-              <span className="flex gap-2 items-center">
-                Donate
-                {!isDropDownOpen.donate ? (
-                  <FaChevronDown size={12} />
-                ) : (
-                  <FaChevronUp size={12} />
-                )}
-              </span>
-              {isDropDownOpen.donate && (
-                <ul
-                  onClick={() => {
-                    handleDropDown("both");
-                  }}
-                  className="absolute p-4 flex flex-col gap-4 bg-white top-8 left-0 rounded-xl shadow-lg"
-                >
-                  <li>
-                    <Link
-                      href="https://flutterwave.com/donate/fqla2cajv8yi"
-                      target="_blank"
-                    >
-                      Flutterwave
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="https://paystack.com/pay/it-supplies-training"
-                      target="_blank"
-                    >
-                      PayStack
-                    </Link>
-                  </li>
-                </ul>
-              )}
-            </li>
-          </ul>
-
-          <ul>
-            <li>
-              <Link
-                className="bg-[#3AF40C] text-gray-900 px-4 py-2 rounded-full"
-                href={"/#contact-us"}
-              >
-                Contact
-              </Link>
-            </li>
+                  {item.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
 
-        {/* Mobile Menu */}
+        {/* CTA buttons */}
+        <ul className="flex items-center gap-3">
+          {buttonItems.map((item) => {
+            const isDonate = item.name === "Donate Now";
+            return (
+              <li key={item.name}>
+                <Link
+                  href={item.href}
+                  className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+                    isDonate
+                      ? "bg-[#3AF40C] text-gray-900 hover:brightness-90"
+                      : "border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+
+        {/* Mobile Menu Toggle */}
         <div
           className="menu-toggle p-1 bg-white rounded-md transition md:hidden hover:scale-105"
           onClick={handleMenuOnMobile}

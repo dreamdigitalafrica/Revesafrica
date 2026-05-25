@@ -1,66 +1,121 @@
-"use client";
-
 import Image from "next/image";
-import Marquee from "react-fast-marquee";
 
-const THEMATIC_AREAS = [
+const SDG_PILLARS = [
   {
     id: 1,
-    title: "Education & Mentorship",
-    image: "/images/thermatic-areas/1.png",
+    title: "No Poverty",
+    description:
+      "Empowering families with financial literacy and sustainable livelihood support.",
+    icon: "/images/sdg/no-poverty.png",
   },
   {
     id: 2,
-    title: "Health & Well-being",
-    image: "/images/thermatic-areas/2.png",
+    title: "Zero Hunger",
+    description:
+      "Implementing community-led nutrition programs and agricultural education.",
+    icon: "/images/sdg/zero-hunger.png",
   },
-  { id: 3, title: "Youth Empowerment", image: "/images/thermatic-areas/3.png" },
-  { id: 4, title: "Gender Equality", image: "/images/thermatic-areas/4.png" },
-  { id: 5, title: "Child Protection", image: "/images/thermatic-areas/5.png" },
+  {
+    id: 3,
+    title: "Quality Education",
+    description:
+      "Building schools and providing scholarships to deserving children across regions.",
+    icon: "/images/sdg/quality-education.png",
+  },
+  {
+    id: 4,
+    title: "Gender Equality",
+    description:
+      "Advocating for girls' rights and ensuring equal access to leadership opportunities.",
+    icon: "/images/sdg/gender-equality.png",
+  },
+  {
+    id: 5,
+    title: "Reduced Inequalities",
+    description:
+      "Fostering inclusive environments for children with disabilities and marginalized groups.",
+    icon: "/images/sdg/reduced-inequalities.png",
+  },
   {
     id: 6,
-    title: "Community Engagement",
-    image: "/images/thermatic-areas/6.png",
+    title: "Partnerships",
+    description:
+      "Collaborating with global NGOs and local governments for maximum reach.",
+    icon: "/images/sdg/partnerships.png",
   },
-  { id: 7, title: "Innovation & Tech", image: "/images/thermatic-areas/7.png" },
-  { id: 8, title: "Sustainability", image: "/images/thermatic-areas/8.png" },
+  {
+    id: 7,
+    title: "Peace & Justice",
+    description:
+      "Promoting safe spaces and youth advocacy programs for peaceful communities.",
+    icon: "/images/sdg/peace-justice.png",
+  },
+  {
+    id: 8,
+    title: "Good Health",
+    description:
+      "Providing mobile clinics and essential healthcare education to rural areas.",
+    icon: "/images/sdg/good-health.png",
+  },
 ];
+
+const PillarCard = ({
+  title,
+  description,
+  icon,
+}: {
+  title: string;
+  description: string;
+  icon: string;
+}) => (
+  <div className="bg-white rounded-2xl p-6 flex flex-col gap-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+    {/* Icon box */}
+    <div className="w-24 h-24 rounded-xl bg-gray-100 flex items-center justify-center overflow-hidden flex-shrink-0">
+      <Image
+        src={icon}
+        alt={`${title} Icon`}
+        width={192}
+        height={192}
+        className="object-cover"
+        loading="lazy"
+      />
+    </div>
+    <div className="flex flex-col gap-1.5">
+      <h3 className="font-bold text-gray-900 text-lg leading-snug">{title}</h3>
+      <p className="text-base text-gray-500 leading-relaxed">{description}</p>
+    </div>
+  </div>
+);
 
 const ThematicSection = () => {
   return (
-    <section
-      className="flex container flex-col px-6 space-y-6 md:px-14 py-10 md:py-16"
-      aria-labelledby="thematic-title"
-    >
-      <h2
-        id="thematic-title"
-        className="text-3xl md:text-5xl font-semibold text-gray-800"
-      >
-        Our Thematic Areas
-      </h2>
+    <section className="bg-[#f4f6fb] py-16 px-4 md:px-8">
+      {/* Header */}
+      <div className="text-center max-w-2xl mx-auto mb-12">
+        <p className="text-[#3AF40C] text-xs font-bold uppercase tracking-widest mb-3">
+          Our Strategic Pillars
+        </p>
+        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+          Aligned with Global Goals
+        </h2>
+        <p className="text-gray-500 text-base leading-relaxed">
+          We structure our programs to directly address the United Nations
+          Sustainable Development Goals, ensuring a holistic approach to child
+          and youth welfare in Africa.
+        </p>
+      </div>
 
-      <Marquee
-        delay={2}
-        pauseOnHover
-        gradient={false}
-        className="pt-4 space-x-4"
-      >
-        {THEMATIC_AREAS.map((area) => (
-          <div
-            key={area.id}
-            className="relative h-40 md:h-56 w-44 md:w-60 mr-6 md:mr-12 flex-shrink-0 rounded-2xl overflow-hidden shadow-md border"
-          >
-            <Image
-              src={area.image}
-              alt={area.title}
-              fill
-              className="object-cover"
-              quality={90}
-              loading="lazy"
-            />
-          </div>
+      {/* Grid */}
+      <div className="container grid grid-cols-2 md:grid-cols-4 gap-4">
+        {SDG_PILLARS.map((pillar) => (
+          <PillarCard
+            key={pillar.id}
+            title={pillar.title}
+            description={pillar.description}
+            icon={pillar.icon}
+          />
         ))}
-      </Marquee>
+      </div>
     </section>
   );
 };

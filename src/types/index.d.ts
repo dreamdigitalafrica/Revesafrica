@@ -9,6 +9,7 @@ type PostMetaData = {
 
 export interface Post {
   id: string;
+  category?: string;
   collectionId: string;
   title: string;
   description: string;
