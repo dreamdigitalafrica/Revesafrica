@@ -11,17 +11,17 @@ import {
 import { MdLocationOn, MdEmail, MdPhone } from "react-icons/md";
 
 const quickLinks = [
-  { name: "Our Mission", href: "/our-mission" },
-  { name: "Current Programs", href: "/programs" },
-  { name: "Recent Impact", href: "/impact" },
-  { name: "Success Stories", href: "/stories" },
+  { name: "Our Mission", href: "#" },
+  { name: "Current Programs", href: "#" },
+  { name: "Recent Impact", href: "#" },
+  { name: "Success Stories", href: "#" },
 ];
 
 const supportLinks = [
-  { name: "How to Donate", href: "/donate" },
-  { name: "Volunteer Form", href: "/volunteer" },
-  { name: "Partner With Us", href: "/partner" },
-  { name: "Terms of Use", href: "/terms" },
+  { name: "How to Donate", href: "#" },
+  { name: "Volunteer Form", href: "#" },
+  { name: "Partner With Us", href: "#" },
+  { name: "Terms of Use", href: "#" },
 ];
 
 const socialLinks = [
@@ -143,7 +143,7 @@ const Footer = () => {
               href="tel:+2348003738373"
               className="hover:text-white transition-colors"
             >
-              +234 (0) 800 REVES (73837)
+              +234 (0) 703 288 5407
             </a>
           </div>
         </div>
@@ -157,16 +157,10 @@ const Footer = () => {
             Development Foundation. All rights reserved.
           </span>
           <div className="flex items-center gap-5">
-            <Link
-              href="/privacy"
-              className="hover:text-white transition-colors"
-            >
+            <Link href="#" className="hover:text-white transition-colors">
               Privacy Policy
             </Link>
-            <Link
-              href="/tax-info"
-              className="hover:text-white transition-colors"
-            >
+            <Link href="#" className="hover:text-white transition-colors">
               Tax Info
             </Link>
           </div>

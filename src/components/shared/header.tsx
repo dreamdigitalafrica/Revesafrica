@@ -18,12 +18,12 @@ const navItems = [
   { name: "Our Mission", href: "/our-mission" },
   { name: "Impact", href: "/impact" },
   { name: "Programs", href: "/programs" },
-  { name: "About Us", href: "/about-us" },
+  { name: "About Us", href: "/about" },
 ];
 
 const buttonItems = [
-  { name: "Join Us", href: "/#contact-us" },
-  { name: "Donate Now", href: "/donate" },
+  { name: "Join Us", href: "https://forms.gle/qcjw4CUr63nfwV3K9" },
+  { name: "Donate Now", href: "https://flutterwave.com/donate/fqla2cajv8yi" },
 ];
 
 const Header = () => {
@@ -108,7 +108,7 @@ const Header = () => {
                   href={item.href}
                   className={`hover:opacity-70 transition-opacity ${
                     currentPath === item.href
-                      ? "underline underline-offset-4"
+                      ? "underline underline-offset-4 text-[#30b90e]"
                       : ""
                   }`}
                 >
@@ -127,6 +127,7 @@ const Header = () => {
               <li key={item.name}>
                 <Link
                   href={item.href}
+                  target="_blank"
                   className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
                     isDonate
                       ? "bg-[#3AF40C] text-gray-900 hover:brightness-90"
