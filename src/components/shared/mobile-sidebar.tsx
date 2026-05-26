@@ -6,7 +6,7 @@ const navItems = [
   { name: "Our Mission", href: "/our-mission" },
   { name: "Impact", href: "/impact" },
   { name: "Programs", href: "/programs" },
-  { name: "About Us", href: "/about-us" },
+  { name: "About Us", href: "/about" },
 ];
 
 interface MobileSideBarProps {

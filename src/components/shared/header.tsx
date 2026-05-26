@@ -18,7 +18,7 @@ const navItems = [
   { name: "Our Mission", href: "/our-mission" },
   { name: "Impact", href: "/impact" },
   { name: "Programs", href: "/programs" },
-  { name: "About Us", href: "/about-us" },
+  { name: "About Us", href: "/about" },
 ];
 
 const buttonItems = [
@@ -108,7 +108,7 @@ const Header = () => {
                   href={item.href}
                   className={`hover:opacity-70 transition-opacity ${
                     currentPath === item.href
-                      ? "underline underline-offset-4"
+                      ? "underline underline-offset-4 text-[#30b90e]"
                       : ""
                   }`}
                 >
