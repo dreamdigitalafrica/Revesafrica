@@ -1,8 +1,13 @@
 import Link from "next/link";
-
-import { FaChevronUp } from "react-icons/fa6";
-import { FaChevronDown, FaTimes } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
 import { IDropDown, THandleDropDown } from "./header";
+
+const navItems = [
+  { name: "Our Mission", href: "/our-mission" },
+  { name: "Impact", href: "/impact" },
+  { name: "Programs", href: "/programs" },
+  { name: "About Us", href: "/about-us" },
+];
 
 interface MobileSideBarProps {
   handleClose: () => void;
@@ -10,115 +15,41 @@ interface MobileSideBarProps {
   handleDropDown: (dropItem: THandleDropDown) => void;
 }
 
-const MobileSideBar = ({
-  handleClose,
-  handleDropDown,
-  isDropDownOpen,
-}: MobileSideBarProps) => {
+const MobileSideBar = ({ handleClose }: MobileSideBarProps) => {
   return (
-    <nav className="md:hidden fixed top-0 left-0 flex text-xl max-w-sm flex-col p-8 w-full bg-white h-full gap-6 font-semibold">
-      {/* Close Button */}
-      <div
-        className="menu-toggle w-max md:hidden ml-auto"
-        onClick={handleClose}
-      >
+    <nav className="md:hidden fixed top-0 left-0 flex text-xl max-w-sm flex-col p-8 w-full bg-white h-full gap-6 font-semibold z-50 shadow-xl">
+      {/* Close */}
+      <div className="ml-auto cursor-pointer" onClick={handleClose}>
         <FaTimes size={24} />
       </div>
 
-      {/* Navigation Links */}
-      <Link onClick={handleClose} href={"/"}>
-        Home
-      </Link>
+      {/* Nav links */}
+      {navItems.map((item) => (
+        <Link key={item.name} href={item.href} onClick={handleClose}>
+          {item.name}
+        </Link>
+      ))}
 
-      <div className="flex flex-col">
-        <div
-          onClick={() => handleDropDown("whoWeAre")}
-          className="flex cursor-pointer items-center space-x-4"
-        >
-          <span>Who we are</span>
-          {isDropDownOpen.whoWeAre ? (
-            <FaChevronUp size={14} />
-          ) : (
-            <FaChevronDown size={14} />
-          )}
-        </div>
+      {/* Divider */}
+      <div className="border-t border-gray-100" />
 
-        {isDropDownOpen.whoWeAre && (
-          <div
-            onClick={() => {
-              handleClose();
-              handleDropDown("both");
-            }}
-            className="w-fit flex flex-col space-y-4 items-center px-7 py-3 rounded-lg"
-          >
-            <Link href={"/about"}>About</Link>
-            <Link href={"/team"}>Team</Link>
-          </div>
-        )}
-        {/* Fixed routes */}
-      </div>
-      {/* Fixed routes */}
-
-      <Link onClick={handleClose} href={"/projects"}>
-        Projects
-      </Link>
-      <Link onClick={handleClose} href={"#projects"}>
-        Blog
-      </Link>
-
-      {/* Donate Dropdown */}
-      <div className="relative">
-        <button
-          onClick={() => handleDropDown("donate")}
-          className="w-full text-left flex gap-2 items-center"
-        >
-          Donate{" "}
-          {isDropDownOpen.donate ? (
-            <FaChevronUp size={14} />
-          ) : (
-            <FaChevronDown size={14} />
-          )}
-        </button>
-
-        {isDropDownOpen.donate && (
-          <ul
-            onClick={() => {
-              handleClose();
-              handleDropDown("both");
-            }}
-            className="mt-4 pl-4 flex flex-col gap-4"
-          >
-            <li>
-              <Link
-                href="https://flutterwave.com/donate/fqla2cajv8yi"
-                target="_blank"
-                className="block"
-                onClick={handleClose}
-              >
-                Flutterwave
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="https://paystack.com/pay/it-supplies-training"
-                target="_blank"
-                className="block"
-                onClick={handleClose}
-              >
-                PayStack
-              </Link>
-            </li>
-          </ul>
-        )}
-      </div>
-
-      {/* Contact Button */}
+      {/* Join Us — outlined */}
       <Link
+        href="/#contact-us"
         onClick={handleClose}
-        className="bg-green-400 text-gray-900 px-4 py-2 rounded-full text-center"
-        href={"#contact-us"}
+        className="border-2 border-gray-900 text-gray-900 px-4 py-2.5 rounded-full text-center text-base hover:bg-gray-900 hover:text-white transition-all"
       >
-        Contact
+        Join Us
+      </Link>
+
+      {/* Donate Now — green filled, direct Flutterwave link */}
+      <Link
+        href="https://flutterwave.com/donate/fqla2cajv8yi"
+        target="_blank"
+        onClick={handleClose}
+        className="bg-[#3AF40C] text-gray-900 px-4 py-2.5 rounded-full text-center text-base font-bold hover:brightness-90 transition-all"
+      >
+        Donate Now
       </Link>
     </nav>
   );

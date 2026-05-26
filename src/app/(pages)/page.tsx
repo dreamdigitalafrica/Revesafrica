@@ -4,8 +4,9 @@ import HeroSection from "@/components/sections/home/hero.section";
 import AboutUsSection from "@/components/sections/home/about-us.section";
 
 import ProjectsSection from "@/components/sections/home/projects.section";
-import ContactUsSection from "@/components/sections/home/contact.section";
+// import ContactUsSection from "@/components/sections/home/contact.section";
 import ThermaticSection from "@/components/sections/home/thermatic.section";
+import CTASection from "@/components/sections/home/cta.section";
 
 export default async function Home() {
   return (
@@ -15,7 +16,8 @@ export default async function Home() {
       <ThermaticSection />
       {/* <SupportUsSection /> */}
       <ProjectsSection />
-      <ContactUsSection />
+      {/* <ContactUsSection /> */}
+      <CTASection />
     </MainLayout>
   );
 }

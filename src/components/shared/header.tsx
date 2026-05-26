@@ -22,8 +22,8 @@ const navItems = [
 ];
 
 const buttonItems = [
-  { name: "Join Us", href: "/#contact-us" },
-  { name: "Donate Now", href: "/donate" },
+  { name: "Join Us", href: "https://forms.gle/qcjw4CUr63nfwV3K9" },
+  { name: "Donate Now", href: "https://flutterwave.com/donate/fqla2cajv8yi" },
 ];
 
 const Header = () => {
@@ -127,6 +127,7 @@ const Header = () => {
               <li key={item.name}>
                 <Link
                   href={item.href}
+                  target="_blank"
                   className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
                     isDonate
                       ? "bg-[#3AF40C] text-gray-900 hover:brightness-90"
