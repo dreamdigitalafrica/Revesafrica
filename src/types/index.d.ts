@@ -16,6 +16,8 @@ export interface Post {
   featuredImage: string;
   author: string;
   publishDate: string;
+  content: string;
+  excerpt?: string;
 }
 
 export interface TeamMember {

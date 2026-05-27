@@ -15,9 +15,9 @@ export interface IDropDown {
 export type THandleDropDown = "donate" | "whoWeAre" | "both";
 
 const navItems = [
-  { name: "Our Mission", href: "/our-mission" },
-  { name: "Impact", href: "/impact" },
-  { name: "Programs", href: "/programs" },
+  { name: "Our Mission", href: "/about#mission" },
+  { name: "Impact", href: "/about#impact" },
+  { name: "Programs", href: "/projects" },
   { name: "About Us", href: "/about" },
 ];
 
