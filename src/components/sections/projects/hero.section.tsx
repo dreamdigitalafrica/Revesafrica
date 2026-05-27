@@ -1,35 +1,25 @@
 import Image from "next/image";
-import React from "react";
 
 const HeroSection = () => {
   return (
-    <section className="w-full container h-fit md:flex md:flex-col md:space-y-11 md:items-center md:justify-center">
-      <h3 className="hidden items-center font-extrabold md:flex md:space-x-3 md:text-5xl">
-        <span>Our</span>
-        <span className="text-[#3AF40C]">Projects</span>
-      </h3>
-
-      <>
-        <Image
-          alt=""
-          width={677}
-          quality={100}
-          loading="lazy"
-          height={316.06}
-          src="/project-hero-image.svg"
-          className="w-full shadow-lg md:hidden"
-        />
-
-        <Image
-          width={1478}
-          height={690}
-          quality={100}
-          loading="lazy"
-          alt="project hero image"
-          src="/project-hero-image.svg"
-          className="w-full hidden md:block"
-        />
-      </>
+    <section className="relative w-full min-h-[40vh] rounded-2xl overflow-hidden bg-[#0d1117] flex items-center justify-center">
+      <Image
+        alt="Programs hero"
+        src="/project-hero-image.svg"
+        fill
+        className="object-cover opacity-40"
+        quality={100}
+        priority
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0d1117] via-[#0d1117]/60 to-transparent" />
+      <div className="relative z-10 text-center px-6 py-16 flex flex-col items-center gap-3">
+        <p className="text-[#3AF40C] text-xs font-bold uppercase tracking-widest">
+          Our Core Programs
+        </p>
+        <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight max-w-2xl">
+          Empowering Communities Through Focused Programs
+        </h1>
+      </div>
     </section>
   );
 };
