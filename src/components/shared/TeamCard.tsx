@@ -12,11 +12,11 @@ export default function TeamCard({
 }: TeamMember) {
   return (
     <Link
-      href={`/team/${username}`}
+      href={`/team/${encodeURIComponent(username)}`}
       className="rounded-xl w-full max-w-full flex flex-col gap-2 p-4"
     >
       <Image
-        src={profile_image || ""}
+        src={profile_image || "/reves-logo-dark.png"}
         alt={`${name} image`}
         height={1080}
         width={1080}

@@ -96,11 +96,11 @@ const AboutUsSection = () => {
           {/* CTAs */}
           <div className="flex items-center gap-4 flex-wrap mt-2">
             <Link
-              href="/annual-report.pdf"
+              href="mailto:contact@revesfoundation.org?subject=Annual%20report%20request"
               target="_blank"
               className="inline-flex items-center gap-2 bg-gray-900 text-white font-semibold px-6 py-4 rounded-xl hover:bg-gray-700 transition-colors"
             >
-              Download Annual Report
+              Request Annual Report
               <HiDownload size={18} />
             </Link>
             <Link

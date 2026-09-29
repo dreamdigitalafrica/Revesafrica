@@ -2,6 +2,7 @@ import CTASection from "@/components/sections/home/cta.section";
 import { pbUrl } from "@/lib/pocketbase.util";
 import { Post as P } from "@/types";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
@@ -11,21 +12,25 @@ type Props = {
 };
 
 async function getPost(id: string): Promise<P> {
-  const res = await fetch(`${pbUrl}/api/collections/projects/records/${id}`, {
+  if (!/^[a-z0-9]{15}$/.test(id)) notFound();
+  const res = await fetch(`${pbUrl}api/collections/projects/records/${id}`, {
     next: { revalidate: 10 },
   });
+  if (res.status === 404) notFound();
+  if (!res.ok) throw new Error("Unable to load this project. Please try again.");
   return res.json();
 }
 
 async function getAllPosts(): Promise<P[]> {
-  const res = await fetch(`${pbUrl}/api/collections/projects/records`);
+  const res = await fetch(`${pbUrl}api/collections/projects/records?perPage=500&sort=-created`);
+  if (!res.ok) throw new Error("Unable to load projects. Please try again.");
   const data = await res.json();
-  return data.items;
+  return data.items || [];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getPost(params.id);
-  const imageUrl = `${pbUrl}api/files/${post.collectionId}/${post.id}/${post.featuredImage}`;
+  const imageUrl = post.featuredImage ? `${pbUrl}api/files/${post.collectionId}/${post.id}/${post.featuredImage}` : "/images/projects/project-1.jpg";
 
   return {
     title: `${post.title} — Reves African Foundation`,
@@ -45,7 +50,7 @@ export default async function ProjectPost({ params }: Props) {
   const prevPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
   const nextPost =
     currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
-  const imageUrl = `${pbUrl}api/files/${post.collectionId}/${post.id}/${post.featuredImage}`;
+  const imageUrl = post.featuredImage ? `${pbUrl}api/files/${post.collectionId}/${post.id}/${post.featuredImage}` : "/images/projects/project-1.jpg";
 
   return (
     <main className="w-full bg-[#f4f6fb] min-h-screen">

@@ -3,9 +3,9 @@ import { FaTimes } from "react-icons/fa";
 import { IDropDown, THandleDropDown } from "./header";
 
 const navItems = [
-  { name: "Our Mission", href: "/our-mission" },
-  { name: "Impact", href: "/impact" },
-  { name: "Programs", href: "/programs" },
+  { name: "Our Mission", href: "/about#mission" },
+  { name: "Impact", href: "/#projects" },
+  { name: "Programs", href: "/projects" },
   { name: "About Us", href: "/about" },
 ];
 

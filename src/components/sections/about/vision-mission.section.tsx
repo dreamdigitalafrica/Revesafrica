@@ -14,7 +14,7 @@ const VisionMissionSection = () => {
         </p>
       </section>
 
-      <section className="about-section-con container space-y-5">
+      <section id="mission" className="about-section-con container space-y-5 scroll-mt-28">
         <h4 className="about-section-title bg-[#ecd400]">
           Our Mission Statement
         </h4>

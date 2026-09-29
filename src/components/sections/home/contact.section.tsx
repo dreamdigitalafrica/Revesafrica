@@ -5,6 +5,7 @@ import React, { useRef, useState } from "react";
 import emailJs from "@emailjs/browser";
 
 const ContactUsSection = () => {
+  const emailConfigured = Boolean(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID && process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID && process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
   const formRef = useRef<HTMLFormElement | null>(null);
   const [loading, setLoading] = useState(false);
   const [successMsg, setSuccessMsg] = useState("");
@@ -41,7 +42,7 @@ const ContactUsSection = () => {
             Get in Touch
           </h1>
           <p className="mt-2 text-gray-600">
-            Please fill out the form to contact us. Or call between 9:00 a.m.
+            Contact us by email or phone, or use the form when available. Call between 9:00 a.m.
             and 8:00 p.m. WAT, Monday through Friday.
           </p>
         </div>
@@ -49,7 +50,7 @@ const ContactUsSection = () => {
         <div className="flex md:flex-row flex-col-reverse gap-8">
           {/* Contact Form */}
           <div className="w-full md:max-w-3xl">
-            <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
+            {emailConfigured ? <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
               <input
                 type="text"
                 placeholder="Your Name"
@@ -88,7 +89,7 @@ const ContactUsSection = () => {
               >
                 {loading ? "Sending..." : "Submit"}
               </button>
-            </form>
+            </form> : <p className="py-6">Send your message to <a className="text-blue-600 underline" href="mailto:contact@revesfoundation.org">contact@revesfoundation.org</a>.</p>}
           </div>
 
           {/* Contact Info */}
@@ -117,7 +118,7 @@ const ContactUsSection = () => {
 
             <div>
               <p className="font-semibold">Phone:</p>
-              <a href="tel:2347037078046" className="text-blue-600 underline">
+              <a href="tel:+2347037078046" className="text-blue-600 underline">
                 +234 703 707 8046
               </a>
             </div>

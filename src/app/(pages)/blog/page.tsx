@@ -1,38 +1,5 @@
-import React from "react";
-// import { getPostsMetaData } from "@/util/util";
-import Link from "next/link";
-import { getPostsMetaData } from "@/lib/utils";
+import ProjectGrid from "@/components/sections/projects/project-grid.section";
 
-type PostMetaData = {
-  title: string;
-  author: string;
-  publishDate: string;
-  slug: string;
-};
-
-export default async function page() {
-  const posts = (await getPostsMetaData()) as PostMetaData[];
-
-  return (
-    <section className="p-4">
-      <h1 className="text-3xl font-semibold">My Blog Posts</h1>
-      <div className="flex gap-4 my-8">
-        {posts ? (
-          posts.map((post, index) => (
-            <Link
-              href={`/blog/${post.slug}`}
-              key={index}
-              className="p-8 border"
-            >
-              <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
-              <p className="font-semibold">{post.author}</p>
-              <p className="italic">{post.publishDate}</p>
-            </Link>
-          ))
-        ) : (
-          <h1 className="text-3xl font-extrabold">No Blog Post ...</h1>
-        )}
-      </div>
-    </section>
-  );
+export default function BlogPage() {
+  return <main className="max-w-6xl mx-auto px-4 py-12"><h1 className="text-4xl font-bold text-center mb-10">Stories and Updates</h1><ProjectGrid /></main>;
 }

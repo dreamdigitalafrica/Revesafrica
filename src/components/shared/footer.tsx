@@ -11,17 +11,16 @@ import {
 import { MdLocationOn, MdEmail, MdPhone } from "react-icons/md";
 
 const quickLinks = [
-  { name: "Our Mission", href: "#" },
-  { name: "Current Programs", href: "#" },
-  { name: "Recent Impact", href: "#" },
-  { name: "Success Stories", href: "#" },
+  { name: "Our Mission", href: "/about#mission" },
+  { name: "Current Programs", href: "/projects" },
+  { name: "Recent Impact", href: "/#projects" },
+  { name: "Success Stories", href: "/blog" },
 ];
 
 const supportLinks = [
-  { name: "How to Donate", href: "#" },
-  { name: "Volunteer Form", href: "#" },
-  { name: "Partner With Us", href: "#" },
-  { name: "Terms of Use", href: "#" },
+  { name: "How to Donate", href: "https://flutterwave.com/donate/fqla2cajv8yi" },
+  { name: "Volunteer Form", href: "https://forms.gle/qcjw4CUr63nfwV3K9" },
+  { name: "Partner With Us", href: "/#contact-us" },
 ];
 
 const socialLinks = [
@@ -140,7 +139,7 @@ const Footer = () => {
           <div className="flex items-center gap-3 text-sm text-gray-300">
             <MdPhone size={18} className="text-[#3AF40C] flex-shrink-0" />
             <a
-              href="tel:+2348003738373"
+              href="tel:+2347032885407"
               className="hover:text-white transition-colors"
             >
               +234 (0) 703 288 5407
@@ -157,11 +156,11 @@ const Footer = () => {
             Development Foundation. All rights reserved.
           </span>
           <div className="flex items-center gap-5">
-            <Link href="#" className="hover:text-white transition-colors">
-              Privacy Policy
+            <Link href="mailto:contact@revesfoundation.org?subject=Privacy%20enquiry" className="hover:text-white transition-colors">
+              Privacy Enquiries
             </Link>
-            <Link href="#" className="hover:text-white transition-colors">
-              Tax Info
+            <Link href="mailto:contact@revesfoundation.org?subject=Tax%20information%20request" className="hover:text-white transition-colors">
+              Request Tax Info
             </Link>
           </div>
         </div>

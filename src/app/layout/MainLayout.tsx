@@ -11,12 +11,14 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   useEffect(() => {
     const lenis = new Lenis();
 
+    let frame: number;
     function raf(time: number) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      frame = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    frame = requestAnimationFrame(raf);
+    return () => { cancelAnimationFrame(frame); lenis.destroy(); };
   }, []);
 
   return (

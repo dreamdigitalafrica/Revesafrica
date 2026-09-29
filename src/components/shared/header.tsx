@@ -16,7 +16,7 @@ export type THandleDropDown = "donate" | "whoWeAre" | "both";
 
 const navItems = [
   { name: "Our Mission", href: "/about#mission" },
-  { name: "Impact", href: "/about#impact" },
+  { name: "Impact", href: "/#projects" },
   { name: "Programs", href: "/projects" },
   { name: "About Us", href: "/about" },
 ];
@@ -142,12 +142,15 @@ const Header = () => {
         </ul>
 
         {/* Mobile Menu Toggle */}
-        <div
+        <button
+          type="button"
+          aria-label={menuOnMobile ? "Close navigation" : "Open navigation"}
+          aria-expanded={menuOnMobile}
           className="menu-toggle p-1 bg-white rounded-md transition md:hidden hover:scale-105"
           onClick={handleMenuOnMobile}
         >
           <HiOutlineMenuAlt1 size={24} color="black" />
-        </div>
+        </button>
 
         {menuOnMobile && (
           <MobileSideBar

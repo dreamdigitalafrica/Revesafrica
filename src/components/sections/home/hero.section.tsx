@@ -18,7 +18,7 @@ const slides = [
       text: "Become a Global Champion",
       href: "https://forms.gle/qcjw4CUr63nfwV3K9",
     },
-    secondaryCta: { text: "Explore Programs", href: "/programs" },
+    secondaryCta: { text: "Explore Programs", href: "/projects" },
   },
   {
     id: 2,
@@ -28,8 +28,8 @@ const slides = [
     title: "Unlocking Potential Through Quality Learning",
     description:
       "We provide the tools and resources necessary for children to excel and become the leaders of tomorrow.",
-    primaryCta: { text: "Support Education", href: "/donate" },
-    secondaryCta: { text: "Explore Programs", href: "/programs" },
+    primaryCta: { text: "Support Education", href: "https://flutterwave.com/donate/fqla2cajv8yi" },
+    secondaryCta: { text: "Explore Programs", href: "/projects" },
   },
 ];
 

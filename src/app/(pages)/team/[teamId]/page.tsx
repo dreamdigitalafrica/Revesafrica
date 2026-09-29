@@ -2,6 +2,7 @@ import Loading from "@/components/shared/loading";
 import { pbUrl } from "@/lib/pocketbase.util";
 import { TeamMember } from "@/types";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Image from "next/image";
 import React, { Suspense } from "react";
 
@@ -42,9 +43,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 async function getTeamMember(teamId: string): Promise<TeamMember | null> {
+  if (!/^[a-zA-Z0-9_.-]+$/.test(teamId)) return null;
   try {
     const api = await fetch(
-      `${pbUrl}/api/collections/team/records?filter=(username='${teamId}')`,
+      `${pbUrl}api/collections/team/records?filter=(username='${teamId}')`,
       {
         next: { revalidate: 10 }, // Revalidate every 10 seconds
         headers: {
@@ -86,20 +88,7 @@ async function getTeamMember(teamId: string): Promise<TeamMember | null> {
 export default async function TeamMemberPage({ params }: Props) {
   const teamMember = await getTeamMember(params.teamId);
 
-  if (!teamMember) {
-    return (
-      <main className="min-h-96 w-full">
-        <section className="py-12">
-          <div className="mx-auto max-w-6xl px-6 md:px-14">
-            <h2 className="text-4xl mb-12 font-bold md:text-5xl text-center">
-              Our <span className="text-green-400">Team</span>
-            </h2>
-            <p className="text-center text-gray-600">Team member not found.</p>
-          </div>
-        </section>
-      </main>
-    );
-  }
+  if (!teamMember) notFound();
 
   return (
     <main className="min-h-96 w-full">

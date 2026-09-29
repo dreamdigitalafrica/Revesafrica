@@ -12,7 +12,7 @@ export const useRevesProject = () => {
 
 const fetchTeamMembers = async (): Promise<TeamMember[]> => {
   const response = await fetch(
-    `${pbUrl}/api/collections/team/records?perPage=100`,
+    `${pbUrl}api/collections/team/records?perPage=100`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -33,7 +33,7 @@ const fetchTeamMembers = async (): Promise<TeamMember[]> => {
     bio: item.bio,
     role: item.role,
     profile_image: item.profile_image
-      ? `${pbUrl}/api/files/${item.collectionId}/${item.id}/${item.profile_image}`
+      ? `${pbUrl}api/files/${item.collectionId}/${item.id}/${item.profile_image}`
       : undefined,
   }));
 };

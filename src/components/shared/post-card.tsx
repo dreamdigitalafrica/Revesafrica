@@ -59,7 +59,7 @@ const PostCard = ({
             By {author} | {formattedDate}
           </span>
           <Link
-            href={`/blog/${id}`}
+            href={`/projects/${id}`}
             className="flex items-center space-x-1 text-blue-600 hover:text-blue-800 transition-colors"
           >
             <span>See more</span>

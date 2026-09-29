@@ -28,7 +28,7 @@ const BentoCard = ({
 
   return (
     <Link
-      href={`/blog/${post.id}`}
+      href={`/projects/${post.id}`}
       className={`group relative rounded-2xl overflow-hidden flex flex-col justify-end bg-gray-200 ${
         large
           ? "min-h-[320px] md:min-h-[380px]"
@@ -73,13 +73,13 @@ export default function ProjectsSection() {
   const { data: posts, error } = useRevesProject();
 
   if (error)
-    return <p className="text-center py-12">Error loading projects.</p>;
-  if (!posts) return <p className="text-center py-12">Loading...</p>;
+    return <section id="projects" className="text-center py-12 scroll-mt-28">Unable to load projects. Please refresh the page or <Link href="/#contact-us" className="underline">contact us</Link>.</section>;
+  if (!posts) return <section id="projects" className="text-center py-12 scroll-mt-28">Loading projects...</section>;
 
   const [first, second, third, fourth, ...rest] = posts;
 
   return (
-    <section className="bg-[#f4f6fb] py-16" id="projects">
+    <section className="bg-[#f4f6fb] py-16 scroll-mt-28" id="projects">
       <div className="text-center mb-10  px-4 md:px-8 max-w-2xl mx-auto">
         <p className="text-[#3AF40C] text-xs font-bold uppercase tracking-widest mb-3">
           Our Recent Impact
