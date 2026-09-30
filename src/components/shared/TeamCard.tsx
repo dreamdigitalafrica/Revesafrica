@@ -2,7 +2,7 @@ import { TeamMember } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { FaInstagram, FaLinkedin } from "react-icons/fa6";
+
 
 export default function TeamCard({
   name,
@@ -13,7 +13,7 @@ export default function TeamCard({
   return (
     <Link
       href={`/team/${encodeURIComponent(username)}`}
-      className="rounded-xl w-full max-w-full flex flex-col gap-2 p-4"
+      className="reves-team-card"
     >
       <Image
         src={profile_image || "/reves-logo-dark.png"}
@@ -31,10 +31,7 @@ export default function TeamCard({
         </h2>
 
         <p className="text-gray-500 font-medium">{role}</p>
-        <div className="flex gap-4 mt-1 items-center">
-          <FaInstagram size={30} />
-          <FaLinkedin size={30} />
-        </div>
+        <span className="reves-text-link">Meet {name.split(" ")[0]} ↗</span>
       </div>
     </Link>
   );

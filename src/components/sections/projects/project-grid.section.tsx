@@ -73,17 +73,7 @@ const ProjectGrid = () => {
   if (!posts) return <p className="text-center py-12">Loading...</p>;
 
   return (
-    <section>
-      {/* Section header */}
-      <div className="text-center mb-10">
-        <p className="text-[#3AF40C] text-xs font-bold uppercase tracking-widest mb-2">
-          Our Core Initiatives
-        </p>
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-          Transformative Programs for Change
-        </h2>
-      </div>
-
+    <section className="reves-project-grid">
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {posts.map((post, i) => (
