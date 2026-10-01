@@ -26,5 +26,16 @@ export const metadata: Metadata = {
 };
 
 export default function TeamPage() {
-  return <main className="reves-editorial reves-wrap"><header className="reves-page-heading"><p className="reves-eyebrow">Our people</p><h1>A shared belief.<br /><em>A committed team.</em></h1><p>Meet the people helping turn our mission into everyday action.</p></header><div className="reves-team-list"><Suspense fallback={<Loading />}><OurTeamSection /></Suspense></div></main>;
+  return (
+    <section className="reves-original-team-page w-full md:px-14 h-fit flex flex-col px-4 py-10 space-y-14">
+      <div className="mx-auto max-w-6xl">
+        <Suspense fallback={<Loading />}>
+          <h2 className="text-4xl mb-12 font-bold md:text-5xl text-center">
+            Our <span className="text-green-400">Team</span>
+          </h2>
+          <OurTeamSection />
+        </Suspense>
+      </div>
+    </section>
+  );
 }

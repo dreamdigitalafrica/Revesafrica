@@ -1,7 +1,18 @@
-import Image from "next/image";
-import Link from "next/link";
-import { CORE_VALUE_DATA, OBJECTIVES_DATA } from "@/lib/constants";
-import CTASection from "@/components/sections/home/cta.section";
-export default function About() {
-  return <main className="reves-editorial"><div className="reves-wrap"><header className="reves-page-heading"><p className="reves-eyebrow">About Rêves</p><h1>Potential is everywhere.<br /><em>Opportunity should be, too.</em></h1><p>Founded in November 2021, we support vulnerable children and young people in marginalised communities across Africa.</p></header><div className="reves-about-photo"><Image src="/images/about-us-page-bg.jpeg" alt="Reves Foundation community activities" fill priority sizes="100vw" /></div><section id="mission" className="reves-about-section"><p className="reves-eyebrow">Our mission</p><h2>Helping young people<br /><em>reach their full potential.</em></h2><p>We empower marginalised African youth and children through education, holistic well-being, skills development and access to economic opportunities, enabling them to become active contributors to their communities.</p></section><section className="reves-about-section"><p className="reves-eyebrow">Our vision</p><h2>An equal chance<br /><em>to learn, grow and thrive.</em></h2><p>We envision a world where all African youth and children have equal opportunities to thrive and contribute to the development of their communities.</p></section><section className="reves-about-section"><p className="reves-eyebrow">What guides our work</p><div className="reves-values">{OBJECTIVES_DATA.map(item => <div key={item.title}><h3>{item.title}</h3><p>{item.description}</p></div>)}</div></section><section className="reves-about-section"><p className="reves-eyebrow">Our values</p><div className="reves-values">{CORE_VALUE_DATA.map(item => <div key={item.title}><h3>{item.title}</h3><p>{item.description}</p></div>)}</div></section><section className="reves-about-section"><p className="reves-eyebrow">Accountability</p><h2>Built on <em>trust.</em></h2><div className="reves-document-links"><Link className="reves-text-link" href="/documents/reves-foundation-certificate.pdf" target="_blank">View our registration certificate ↗</Link><Link className="reves-text-link" href="mailto:contact@revesfoundation.org?subject=Annual%20report%20request">Request our annual report ↗</Link></div></section></div><CTASection /></main>;
-}
+import SupportUsSection from "@/components/sections/home/support.section";
+
+import HeroSection from "@/components/sections/about/hero.section";
+import CertificationSection from "@/components/sections/about/certification.section";
+import VisionMissionSection from "@/components/sections/about/vision-mission.section";
+
+const About = () => {
+  return (
+    <main className="reves-original-about-page w-full h-fit flex flex-col px-4 py-10 space-y-10 md:space-y-20 md:px-14">
+      <HeroSection />
+      <VisionMissionSection />
+      <CertificationSection />
+      <SupportUsSection />
+    </main>
+  );
+};
+
+export default About;

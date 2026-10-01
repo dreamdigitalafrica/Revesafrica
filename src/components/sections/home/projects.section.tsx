@@ -79,7 +79,7 @@ export default function ProjectsSection() {
   const [first, second, third, fourth, ...rest] = posts;
 
   return (
-    <section className="bg-[#f4f6fb] py-16 scroll-mt-28" id="projects">
+    <section className="reves-original-projects bg-[#f4f6fb] py-16 scroll-mt-28" id="projects">
       <div className="text-center mb-10  px-4 md:px-8 max-w-2xl mx-auto">
         <p className="text-[#3AF40C] text-xs font-bold uppercase tracking-widest mb-3">
           Our Recent Impact

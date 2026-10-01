@@ -89,7 +89,7 @@ const PillarCard = ({
 
 const ThematicSection = () => {
   return (
-    <section className="bg-[#f4f6fb] py-16">
+    <section className="reves-original-pillars bg-[#f4f6fb] py-16">
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-12 px-4 md:px-8">
         <p className="text-[#3AF40C] text-xs font-bold uppercase tracking-widest mb-3">

@@ -58,7 +58,7 @@ const HeroSection = () => {
   const slide = slides[current];
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden bg-[#0d1117]">
+    <section className="reves-original-hero relative w-full min-h-screen overflow-hidden bg-[#0d1117]">
       {/* Background Image with overlay */}
       <div
         className={`absolute inset-0 transition-opacity duration-500 ${animating ? "opacity-0" : "opacity-100"}`}
