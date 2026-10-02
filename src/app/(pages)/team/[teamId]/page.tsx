@@ -95,7 +95,7 @@ export default async function TeamMemberPage({ params }: Props) {
       <section className="py-12">
         <div className="mx-auto max-w-6xl px-6 md:px-14">
           <h2 className="text-4xl mb-12 font-medium italic md:text-5xl  text-center">
-            Our <span className=" font-bold text-[#F7901E]">Team</span>
+            Our <span className=" font-bold text-[#0C529C]">Team</span>
           </h2>
 
           {/*  */}

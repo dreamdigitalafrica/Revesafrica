@@ -85,7 +85,7 @@ const ContactUsSection = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-[#F7901E] hover:bg-[#E17A08] text-gray-900 px-6 py-3 font-semibold rounded-md disabled:opacity-50"
+                className="bg-[#0C529C] hover:bg-[#093F78] text-white px-6 py-3 font-semibold rounded-md disabled:opacity-50"
               >
                 {loading ? "Sending..." : "Submit"}
               </button>

@@ -31,7 +31,7 @@ export default function TeamPage() {
       <div className="mx-auto max-w-6xl">
         <Suspense fallback={<Loading />}>
           <h2 className="text-4xl mb-12 font-bold md:text-5xl text-center">
-            Our <span className="text-[#F7901E]">Team</span>
+            Our <span className="text-[#0C529C]">Team</span>
           </h2>
           <OurTeamSection />
         </Suspense>

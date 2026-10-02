@@ -13,7 +13,7 @@ const HeroSection = () => {
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#0d1117] via-[#0d1117]/60 to-transparent" />
       <div className="relative z-10 text-center px-6 py-16 flex flex-col items-center gap-3">
-        <p className="text-[#F7901E] text-xs font-bold uppercase tracking-widest">
+        <p className="text-[#0C529C] text-xs font-bold uppercase tracking-widest">
           Our Core Programs
         </p>
         <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight max-w-2xl">

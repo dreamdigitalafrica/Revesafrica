@@ -122,7 +122,7 @@ textarea {
 @font-face { font-family: 'Reves Serif'; src: url('/fonts/NotoSerif-Italic.woff2') format('woff2'); font-style: italic; font-weight: 400; font-display: swap; }
 @font-face { font-family: 'Reves Display'; src: url('/fonts/NotoSerif-Condensed-Light.woff2') format('woff2'); font-weight: 300; font-display: swap; }
 @font-face { font-family: 'Reves Display'; src: url('/fonts/NotoSerif-Condensed-LightItalic.woff2') format('woff2'); font-weight: 300; font-style: italic; font-display: swap; }
-:root { --reves-ink: #313a44; --reves-paper: #fff; --reves-brand: #f7901e; --reves-yellow: var(--reves-brand); --reves-blue: #3579c5; --reves-line: #cfcfcf; --font-inter: 'Reves Sans'; --font-serif: 'Reves Serif',serif; --font-display: 'Reves Display',serif; --font-sans: 'Reves Sans',sans-serif; }
+:root { --reves-ink: #313a44; --reves-paper: #fff; --reves-brand: #0c529c; --reves-yellow: var(--reves-brand); --reves-blue: var(--reves-brand); --reves-line: #cfcfcf; --font-inter: 'Reves Sans'; --font-serif: 'Reves Serif',serif; --font-display: 'Reves Display',serif; --font-sans: 'Reves Sans',sans-serif; }
 html { scroll-behavior: smooth; scroll-padding-top: 110px; }
 body { background: #fff; color: var(--reves-ink); font-family: var(--font-serif); font-size: 18px; line-height: 1.6; }
 main { min-width: 0; }
@@ -133,7 +133,9 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline: 3px solid va
 .reves-wrap { width: min(1280px,calc(100% - 128px)); margin-inline: auto; }
 .reves-wordmark { font-family: var(--font-display); font-size: clamp(25px,2.7vw,38px); font-weight: 300; line-height: 1.15; letter-spacing: -.06em; white-space: nowrap; }
 .reves-header { position: relative; z-index: 60; background: white; }
-.reves-header-home { background: var(--reves-brand); }
+.reves-header-home { background: var(--reves-brand); color: white; }
+.reves-header-home .reves-navigation.is-open,.reves-nav-panel,.reves-search { color: var(--reves-ink); }
+.reves-header-home a:focus-visible,.reves-header-home button:focus-visible { outline-color: currentColor; }
 .reves-header-inner { width: min(1280px,calc(100% - 128px)); min-height: 96px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
 .reves-navigation { display: flex; gap: 36px; }
 .reves-nav-group > button,.reves-search-toggle { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 600; letter-spacing: .02em; }
@@ -148,9 +150,9 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline: 3px solid va
 .reves-search input { border-radius: 7px; background: white; border: 1px solid var(--reves-ink); font-size: 20px; }
 .reves-search ul { max-height: 300px; overflow: auto; }
 .reves-search li { padding: 12px 0; border-bottom: 1px solid var(--reves-line); }
-.reves-button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 14px 32px; border: 1px solid transparent; border-radius: 7px; background: var(--reves-yellow); color: var(--reves-ink); font-family: var(--font-sans); font-size: 20px; font-weight: 600; letter-spacing: .02em; line-height: 1.2; transition: background 500ms ease,color 500ms ease; }
-.reves-button:hover { background: #e17a08; }
-.reves-button-outline { background: white; border-color: var(--reves-blue); }
+.reves-button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 14px 32px; border: 1px solid transparent; border-radius: 7px; background: var(--reves-yellow); color: white; font-family: var(--font-sans); font-size: 20px; font-weight: 600; letter-spacing: .02em; line-height: 1.2; transition: background 500ms ease,color 500ms ease; }
+.reves-button:hover { background: #093f78; }
+.reves-button-outline { color: var(--reves-ink); background: white; border-color: var(--reves-blue); }
 .reves-button-outline:hover { background: var(--reves-blue); color: white; }
 .reves-text-link { font-family: var(--font-sans); font-size: 20px; font-weight: 600; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
 .reves-text-link:hover { text-decoration-color: var(--reves-yellow); }
@@ -171,7 +173,7 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline: 3px solid va
 .reves-hero-controls { position: absolute; top: 50%; right: 3.5%; transform: translateY(-50%); z-index: 5; display: flex; flex-direction: column; color: white; }
 .reves-hero-controls button { width: 44px; height: 44px; display: grid; place-items: center; font-size: 28px; }
 .reves-hero-controls button span { width: 16px; height: 16px; border: 2px solid white; border-radius: 50%; }
-.reves-hero-controls button[aria-pressed=true] span { background: var(--reves-yellow); border-color: var(--reves-yellow); }
+.reves-hero-controls button[aria-pressed=true] span { background: var(--reves-yellow); border-color: white; }
 .reves-hero-play { position: absolute; bottom: 10%; right: 4%; z-index: 5; width: 44px; height: 44px; border-radius: 50%; background: #313a44bb; color: white; }
 .reves-hero-play:disabled { display: none; }
 .reves-mission { padding-block: 90px 110px; text-align: center; }
@@ -197,7 +199,7 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline: 3px solid va
 .reves-stories-layout { display: grid; grid-template-columns: 27% 1fr; gap: 40px; }
 .reves-story-categories { display: flex; flex-direction: column; align-items: start; gap: 16px; }
 .reves-story-categories button { text-align: left; color: #b9bdc1; font-size: 28px; line-height: 1.15; font-weight: 900; }
-.reves-story-categories button[aria-pressed=true] { color: white; text-decoration: underline; text-underline-offset: 7px; text-decoration-color: var(--reves-yellow); }
+.reves-story-categories button[aria-pressed=true] { color: white; text-decoration: underline; text-underline-offset: 7px; text-decoration-color: white; }
 .reves-story-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 32px; }
 .reves-story-image { position: relative; aspect-ratio: 16/9; border-radius: 9px; overflow: hidden; }
 .reves-story-image img { object-fit: cover; transition: transform 500ms ease; }
@@ -205,21 +207,22 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline: 3px solid va
 .reves-story-card h3 { font-size: 29px; margin: 24px 0 18px; }
 .reves-story-card p { font-size: 16px; line-height: 1.65; }
 .reves-story-controls { display: flex; justify-content: flex-end; gap: 12px; margin-top: 30px; }
-.reves-story-controls button { width: 48px; height: 48px; border-radius: 7px; background: var(--reves-yellow); color: var(--reves-ink); font-size: 26px; }
+.reves-story-controls button { width: 48px; height: 48px; border-radius: 7px; background: var(--reves-yellow); color: white; font-size: 26px; }
 .reves-story-controls button:disabled { opacity: .35; cursor: default; }
 .reves-original-pillars { background: white; padding-block: 85px; }
 .reves-original-pillars h2 { text-transform: uppercase; }
 .reves-original-pillars .grid > div { background: white; border: 0; box-shadow: none; padding: 24px 10px; border-radius: 0; }
 .reves-original-pillars h3 { font-size: 26px; }
 .reves-original-pillars p { color: var(--reves-ink); }
-.reves-original-pillars .text-\[\#F7901E\] { color: var(--reves-ink); }
+.reves-original-pillars .text-\[\#0C529C\] { color: var(--reves-ink); }
 .reves-home #contact-us { background: white; padding-block: 70px; border-top: 1px solid var(--reves-line); }
 .reves-home #contact-us h2 { font-size: 46px; text-transform: uppercase; }
 .reves-home #contact-us a { color: var(--reves-ink); text-decoration: underline; }
-.reves-invitation { background: var(--reves-yellow); border-radius: 55px; padding: 65px; margin-block: 30px 85px; text-align: center; }
+.reves-invitation { color: white; background: var(--reves-yellow); border-radius: 55px; padding: 65px; margin-block: 30px 85px; text-align: center; }
 .reves-invitation h2 { font-size: clamp(34px,4vw,54px); max-width: 800px; margin: auto; }
 .reves-invitation > div { margin-top: 32px; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 32px; }
-.reves-invitation .reves-button { background: var(--reves-ink); color: white; }
+.reves-invitation .reves-button { background: white; color: var(--reves-brand); }
+.reves-invitation .reves-button:hover { background: #dceaf8; }
 .reves-original-footer { background: var(--reves-ink); color: white; padding-top: 30px; }
 .reves-original-footer > .container { max-width: 1440px; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; }
 .reves-original-footer p,.reves-original-footer a,.reves-original-footer span,.reves-original-footer svg { color: white; }

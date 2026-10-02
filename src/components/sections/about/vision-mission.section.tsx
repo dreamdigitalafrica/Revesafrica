@@ -5,7 +5,7 @@ const VisionMissionSection = () => {
   return (
     <>
       <section className="about-section-con container space-y-1">
-        <h4 className="about-section-title bg-[#F7901E]">Our Vision</h4>
+        <h4 className="about-section-title bg-[#0C529C]">Our Vision</h4>
 
         <p className="about-section-text">
           We envision a world where all African youth and children have equal
@@ -15,11 +15,11 @@ const VisionMissionSection = () => {
       </section>
 
       <section id="mission" className="about-section-con container space-y-5 scroll-mt-28">
-        <h4 className="about-section-title bg-[#F7901E]">
+        <h4 className="about-section-title bg-[#0C529C]">
           Our Mission Statement
         </h4>
 
-        <p className="about-section-text bg-[#FDE3C6]">
+        <p className="about-section-text bg-[#DCEAF8]">
           Empowering marginalised African youth and children, specifically those
           limited by poverty and underrepresented to reach their full potential
           through education, holistic well-being, skills development, and access
@@ -40,9 +40,9 @@ const VisionMissionSection = () => {
       </section>
 
       <section className="about-section-con container space-y-5">
-        <h4 className="about-section-title bg-[#F7901E]">Our Objectives</h4>
+        <h4 className="about-section-title bg-[#0C529C]">Our Objectives</h4>
 
-        <p className="about-section-text flex flex-col space-y-3 bg-[#FDE3C6]">
+        <p className="about-section-text flex flex-col space-y-3 bg-[#DCEAF8]">
           {OBJECTIVES_DATA.map(({ title, description }, i) => (
             <span key={title + i}>
               <span className="font-bold">{title}:</span> {description}

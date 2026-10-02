@@ -34,3 +34,7 @@ Reference styles:
 At the owner’s request, the green theme accents are replaced with #F7901E (RGB 247, 144, 30), sampled from the dominant warm yellow-orange pixels of public/reves-logo-dark.png. The semantic token is now --reves-brand. The reference-yellow controls, white backgrounds, photos and copy are unchanged. Green in original images and semantic success messages remains unchanged.
 
 The owner subsequently requested all remaining yellow accents use the logo shade too. --reves-yellow now aliases --reves-brand (#F7901E), including buttons, pagination, project controls and the support panel. Hover uses the darker same-hue #E17A08; pale yellow surfaces use #FDE3C6.
+
+## Logo blue trial — 2 October 2026
+
+The owner requested trying the logo blue. Sampled dominant RGB 12, 82, 156 (#0C529C) from public/reves-logo-dark.png; applied across theme accents. Blue surfaces use white foregrounds, hover uses #093F78 and pale tints use #DCEAF8. White dropdown/search surfaces retain dark text. Photos and copy are unchanged.
