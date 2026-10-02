@@ -233,8 +233,8 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline: 3px solid va
 .reves-original-footer .text-sm { font-size: 16px; }
 .reves-original-footer .border-t span,.reves-original-footer .border-t a { color: #b9bdc1; }
 /* Inner pages share the same type hierarchy and clean page surfaces. */
-main:not(.reves-home) { background: white; }
-main:not(.reves-home) h1 { font-size: clamp(38px,5vw,72px); text-transform: uppercase; }
+main:not(.reves-home):not(.reves-admin) { background: white; }
+main:not(.reves-home):not(.reves-admin) h1 { font-size: clamp(38px,5vw,72px); text-transform: uppercase; }
 .reves-original-about-page .about-section-title { font-family: var(--font-sans); font-size: 36px; font-weight: 900; background: white; box-shadow: none; border-radius: 0; padding-left: 0; }
 .reves-original-about-page .about-section-text { background: white; border-radius: 0; padding-left: 0; line-height: 1.85; }
 .reves-original-about-page .about-section-con { border-top: 1px solid var(--reves-line); padding-top: 24px; }

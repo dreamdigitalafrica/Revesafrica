@@ -1,3 +1,4 @@
+import { cleanStory, plainText } from "@/lib/admin/content";
 import CTASection from "@/components/sections/home/cta.section";
 import { pbUrl } from "@/lib/pocketbase.util";
 import { Post as P } from "@/types";
@@ -18,14 +19,16 @@ async function getPost(id: string): Promise<P> {
   });
   if (res.status === 404) notFound();
   if (!res.ok) throw new Error("Unable to load this project. Please try again.");
-  return res.json();
+  const post: P = await res.json();
+  if (post.websiteStatus === "draft") notFound();
+  return post;
 }
 
 async function getAllPosts(): Promise<P[]> {
-  const res = await fetch(`${pbUrl}api/collections/projects/records?perPage=500&sort=-created`);
+  const res = await fetch(`${pbUrl}api/collections/projects/records?perPage=500&sort=-datePublished`, { next: { revalidate: 10 } });
   if (!res.ok) throw new Error("Unable to load projects. Please try again.");
   const data = await res.json();
-  return data.items || [];
+  return (data.items || []).filter((post: P) => post.websiteStatus !== "draft");
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -34,10 +37,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${post.title} — Reves African Foundation`,
-    description: post.content?.slice(0, 160),
+    description: (post.description || plainText(post.content)).slice(0, 160),
     openGraph: {
       title: `${post.title} — Reves African Foundation`,
-      description: post.content?.slice(0, 160),
+      description: (post.description || plainText(post.content)).slice(0, 160),
       images: [{ url: imageUrl, width: 1080, height: 920, alt: post.title }],
     },
   };
@@ -58,7 +61,7 @@ export default async function ProjectPost({ params }: Props) {
       <section className="relative w-full h-[50vh] md:h-[65vh] overflow-hidden">
         <Image
           src={imageUrl}
-          alt={post.title}
+          alt={post.featuredImageAlt || post.title}
           fill
           priority
           quality={100}
@@ -90,6 +93,10 @@ export default async function ProjectPost({ params }: Props) {
       {/* Content */}
       <div className="max-w-3xl mx-auto px-4 md:px-6 py-14">
         <article className="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-12">
+          <p className="mb-8 text-sm text-gray-600">
+            {post.author && <span>By {post.author} · </span>}
+            {post.datePublished && <time dateTime={new Date(post.datePublished).toISOString()}>{new Date(post.datePublished).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "Africa/Lagos" })}</time>}
+          </p>
           <div
             className="prose prose-lg prose-gray max-w-none
               prose-headings:font-bold prose-headings:text-gray-900
@@ -97,7 +104,7 @@ export default async function ProjectPost({ params }: Props) {
               prose-a:text-[#0C529C] prose-a:no-underline hover:prose-a:underline
               prose-img:rounded-2xl prose-img:shadow-md
               prose-blockquote:border-l-[#0C529C] prose-blockquote:text-gray-500"
-            dangerouslySetInnerHTML={{ __html: post.content }}
+            dangerouslySetInnerHTML={{ __html: cleanStory(post.content) }}
           />
         </article>
 

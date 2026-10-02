@@ -15,7 +15,14 @@ export interface Post {
   description: string;
   featuredImage: string;
   author: string;
-  publishDate: string;
+  publishDate?: string;
+  datePublished: string;
+  updated: string;
+  created: string;
+  isPublished?: boolean;
+  websiteStatus?: "draft" | "published" | "";
+  featuredImageAlt?: string;
+  photos?: string[];
   content: string;
   excerpt?: string;
 }

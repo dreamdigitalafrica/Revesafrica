@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import NextTopLoader from "nextjs-toploader";
 
 import "./styles/index.scss";
-import Header from "../components/shared/header";
-import Footer from "@/components/shared/footer";
+import SiteFrame from "@/components/shared/site-frame";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.revesfoundation.org/"),
@@ -39,9 +38,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <NextTopLoader />
-        <Header />
-        {children}
-        <Footer />
+        <SiteFrame>{children}</SiteFrame>
       </body>
     </html>
   );

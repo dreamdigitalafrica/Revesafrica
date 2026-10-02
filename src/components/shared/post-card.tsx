@@ -9,7 +9,8 @@ interface Props {
   pbUrl: string;
   title: string;
   author: string;
-  publishDate: string;
+  publishDate?: string;
+  datePublished?: string;
   collectionId: string;
   featuredImage: string;
 }
@@ -20,13 +21,14 @@ const PostCard = ({
   pbUrl,
   author,
   publishDate,
+  datePublished,
   collectionId,
   featuredImage,
 }: Props) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   const imageUrl = `${pbUrl}api/files/${collectionId}/${id}/${featuredImage}`;
-  const formattedDate = publishDate || "November 2021";
+  const formattedDate = datePublished ? new Date(datePublished).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "Africa/Lagos" }) : publishDate || "";
 
   return (
     <article className="group p-4 ml-4 rounded-xl w-full max-w-sm border bg-white flex flex-col justify-between shadow-sm hover:shadow-lg transition-shadow duration-300">

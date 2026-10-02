@@ -5,7 +5,7 @@ import pbClient, { pbUrl } from "./pocketbase.util";
 
 export const useRevesProject = () => {
   const fetcher = async () =>
-    pbClient.collection("projects").getFullList<Post>({ sort: "-created" });
+    pbClient.collection("projects").getFullList<Post>({ sort: "-datePublished" }).then(posts => posts.filter(post => post.websiteStatus !== "draft"));
 
   return useSWR<Post[]>("projects", fetcher);
 };
