@@ -1,0 +1,3 @@
+import Image from "next/image";
+import Link from "next/link";
+export default function FeatureSection(){return <section className="reves-feature"><div className="reves-feature-photo"><Image src="/images/projects/big-smile-project.jpg" alt="The Big Smile Project community outreach" fill sizes="(max-width: 780px) 100vw, 50vw"/></div><div className="reves-feature-copy"><h2>The <em>Big Smile</em> Project</h2><p>The Big Smile Project was a community outreach initiative aimed at bringing joy and relief to the women and children of Kuchimbuyi Community.</p><Link className="reves-button" href="/projects/j3fhhgfmav8nrwr">Read more</Link></div></section>;}

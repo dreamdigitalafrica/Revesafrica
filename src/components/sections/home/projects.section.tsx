@@ -1,121 +1,21 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import {useState} from "react";
 import { useRevesProject } from "@/lib/hook";
 import { pbUrl } from "@/lib/pocketbase.util";
-import { Post } from "@/types";
-
-const categoryColors: Record<string, string> = {
-  "Education Outreach": "bg-[#3AF40C] text-gray-900",
-  "Youth Leadership": "bg-blue-500 text-white",
-  "Zero Hunger": "bg-orange-500 text-white",
-  "Child Advocacy": "bg-blue-600 text-white",
+// Groupings use the existing project descriptions and the Big Smile initiative.
+const topics: Record<string,string[]> = {
+ "Digital literacy": ["4pl0x8grg1er9qv"],
+ "Community outreach": ["0oazw62uxxbfenh","j3fhhgfmav8nrwr","qrq2q2f5o1kz9oy"],
+ "Mental health": ["xfrple26m2zu5fd"],
 };
-
-const BentoCard = ({
-  post,
-  large = false,
-}: {
-  post: Post;
-  large?: boolean;
-}) => {
-  const imageUrl = post.featuredImage
-    ? `${pbUrl}api/files/${post.collectionId}/${post.id}/${post.featuredImage}`
-    : null;
-
-  const badgeClass =
-    categoryColors[post.category ?? ""] ?? "bg-gray-500 text-white";
-
-  return (
-    <Link
-      href={`/projects/${post.id}`}
-      className={`group relative rounded-2xl overflow-hidden flex flex-col justify-end bg-gray-200 ${
-        large
-          ? "min-h-[320px] md:min-h-[380px]"
-          : "min-h-[260px] md:min-h-[320px]"
-      }`}
-    >
-      {imageUrl && (
-        <Image
-          src={imageUrl}
-          alt={post.title}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-          sizes="(max-width: 768px) 100vw, 50vw"
-          quality={85}
-        />
-      )}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
-      <div className="relative z-10 p-5 flex flex-col gap-2">
-        {post.category && (
-          <span
-            className={`text-xs font-bold px-3 py-1 rounded-full w-max ${badgeClass}`}
-          >
-            {post.category}
-          </span>
-        )}
-        <h3
-          className={`font-bold text-white leading-tight ${large ? "text-2xl md:text-3xl" : "text-lg md:text-xl"}`}
-        >
-          {post.title}
-        </h3>
-        {post.description && (
-          <p className="text-sm text-gray-300 line-clamp-2">
-            {post.description}
-          </p>
-        )}
-      </div>
-    </Link>
-  );
-};
-
-export default function ProjectsSection() {
-  const { data: posts, error } = useRevesProject();
-
-  if (error)
-    return <section id="projects" className="text-center py-12 scroll-mt-28">Unable to load projects. Please refresh the page or <Link href="/#contact-us" className="underline">contact us</Link>.</section>;
-  if (!posts) return <section id="projects" className="text-center py-12 scroll-mt-28">Loading projects...</section>;
-
-  const [first, second, third, fourth, ...rest] = posts;
-
-  return (
-    <section className="reves-original-projects bg-[#f4f6fb] py-16 scroll-mt-28" id="projects">
-      <div className="text-center mb-10  px-4 md:px-8 max-w-2xl mx-auto">
-        <p className="text-[#3AF40C] text-xs font-bold uppercase tracking-widest mb-3">
-          Our Recent Impact
-        </p>
-        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
-          Transforming Lives in Real-Time
-        </h2>
-      </div>
-
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
-        {first && (
-          <div className="md:col-span-2">
-            <BentoCard post={first} large />
-          </div>
-        )}
-        {second && (
-          <div className="md:col-span-1">
-            <BentoCard post={second} />
-          </div>
-        )}
-        {third && (
-          <div className="md:col-span-1">
-            <BentoCard post={third} />
-          </div>
-        )}
-        {fourth && (
-          <div className="md:col-span-2">
-            <BentoCard post={fourth} large />
-          </div>
-        )}
-        {rest.map((post) => (
-          <div key={post.id} className="md:col-span-1">
-            <BentoCard post={post} />
-          </div>
-        ))}
-      </div>
-    </section>
-  );
+export default function ProjectsSection(){
+ const {data:posts,error}=useRevesProject();const [category,setCategory]=useState("All projects");const [index,setIndex]=useState(0);
+ const categories=["All projects",...Object.keys(topics)];
+ const filtered=(posts??[]).filter(p=>category==="All projects"||topics[category]?.includes(p.id));const start=Math.min(index,Math.max(0,filtered.length-2));
+ return <section className="reves-project-stories" id="projects"><div className="reves-wrap"><div className="reves-section-heading"><h2>Our Recent Impact</h2><Link className="reves-text-link" href="/projects">Explore Programs →</Link></div>
+ <div className="reves-stories-layout"><div className="reves-story-categories" aria-label="Project categories">{categories.map(c=><button key={c} aria-pressed={c===category} onClick={()=>{setCategory(c);setIndex(0);}}>{c}</button>)}</div>
+ <div><div className="reves-story-grid" aria-live="polite">{!posts?<p>{error?"Unable to load projects. Please refresh the page.":"Loading projects..."}</p>:filtered.length===0?<p>No projects available.</p>:filtered.slice(start,start+2).map(p=><article key={p.id} className="reves-story-card"><Link href={`/projects/${p.id}`}><div className="reves-story-image"><Image src={p.featuredImage?`${pbUrl}api/files/${p.collectionId}/${p.id}/${p.featuredImage}`:"/about-us.webp"} alt="" fill sizes="(max-width: 780px) 100vw, 35vw"/></div><h3>{p.title}</h3></Link>{p.description&&<p>{p.description}</p>}</article>)}</div>
+ <div className="reves-story-controls"><button aria-label="Previous projects" disabled={start===0} onClick={()=>setIndex(Math.max(0,start-2))}>←</button><button aria-label="Next projects" disabled={start+2>=filtered.length} onClick={()=>setIndex(Math.min(start+2,Math.max(0,filtered.length-2)))}>→</button></div></div></div></div></section>;
 }

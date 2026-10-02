@@ -1,16 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 
 import "./styles/index.scss";
 import Header from "../components/shared/header";
 import Footer from "@/components/shared/footer";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  weight: ["100", "200", "300", "400", "600", "800", "900"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.revesfoundation.org/"),
@@ -40,7 +33,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="">
-      <body className={`${inter.variable} antialiased overflow-x-hidden`}>
+      <head>
+        <link rel="preload" href="/fonts/NotoSans-ExtraCondensed-Black.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/NotoSerif-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      </head>
+      <body className="antialiased">
         <NextTopLoader />
         <Header />
         {children}

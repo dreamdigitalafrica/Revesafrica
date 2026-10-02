@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import {
   FaFacebook,
@@ -53,17 +52,10 @@ const Footer = () => {
       <div className="container mx-auto px-6 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Col 1 — Brand */}
         <div className="flex flex-col gap-5">
-          <Link href="/" className="relative h-10 w-44 flex-shrink-0">
-            <Image
-              alt="Reves African Foundation Logo"
-              src="/reves-logo-trans.png"
-              fill
-              className="object-contain object-left"
-            />
-          </Link>
+          <Link href="/" className="reves-wordmark">Reves Foundation</Link>
           <p className="text-sm text-gray-400 leading-relaxed max-w-xs">
             Empowering the youth and children of Africa through education,
-            health, and sustainable community development programs since 2014.
+            health, and sustainable community development programs.
           </p>
           {/* Social icons */}
           <div className="flex items-center gap-4 mt-1">
@@ -124,7 +116,7 @@ const Footer = () => {
               className="text-[#3AF40C] mt-0.5 flex-shrink-0"
             />
             <span>
-              123 Empowerment Way, Central Business District, Abuja, Nigeria
+              Kubwa, Abuja, Nigeria
             </span>
           </div>
           <div className="flex items-center gap-3 text-sm text-gray-300">
@@ -139,10 +131,10 @@ const Footer = () => {
           <div className="flex items-center gap-3 text-sm text-gray-300">
             <MdPhone size={18} className="text-[#3AF40C] flex-shrink-0" />
             <a
-              href="tel:+2347032885407"
+              href="tel:+2347037078046"
               className="hover:text-white transition-colors"
             >
-              +234 (0) 703 288 5407
+              +234 703 707 8046
             </a>
           </div>
         </div>

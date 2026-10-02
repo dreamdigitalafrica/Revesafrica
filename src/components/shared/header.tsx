@@ -1,16 +1,31 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-
-// Retained for the legacy sidebar component.
+import { useEffect, useRef, useState } from "react";
+import { useRevesProject } from "@/lib/hook";
 export interface IDropDown { donate: boolean; whoWeAre: boolean; }
 export type THandleDropDown = "donate" | "whoWeAre" | "both";
-const links = [{ name: "Our Mission", href: "/about#mission" }, { name: "Impact", href: "/#projects" }, { name: "Programs", href: "/projects" }, { name: "About Us", href: "/about" }];
-export default function Header() {
-  const [open, setOpen] = useState(false);
-  const pathname = usePathname();
-  useEffect(() => { setOpen(false); }, [pathname]);
-  return <header className={`reves-header${pathname === "/" ? " reves-header-home" : ""}`}><div className="reves-header-inner"><Link href="/" className="reves-logo" aria-label="Reves Foundation home"><Image src="/reves-logo-dark.png" alt="Reves Foundation" width={200} height={66} priority /></Link><nav className="reves-desktop-nav" aria-label="Main navigation">{links.map(link => <Link key={link.href} href={link.href} aria-current={pathname === link.href ? "page" : undefined}>{link.name}</Link>)}</nav><Link className="reves-header-join" href="https://forms.gle/qcjw4CUr63nfwV3K9" target="_blank" rel="noopener noreferrer">Join Us</Link><Link className="reves-header-donate" href="https://flutterwave.com/donate/fqla2cajv8yi" target="_blank" rel="noopener noreferrer">Donate Now <span aria-hidden="true">↗</span></Link><button className="reves-menu-toggle" aria-expanded={open} aria-controls="reves-mobile-navigation" aria-label={open ? "Close navigation" : "Open navigation"} onClick={() => setOpen(!open)}>{open ? "Close −" : "Menu +"}</button></div>{open && <nav id="reves-mobile-navigation" className="reves-mobile-nav" aria-label="Mobile navigation" onKeyDown={event => { if (event.key === "Escape") setOpen(false); }}>{links.map(link => <Link key={link.href} href={link.href} onClick={() => setOpen(false)}>{link.name}<span aria-hidden="true">↗</span></Link>)}<Link href="/#contact-us" onClick={() => setOpen(false)}>Join Us <span aria-hidden="true">↗</span></Link></nav>}</header>;
+const groups = [
+ {label: "About Us", links: [{label:"About Us",href:"/about"},{label:"Our Mission",href:"/about#mission"},{label:"Our timeline",href:"/about#timeline"},{label:"Our Team",href:"/team"}]},
+ {label:"Programs",links:[{label:"Current Programs",href:"/projects"},{label:"Recent Impact",href:"/#projects"},{label:"Partner With Us",href:"/#contact-us"}]},
+ {label:"Success Stories",links:[{label:"Success Stories",href:"/blog"},{label:"The Digital Literacy Project",href:"/projects/4pl0x8grg1er9qv"},{label:"The Big Smile Project",href:"/projects/j3fhhgfmav8nrwr"}]},
+];
+function SearchPanel({close}:{close:()=>void}) {
+ const [query,setQuery]=useState(""); const {data,error}=useRevesProject();
+ const results=(data??[]).filter(p=>p.title.toLowerCase().includes(query.toLowerCase()));
+ return <div className="reves-search"><label htmlFor="site-search">Search our projects</label><input autoFocus id="site-search" type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search" />
+ <ul>{query && results.map(p=><li key={p.id}><Link href={`/projects/${p.id}`} onClick={close}>{p.title} ↗</Link></li>)}</ul>
+ {query && !data && <p>{error ? "Unable to load projects. Please try again." : "Loading projects..."}</p>}{query && data && !results.length && <p>No matching projects.</p>}</div>;
+}
+export default function Header(){
+ const [active,setActive]=useState<string|null>(null);const [mobile,setMobile]=useState(false);const pathname=usePathname();const ref=useRef<HTMLElement>(null);
+ const close=()=>{setActive(null);setMobile(false);};
+ useEffect(()=>{setActive(null);setMobile(false);},[pathname]);
+ useEffect(()=>{const outside=(event:PointerEvent)=>{if(!ref.current?.contains(event.target as Node))setActive(null);};document.addEventListener("pointerdown",outside);return()=>document.removeEventListener("pointerdown",outside);},[]);
+ return <header ref={ref} className={`reves-header ${pathname==="/"?"reves-header-home":""}`} onKeyDown={e=>{if(e.key==="Escape"){ref.current?.querySelector<HTMLButtonElement>('[aria-expanded="true"]')?.focus();close();}}}>
+ <div className="reves-header-inner"><Link href="/" className="reves-wordmark" onClick={close}>Reves Foundation</Link>
+ <button className="reves-menu-toggle" aria-expanded={mobile} aria-controls="main-navigation" onClick={()=>{setMobile(!mobile);setActive(null);}}>{mobile?"Close ×":"Menu ☰"}</button>
+ <nav id="main-navigation" className={`reves-navigation ${mobile?"is-open":""}`} aria-label="Main navigation">{groups.map(g=><div className="reves-nav-group" key={g.label}><button aria-expanded={active===g.label} aria-controls={`nav-${g.label.replaceAll(" ","-")}`} onClick={()=>setActive(active===g.label?null:g.label)}>{g.label}<span aria-hidden="true">⌄</span></button>{active===g.label&&<div className="reves-nav-panel" id={`nav-${g.label.replaceAll(" ","-")}`}>{g.links.map(l=><Link key={l.href} href={l.href} onClick={close}>{l.label}<span aria-hidden="true">↗</span></Link>)}</div>}</div>)}</nav>
+ <button className="reves-search-toggle" aria-expanded={active==="Search"} onClick={()=>setActive(active==="Search"?null:"Search")}>Search <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" strokeWidth="2"/><path d="m16 16 6 6" stroke="currentColor" strokeWidth="2"/></svg></button>
+ </div>{active==="Search"&&<SearchPanel close={close}/>}</header>;
 }

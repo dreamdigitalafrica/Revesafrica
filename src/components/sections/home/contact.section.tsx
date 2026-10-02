@@ -38,9 +38,9 @@ const ContactUsSection = () => {
     <section className="bg-white py-12" id="contact-us">
       <div className="container mx-auto px-4">
         <div className="section-header md:max-w-lg mb-8">
-          <h1 className="text-3xl md:text-5xl font-semibold text-gray-700">
+          <h2 className="text-3xl md:text-5xl font-semibold text-gray-700">
             Get in Touch
-          </h1>
+          </h2>
           <p className="mt-2 text-gray-600">
             Contact us by email or phone, or use the form when available. Call between 9:00 a.m.
             and 8:00 p.m. WAT, Monday through Friday.
