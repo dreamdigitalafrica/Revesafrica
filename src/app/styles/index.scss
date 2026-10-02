@@ -122,7 +122,7 @@ textarea {
 @font-face { font-family: 'Reves Serif'; src: url('/fonts/NotoSerif-Italic.woff2') format('woff2'); font-style: italic; font-weight: 400; font-display: swap; }
 @font-face { font-family: 'Reves Display'; src: url('/fonts/NotoSerif-Condensed-Light.woff2') format('woff2'); font-weight: 300; font-display: swap; }
 @font-face { font-family: 'Reves Display'; src: url('/fonts/NotoSerif-Condensed-LightItalic.woff2') format('woff2'); font-weight: 300; font-style: italic; font-display: swap; }
-:root { --reves-ink: #313a44; --reves-paper: #fff; --reves-brand: #f7901e; --reves-yellow: #ebcb00; --reves-blue: #3579c5; --reves-line: #cfcfcf; --font-inter: 'Reves Sans'; --font-serif: 'Reves Serif',serif; --font-display: 'Reves Display',serif; --font-sans: 'Reves Sans',sans-serif; }
+:root { --reves-ink: #313a44; --reves-paper: #fff; --reves-brand: #f7901e; --reves-yellow: var(--reves-brand); --reves-blue: #3579c5; --reves-line: #cfcfcf; --font-inter: 'Reves Sans'; --font-serif: 'Reves Serif',serif; --font-display: 'Reves Display',serif; --font-sans: 'Reves Sans',sans-serif; }
 html { scroll-behavior: smooth; scroll-padding-top: 110px; }
 body { background: #fff; color: var(--reves-ink); font-family: var(--font-serif); font-size: 18px; line-height: 1.6; }
 main { min-width: 0; }
@@ -149,7 +149,7 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline: 3px solid va
 .reves-search ul { max-height: 300px; overflow: auto; }
 .reves-search li { padding: 12px 0; border-bottom: 1px solid var(--reves-line); }
 .reves-button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 14px 32px; border: 1px solid transparent; border-radius: 7px; background: var(--reves-yellow); color: var(--reves-ink); font-family: var(--font-sans); font-size: 20px; font-weight: 600; letter-spacing: .02em; line-height: 1.2; transition: background 500ms ease,color 500ms ease; }
-.reves-button:hover { background: #ddad3b; }
+.reves-button:hover { background: #e17a08; }
 .reves-button-outline { background: white; border-color: var(--reves-blue); }
 .reves-button-outline:hover { background: var(--reves-blue); color: white; }
 .reves-text-link { font-family: var(--font-sans); font-size: 20px; font-weight: 600; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }

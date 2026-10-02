@@ -15,11 +15,11 @@ const VisionMissionSection = () => {
       </section>
 
       <section id="mission" className="about-section-con container space-y-5 scroll-mt-28">
-        <h4 className="about-section-title bg-[#ecd400]">
+        <h4 className="about-section-title bg-[#F7901E]">
           Our Mission Statement
         </h4>
 
-        <p className="about-section-text bg-yellow-200">
+        <p className="about-section-text bg-[#FDE3C6]">
           Empowering marginalised African youth and children, specifically those
           limited by poverty and underrepresented to reach their full potential
           through education, holistic well-being, skills development, and access
