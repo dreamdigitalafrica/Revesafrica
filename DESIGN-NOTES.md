@@ -28,3 +28,7 @@ Reference styles:
 - https://www.gatesfoundation.org/assets/css/text-over-media-generated.css
 - https://www.gatesfoundation.org/assets/css/text-over-carousel-generated.css
 - https://www.gatesfoundation.org/assets/css/interactive-timeline-generated.css
+
+## Logo color revision — 2 October 2026
+
+At the owner’s request, the green theme accents are replaced with #F7901E (RGB 247, 144, 30), sampled from the dominant warm yellow-orange pixels of public/reves-logo-dark.png. The semantic token is now --reves-brand. The reference-yellow controls, white backgrounds, photos and copy are unchanged. Green in original images and semantic success messages remains unchanged.

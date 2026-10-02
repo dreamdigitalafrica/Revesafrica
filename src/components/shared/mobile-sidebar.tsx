@@ -47,7 +47,7 @@ const MobileSideBar = ({ handleClose }: MobileSideBarProps) => {
         href="https://flutterwave.com/donate/fqla2cajv8yi"
         target="_blank"
         onClick={handleClose}
-        className="bg-[#3AF40C] text-gray-900 px-4 py-2.5 rounded-full text-center text-base font-bold hover:brightness-90 transition-all"
+        className="bg-[#F7901E] text-gray-900 px-4 py-2.5 rounded-full text-center text-base font-bold hover:brightness-90 transition-all"
       >
         Donate Now
       </Link>

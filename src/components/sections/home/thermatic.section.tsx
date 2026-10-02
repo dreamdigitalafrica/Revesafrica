@@ -92,7 +92,7 @@ const ThematicSection = () => {
     <section className="reves-original-pillars bg-[#f4f6fb] py-16">
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-12 px-4 md:px-8">
-        <p className="text-[#3AF40C] text-xs font-bold uppercase tracking-widest mb-3">
+        <p className="text-[#F7901E] text-xs font-bold uppercase tracking-widest mb-3">
           Our Strategic Pillars
         </p>
         <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">

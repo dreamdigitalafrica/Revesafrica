@@ -26,7 +26,7 @@ const HeroSection = () => {
 
         <h3 className="flex space-x-3 text-3xl md:absolute md:flex-col md:right-16 md:bottom-16 md:space-y-1 md:space-x-0 md:text-7xl font-extrabold">
           <span>About</span>
-          <span className="text-[#3AF40C]">Us</span>
+          <span className="text-[#F7901E]">Us</span>
         </h3>
       </div>
 

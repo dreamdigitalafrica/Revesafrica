@@ -108,7 +108,7 @@ textarea {
 .reves-timeline li { display: grid; grid-template-columns: 230px 1fr; gap: 44px; }
 .reves-timeline-date { font-family: Georgia,serif; font-size: 32px; padding-top: 3px; }
 .reves-timeline-entry { position: relative; border-left: 2px solid #d9dfda; padding: 0 0 58px 44px; }
-.reves-timeline-entry::before { content: ''; position: absolute; width: 18px; height: 18px; border-radius: 50%; background: var(--reves-green); border: 3px solid white; box-shadow: 0 0 0 1px #89958a; left: -10px; top: 13px; }
+.reves-timeline-entry::before { content: ''; position: absolute; width: 18px; height: 18px; border-radius: 50%; background: var(--reves-brand); border: 3px solid white; box-shadow: 0 0 0 1px #89958a; left: -10px; top: 13px; }
 .reves-timeline-entry h3 { font-size: clamp(25px,3vw,36px); line-height: 1.2; }
 .reves-timeline-entry p { font-size: 16px; line-height: 1.8; margin: 20px 0; max-width: 720px; }
 .reves-timeline-entry a { text-decoration: underline; text-underline-offset: 5px; font-size: 13px; font-weight: 600; }
@@ -122,7 +122,7 @@ textarea {
 @font-face { font-family: 'Reves Serif'; src: url('/fonts/NotoSerif-Italic.woff2') format('woff2'); font-style: italic; font-weight: 400; font-display: swap; }
 @font-face { font-family: 'Reves Display'; src: url('/fonts/NotoSerif-Condensed-Light.woff2') format('woff2'); font-weight: 300; font-display: swap; }
 @font-face { font-family: 'Reves Display'; src: url('/fonts/NotoSerif-Condensed-LightItalic.woff2') format('woff2'); font-weight: 300; font-style: italic; font-display: swap; }
-:root { --reves-ink: #313a44; --reves-paper: #fff; --reves-green: #3af40c; --reves-yellow: #ebcb00; --reves-blue: #3579c5; --reves-line: #cfcfcf; --font-inter: 'Reves Sans'; --font-serif: 'Reves Serif',serif; --font-display: 'Reves Display',serif; --font-sans: 'Reves Sans',sans-serif; }
+:root { --reves-ink: #313a44; --reves-paper: #fff; --reves-brand: #f7901e; --reves-yellow: #ebcb00; --reves-blue: #3579c5; --reves-line: #cfcfcf; --font-inter: 'Reves Sans'; --font-serif: 'Reves Serif',serif; --font-display: 'Reves Display',serif; --font-sans: 'Reves Sans',sans-serif; }
 html { scroll-behavior: smooth; scroll-padding-top: 110px; }
 body { background: #fff; color: var(--reves-ink); font-family: var(--font-serif); font-size: 18px; line-height: 1.6; }
 main { min-width: 0; }
@@ -133,7 +133,7 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline: 3px solid va
 .reves-wrap { width: min(1280px,calc(100% - 128px)); margin-inline: auto; }
 .reves-wordmark { font-family: var(--font-display); font-size: clamp(25px,2.7vw,38px); font-weight: 300; line-height: 1.15; letter-spacing: -.06em; white-space: nowrap; }
 .reves-header { position: relative; z-index: 60; background: white; }
-.reves-header-home { background: var(--reves-green); }
+.reves-header-home { background: var(--reves-brand); }
 .reves-header-inner { width: min(1280px,calc(100% - 128px)); min-height: 96px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
 .reves-navigation { display: flex; gap: 36px; }
 .reves-nav-group > button,.reves-search-toggle { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 600; letter-spacing: .02em; }
@@ -154,7 +154,7 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline: 3px solid va
 .reves-button-outline:hover { background: var(--reves-blue); color: white; }
 .reves-text-link { font-family: var(--font-sans); font-size: 20px; font-weight: 600; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
 .reves-text-link:hover { text-decoration-color: var(--reves-yellow); }
-.reves-home-hero { background: var(--reves-green); padding: 0 3.1vw; }
+.reves-home-hero { background: var(--reves-brand); padding: 0 3.1vw; }
 .reves-hero-stage { position: relative; min-height: max(640px,calc(100svh - 96px)); clip-path: url(#reves-gate); overflow: hidden; background: var(--reves-ink); }
 .reves-hero-slides { position: relative; display: grid; min-height: inherit; }
 .reves-hero-slide { grid-area: 1/1; position: relative; display: grid; align-items: center; opacity: 0; visibility: hidden; transition: opacity 750ms ease,visibility 750ms ease; }
@@ -166,7 +166,7 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline: 3px solid va
 .reves-hero-content h2 { font-size: clamp(38px,.3427rem + 6.7742vw,80px); font-weight: 900; line-height: 1.1; letter-spacing: -.03em; text-transform: uppercase; text-wrap: balance; }
 .reves-hero-content p { font-size: clamp(18px,1.6vw,24px); line-height: 1.6; margin: 26px 0 24px; }
 .reves-gate-reveal { position: absolute; inset: 0; pointer-events: none; z-index: 4; }
-.reves-gate-reveal::before,.reves-gate-reveal::after { content: ''; position: absolute; top: 0; bottom: 0; width: 50%; background: var(--reves-green); animation: reves-gate 2s ease-in-out both; }
+.reves-gate-reveal::before,.reves-gate-reveal::after { content: ''; position: absolute; top: 0; bottom: 0; width: 50%; background: var(--reves-brand); animation: reves-gate 2s ease-in-out both; }
 .reves-gate-reveal::before { left: 0; transform-origin: left; }.reves-gate-reveal::after { right: 0; transform-origin: right; }
 .reves-hero-controls { position: absolute; top: 50%; right: 3.5%; transform: translateY(-50%); z-index: 5; display: flex; flex-direction: column; color: white; }
 .reves-hero-controls button { width: 44px; height: 44px; display: grid; place-items: center; font-size: 28px; }
@@ -212,7 +212,7 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline: 3px solid va
 .reves-original-pillars .grid > div { background: white; border: 0; box-shadow: none; padding: 24px 10px; border-radius: 0; }
 .reves-original-pillars h3 { font-size: 26px; }
 .reves-original-pillars p { color: var(--reves-ink); }
-.reves-original-pillars .text-\[\#3AF40C\] { color: var(--reves-ink); }
+.reves-original-pillars .text-\[\#F7901E\] { color: var(--reves-ink); }
 .reves-home #contact-us { background: white; padding-block: 70px; border-top: 1px solid var(--reves-line); }
 .reves-home #contact-us h2 { font-size: 46px; text-transform: uppercase; }
 .reves-home #contact-us a { color: var(--reves-ink); text-decoration: underline; }

@@ -77,7 +77,7 @@ export default async function ProjectPost({ params }: Props) {
         {/* Title overlay */}
         <div className="absolute bottom-0 left-0 right-0 z-10 px-6 pb-10 md:px-16 max-w-5xl mx-auto">
           {post.category && (
-            <span className="inline-block mb-3 px-3 py-1 rounded-full bg-[#3AF40C] text-gray-900 text-xs font-bold">
+            <span className="inline-block mb-3 px-3 py-1 rounded-full bg-[#F7901E] text-gray-900 text-xs font-bold">
               {post.category}
             </span>
           )}
@@ -94,9 +94,9 @@ export default async function ProjectPost({ params }: Props) {
             className="prose prose-lg prose-gray max-w-none
               prose-headings:font-bold prose-headings:text-gray-900
               prose-p:text-gray-600 prose-p:leading-relaxed
-              prose-a:text-[#3AF40C] prose-a:no-underline hover:prose-a:underline
+              prose-a:text-[#F7901E] prose-a:no-underline hover:prose-a:underline
               prose-img:rounded-2xl prose-img:shadow-md
-              prose-blockquote:border-l-[#3AF40C] prose-blockquote:text-gray-500"
+              prose-blockquote:border-l-[#F7901E] prose-blockquote:text-gray-500"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
         </article>
@@ -108,7 +108,7 @@ export default async function ProjectPost({ params }: Props) {
               href={`/projects/${prevPost.id}`}
               className="group flex flex-col gap-1 bg-white rounded-2xl p-5 border border-gray-100 shadow-sm hover:shadow-md transition-all"
             >
-              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-gray-400 uppercase tracking-widest group-hover:text-[#3AF40C] transition-colors">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-gray-400 uppercase tracking-widest group-hover:text-[#F7901E] transition-colors">
                 <FaArrowLeft size={10} /> Previous
               </span>
               <span className="text-sm font-semibold text-gray-900 line-clamp-2 mt-1">
@@ -124,7 +124,7 @@ export default async function ProjectPost({ params }: Props) {
               href={`/projects/${nextPost.id}`}
               className="group flex flex-col items-end gap-1 bg-white rounded-2xl p-5 border border-gray-100 shadow-sm hover:shadow-md transition-all text-right"
             >
-              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-gray-400 uppercase tracking-widest group-hover:text-[#3AF40C] transition-colors">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-gray-400 uppercase tracking-widest group-hover:text-[#F7901E] transition-colors">
                 Next <FaArrowRight size={10} />
               </span>
               <span className="text-sm font-semibold text-gray-900 line-clamp-2 mt-1">

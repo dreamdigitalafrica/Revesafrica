@@ -7,8 +7,8 @@ import { Post } from "@/types";
 import { FaArrowRight } from "react-icons/fa";
 
 const categoryColors: Record<string, string> = {
-  Education: "bg-[#3AF40C] text-gray-900",
-  Nutrition: "bg-green-400 text-gray-900",
+  Education: "bg-[#F7901E] text-gray-900",
+  Nutrition: "bg-[#F7901E] text-gray-900",
   Health: "bg-teal-400 text-gray-900",
   Advocacy: "bg-purple-500 text-white",
 };
@@ -56,7 +56,7 @@ const ProgramCard = ({ post }: { post: Post }) => {
         )}
         <Link
           href={`/projects/${post.id}`}
-          className="mt-auto inline-flex items-center gap-1.5 text-sm font-bold text-gray-900 hover:text-[#3AF40C] transition-colors"
+          className="mt-auto inline-flex items-center gap-1.5 text-sm font-bold text-gray-900 hover:text-[#F7901E] transition-colors"
         >
           Learn More <FaArrowRight size={11} />
         </Link>
@@ -76,7 +76,7 @@ const ProjectGrid = () => {
     <section>
       {/* Section header */}
       <div className="text-center mb-10">
-        <p className="text-[#3AF40C] text-xs font-bold uppercase tracking-widest mb-2">
+        <p className="text-[#F7901E] text-xs font-bold uppercase tracking-widest mb-2">
           Our Core Initiatives
         </p>
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">

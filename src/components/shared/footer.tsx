@@ -65,7 +65,7 @@ const Footer = () => {
                 href={href}
                 target="_blank"
                 aria-label={label}
-                className="text-gray-400 hover:text-[#3AF40C] transition-colors"
+                className="text-gray-400 hover:text-[#F7901E] transition-colors"
               >
                 <Icon size={18} />
               </Link>
@@ -75,7 +75,7 @@ const Footer = () => {
 
         {/* Col 2 — Quick Links */}
         <div className="flex flex-col gap-3">
-          <h3 className="text-[#3AF40C] text-xs font-bold uppercase tracking-widest mb-2">
+          <h3 className="text-[#F7901E] text-xs font-bold uppercase tracking-widest mb-2">
             Quick Links
           </h3>
           {quickLinks.map((link) => (
@@ -91,7 +91,7 @@ const Footer = () => {
 
         {/* Col 3 — Support */}
         <div className="flex flex-col gap-3">
-          <h3 className="text-[#3AF40C] text-xs font-bold uppercase tracking-widest mb-2">
+          <h3 className="text-[#F7901E] text-xs font-bold uppercase tracking-widest mb-2">
             Support
           </h3>
           {supportLinks.map((link) => (
@@ -107,20 +107,20 @@ const Footer = () => {
 
         {/* Col 4 — Contact */}
         <div className="flex flex-col gap-4">
-          <h3 className="text-[#3AF40C] text-xs font-bold uppercase tracking-widest mb-2">
+          <h3 className="text-[#F7901E] text-xs font-bold uppercase tracking-widest mb-2">
             Contact Information
           </h3>
           <div className="flex items-start gap-3 text-sm text-gray-300">
             <MdLocationOn
               size={18}
-              className="text-[#3AF40C] mt-0.5 flex-shrink-0"
+              className="text-[#F7901E] mt-0.5 flex-shrink-0"
             />
             <span>
               Kubwa, Abuja, Nigeria
             </span>
           </div>
           <div className="flex items-center gap-3 text-sm text-gray-300">
-            <MdEmail size={18} className="text-[#3AF40C] flex-shrink-0" />
+            <MdEmail size={18} className="text-[#F7901E] flex-shrink-0" />
             <a
               href="mailto:contact@revesfoundation.org"
               className="hover:text-white transition-colors"
@@ -129,7 +129,7 @@ const Footer = () => {
             </a>
           </div>
           <div className="flex items-center gap-3 text-sm text-gray-300">
-            <MdPhone size={18} className="text-[#3AF40C] flex-shrink-0" />
+            <MdPhone size={18} className="text-[#F7901E] flex-shrink-0" />
             <a
               href="tel:+2347037078046"
               className="hover:text-white transition-colors"

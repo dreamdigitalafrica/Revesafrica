@@ -5,7 +5,7 @@ const VisionMissionSection = () => {
   return (
     <>
       <section className="about-section-con container space-y-1">
-        <h4 className="about-section-title bg-[#3AF40C]">Our Vision</h4>
+        <h4 className="about-section-title bg-[#F7901E]">Our Vision</h4>
 
         <p className="about-section-text">
           We envision a world where all African youth and children have equal
@@ -40,9 +40,9 @@ const VisionMissionSection = () => {
       </section>
 
       <section className="about-section-con container space-y-5">
-        <h4 className="about-section-title bg-[#3AF40C]">Our Objectives</h4>
+        <h4 className="about-section-title bg-[#F7901E]">Our Objectives</h4>
 
-        <p className="about-section-text flex flex-col space-y-3 bg-green-200">
+        <p className="about-section-text flex flex-col space-y-3 bg-[#FDE3C6]">
           {OBJECTIVES_DATA.map(({ title, description }, i) => (
             <span key={title + i}>
               <span className="font-bold">{title}:</span> {description}
