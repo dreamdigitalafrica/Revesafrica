@@ -9,14 +9,15 @@ const HeroSection = () => (
     </header>
     <div className="reves-founder-story">
       <figure>
-        <Image
-          src="https://revesfoundation.pockethost.io/api/files/74gfk7dohz7cedr/u78o5bxxkda1t9g/whats_app_image_2025_04_01_at_11_06_urEU1fapZI.04_16f3829f.jpg"
+        <div className="reves-founder-headshot"><Image
+          src="/images/team/chibuzo-portrait.png"
           alt="Chibuzo Ogbonnaya Chiemezo"
-          width={1181}
-          height={1163}
-          sizes="(max-width: 780px) 100vw, 45vw"
+          width={1024}
+          height={1024}
+          sizes="(max-width: 780px) 200vw, 90vw"
+          quality={90}
           priority
-        />
+        /></div>
         <figcaption>
           <strong>Chibuzo Ogbonnaya Chiemezo</strong>
           <span>Co-founder and General Secretary</span>

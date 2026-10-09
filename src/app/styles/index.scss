@@ -292,13 +292,13 @@ main .prose h2,main .prose h3 { font-family: var(--font-sans); font-weight: 900;
 .reves-work-page h2 { font-size: clamp(30px,3vw,42px); text-transform: uppercase; margin-bottom: 24px; }
 .reves-work-lead { max-width: 900px; font-size: 20px; line-height: 1.65; margin-bottom: 50px; }
 .reves-work-strategy { border-bottom: 1px solid var(--reves-line); scroll-margin-top: 120px; }
-.reves-work-strategy summary { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 26px 0; font-family: var(--font-display); font-size: 28px; cursor: pointer; list-style: none; }
-.reves-work-strategy summary::-webkit-details-marker { display: none; }
-.reves-work-strategy summary:focus-visible { outline: 2px solid var(--reves-brand); outline-offset: 4px; }
+.reves-work-strategy h3 button { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 26px 0; font-family: var(--font-display); font-size: 28px; cursor: pointer; list-style: none; }
+.reves-work-strategy h3 button::-webkit-details-marker { display: none; }
+.reves-work-strategy h3 button:focus-visible { outline: 2px solid var(--reves-brand); outline-offset: 4px; }
 .reves-work-toggle { position: relative; flex: 0 0 18px; height: 18px; }
 .reves-work-toggle::before,.reves-work-toggle::after { content: ''; position: absolute; background: currentColor; top: 8px; left: 1px; width: 16px; height: 1px; }
 .reves-work-toggle::after { transform: rotate(90deg); transition: transform 200ms ease; }
-.reves-work-strategy[open] .reves-work-toggle::after { transform: rotate(0); }
+.reves-work-strategy.is-open .reves-work-toggle::after { transform: rotate(0); }
 .reves-work-strategy-body { display: grid; grid-template-columns: 1fr 1.2fr; gap: 70px; padding: 8px 0 36px; font-size: 18px; line-height: 1.65; }
 .reves-work-strategy-body .reves-work-eyebrow { color: var(--reves-brand); margin-bottom: 14px; }
 .reves-work-strategy-body ul { list-style: none; padding: 0; display: grid; gap: 26px; }
@@ -308,7 +308,7 @@ main .prose h2,main .prose h3 { font-family: var(--font-sans); font-weight: 900;
 .reves-work-more > div { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; }
 .reves-work-more a { border-top: 1px solid var(--reves-line); padding-top: 24px; font-size: 24px; display: flex; justify-content: space-between; text-decoration: underline; text-underline-offset: 6px; }
 @media(max-width:1000px) { .reves-work-panels { grid-template-columns: repeat(2,minmax(0,1fr)); }.reves-work-strategy-body { gap: 35px; } }
-@media(max-width:600px) { .reves-work-page { padding-block: 40px 60px; }.reves-work-wrap { width: calc(100% - 40px); }.reves-work-panels { grid-template-columns: 1fr; border-radius: 28px 0 28px 0; }.reves-work-panel { min-height: 320px; }.reves-work-strategies { margin-top: 60px; }.reves-work-strategy summary { font-size: 25px; }.reves-work-strategy-body { grid-template-columns: 1fr; gap: 28px; }.reves-work-more > div { grid-template-columns: 1fr; gap: 28px; } }
+@media(max-width:600px) { .reves-work-page { padding-block: 40px 60px; }.reves-work-wrap { width: calc(100% - 40px); }.reves-work-panels { grid-template-columns: 1fr; border-radius: 28px 0 28px 0; }.reves-work-panel { min-height: 320px; }.reves-work-strategies { margin-top: 60px; }.reves-work-strategy h3 button { font-size: 25px; }.reves-work-strategy-body { grid-template-columns: 1fr; gap: 28px; }.reves-work-more > div { grid-template-columns: 1fr; gap: 28px; } }
 
 .reves-about-heading { max-width: 940px; margin: 10px auto 60px; text-align: center; }
 .reves-about-heading > p { font-family: var(--font-sans); font-size: 16px; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 20px; color: var(--reves-brand); }
@@ -342,3 +342,38 @@ main.reves-story-page article .reves-story-content :is(h1,h2,h3,h4,h5,h6) strong
 main.reves-story-page article .reves-story-content > :first-child { margin-top: 0; }
 main.reves-story-page article .reves-story-content p { font-size: inherit; line-height: inherit; }
 @media(max-width:600px) { .reves-story-hero-copy { padding: 110px 24px 36px; }.reves-story-body { padding-top: 32px; padding-bottom: 32px; } }
+
+
+/* Head-and-shoulders framing keeps the uploaded photograph intact. */
+.reves-founder-headshot { position: relative; aspect-ratio: 1; overflow: hidden; border-radius: 48px 0 48px 0; background: #d4b49b; }
+.reves-founder-story .reves-founder-headshot img { position: absolute; width: 200%; max-width: none; height: auto; left: -50%; top: -2%; border-radius: 0; }
+.reves-work-panels { overflow: visible; border-radius: 0; }
+.reves-work-panel { min-height: 500px; border-radius: 0; }
+.reves-work-panel:first-child { border-radius: 48px 0 0 48px; }
+.reves-work-panel:last-child { border-radius: 0 48px 48px 0; }
+.reves-work-panel.has-photo::after { background: #313a44; opacity: 0; transition: opacity 500ms ease; }
+.reves-work-panel > .reves-work-panel-label { inset: auto 0 0; min-height: 158px; padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: #313a44e6; color: white; font-size: 22px; transition: bottom 500ms ease,transform 500ms ease,background-color 500ms ease; }
+.reves-work-panel-label > span { opacity: 0; max-height: 0; margin-top: 0 !important; transform: translateY(10px); transition: opacity 500ms ease,transform 500ms ease,max-height 500ms ease,margin 500ms ease; }
+.reves-work-gates { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+.reves-work-gates::before,.reves-work-gates::after { content: ''; position: absolute; left: 0; right: 0; height: 36px; background: white; transition: transform 500ms ease; }
+.reves-work-gates::before { top: 0; border-radius: 0 0 36px 36px; transform: translateY(-110%); }
+.reves-work-gates::after { bottom: 0; border-radius: 36px 36px 0 0; transform: translateY(110%); }
+@media(hover:hover) and (pointer:fine) {
+ .reves-work-panel:hover { border-radius: 0; }
+ .reves-work-panel:hover::after { opacity: .87; }
+ .reves-work-panel:hover > .reves-work-panel-label { bottom: 50%; transform: translateY(50%); background: transparent; }
+ .reves-work-panel:hover .reves-work-panel-label > span { opacity: 1; max-height: 40px; margin-top: 16px !important; transform: translateY(0); }
+ .reves-work-panel:hover .reves-work-gates::before,.reves-work-panel:hover .reves-work-gates::after { transform: translateY(0); }
+}
+.reves-work-panel:focus-visible::after { opacity: .87; }
+.reves-work-panel:focus-visible > .reves-work-panel-label { bottom: 50%; transform: translateY(50%); background: transparent; }
+.reves-work-panel:focus-visible .reves-work-panel-label > span { opacity: 1; max-height: 40px; margin-top: 16px !important; transform: translateY(0); }
+.reves-work-panel:focus-visible .reves-work-gates::before,.reves-work-panel:focus-visible .reves-work-gates::after { transform: translateY(0); }
+.reves-work-strategy h3 { margin: 0; }
+.reves-work-strategy h3 button { width: 100%; text-align: left; background: none; font-weight: 300; letter-spacing: normal; }
+.reves-work-accordion { display: grid; grid-template-rows: 0fr; visibility: hidden; opacity: 0; transition: grid-template-rows 450ms ease,opacity 450ms ease,visibility 450ms; }
+.reves-work-strategy.is-open .reves-work-accordion { grid-template-rows: 1fr; visibility: visible; opacity: 1; }
+.reves-work-accordion-inner { overflow: hidden; min-height: 0; }
+@media(max-width:1000px) { .reves-work-panel { min-height: 390px; }.reves-work-panel:first-child { border-radius: 36px 0 0 0; }.reves-work-panel:last-child { border-radius: 0 0 36px 0; } }
+@media(max-width:600px) { .reves-work-panel { min-height: 320px; }.reves-work-panel:first-child { border-radius: 28px 28px 0 0; }.reves-work-panel:last-child { border-radius: 0 0 28px 28px; }.reves-founder-headshot { border-radius: 30px 0 30px 0; } }
+@media(hover:none) { .reves-work-panel-label > span { opacity: 1; max-height: 30px; margin-top: 12px !important; transform: none; } }

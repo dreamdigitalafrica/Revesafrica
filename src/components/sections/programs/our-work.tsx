@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import Link from "next/link";
 import { useRevesProject } from "@/lib/hook";
 import { pbUrl } from "@/lib/pocketbase.util";
@@ -14,6 +15,7 @@ const strategies = [
 
 export default function OurWork() {
   const { data: posts, error, mutate } = useRevesProject();
+  const [openStrategy, setOpenStrategy] = useState<string | null>(null);
   return (
     <main className="reves-work-page">
       <header className="reves-work-intro reves-work-wrap">
@@ -26,9 +28,9 @@ export default function OurWork() {
           const post = strategy.projects.map(id => posts?.find(post => post.id === id && post.featuredImage)).find(Boolean);
           const photo = post ? `${pbUrl}api/files/${post.collectionId}/${post.id}/${post.featuredImage}` : undefined;
           return (
-            <a key={strategy.id} className={`reves-work-panel${photo ? " has-photo" : ""}`} href={`#${strategy.id}`} onClick={() => { const detail = document.getElementById(strategy.id); if (detail instanceof HTMLDetailsElement) detail.open = true; }}>
+            <a key={strategy.id} className={`reves-work-panel${photo ? " has-photo" : ""}`} href={`#${strategy.id}`} onClick={() => setOpenStrategy(strategy.id)}>
               <Image src={photo || `/images/sdg/${strategy.icon}.png`} alt="" fill sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 25vw" className={photo ? "reves-work-photo" : "reves-work-symbol"} />
-              <span><small>SDG {strategy.goal}</small>{strategy.title}<span aria-hidden="true">↗</span></span>
+              <i className="reves-work-gates" aria-hidden="true" /><span className="reves-work-panel-label"><small>SDG {strategy.goal}</small>{strategy.title}<span aria-hidden="true">↗</span></span>
             </a>
           );
         })}
@@ -38,16 +40,18 @@ export default function OurWork() {
         <p className="reves-work-lead">Our goal is to identify and address unique challenges facing marginalised youths and children, designing need-based interventions and programmes that empower them to become active contributors to their communities.</p>
         {error && <p role="alert">Projects could not be loaded. <button type="button" className="reves-text-link" onClick={() => void mutate()}>Try again</button></p>}
         {strategies.map(strategy => (
-          <details className="reves-work-strategy" id={strategy.id} key={strategy.id}>
-            <summary><span>{strategy.title}</span><span className="reves-work-toggle" aria-hidden="true" /></summary>
+          <div className={`reves-work-strategy${openStrategy === strategy.id ? " is-open" : ""}`} id={strategy.id} key={strategy.id}>
+            <h3><button type="button" id={`${strategy.id}-toggle`} aria-expanded={openStrategy === strategy.id} aria-controls={`${strategy.id}-content`} onClick={() => setOpenStrategy(openStrategy === strategy.id ? null : strategy.id)}><span>{strategy.title}</span><span className="reves-work-toggle" aria-hidden="true" /></button></h3>
+            <div className="reves-work-accordion" id={`${strategy.id}-content`} role="region" aria-labelledby={`${strategy.id}-toggle`} aria-hidden={openStrategy !== strategy.id}><div className="reves-work-accordion-inner">
             <div className="reves-work-strategy-body">
               <div><p className="reves-work-eyebrow">Sustainable Development Goal {strategy.goal}</p><p>{strategy.description}</p></div>
               <ul aria-label={`${strategy.title} projects`}>
                 {!posts && !error && <li>Loading projects…</li>}
-                {posts?.filter(post => strategy.projects.includes(post.id)).map(post => <li key={post.id}><Link href={`/projects/${post.id}`}>{post.title}<span aria-hidden="true">↗</span></Link><p>{post.description}</p></li>)}
+                {posts?.filter(post => strategy.projects.includes(post.id)).map(post => <li key={post.id}><Link href={`/projects/${post.id}`} tabIndex={openStrategy === strategy.id ? 0 : -1}>{post.title}<span aria-hidden="true">↗</span></Link><p>{post.description}</p></li>)}
               </ul>
             </div>
-          </details>
+            </div></div>
+          </div>
         ))}
       </section>
       <section className="reves-work-more reves-work-wrap" aria-labelledby="more-work-title">
