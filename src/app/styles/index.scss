@@ -309,3 +309,18 @@ main .prose h2,main .prose h3 { font-family: var(--font-sans); font-weight: 900;
 .reves-work-more a { border-top: 1px solid var(--reves-line); padding-top: 24px; font-size: 24px; display: flex; justify-content: space-between; text-decoration: underline; text-underline-offset: 6px; }
 @media(max-width:1000px) { .reves-work-panels { grid-template-columns: repeat(2,minmax(0,1fr)); }.reves-work-strategy-body { gap: 35px; } }
 @media(max-width:600px) { .reves-work-page { padding-block: 40px 60px; }.reves-work-wrap { width: calc(100% - 40px); }.reves-work-panels { grid-template-columns: 1fr; border-radius: 28px 0 28px 0; }.reves-work-panel { min-height: 320px; }.reves-work-strategies { margin-top: 60px; }.reves-work-strategy summary { font-size: 25px; }.reves-work-strategy-body { grid-template-columns: 1fr; gap: 28px; }.reves-work-more > div { grid-template-columns: 1fr; gap: 28px; } }
+
+.reves-about-heading { max-width: 940px; margin: 10px auto 60px; text-align: center; }
+.reves-about-heading > p { font-family: var(--font-sans); font-size: 16px; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 20px; color: var(--reves-brand); }
+.reves-founder-story { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.1fr); align-items: center; gap: clamp(32px,5vw,80px); }
+.reves-founder-story figure { margin: 0; }
+.reves-founder-story figure img { width: 100%; height: auto; border-radius: 48px 0 48px 0; }
+.reves-founder-story figcaption { margin-top: 24px; }
+.reves-founder-story figcaption strong { display: block; font-family: var(--font-sans); font-size: 26px; line-height: 1.2; }
+.reves-founder-story figcaption span { display: block; margin-top: 8px; font-size: 16px; }
+.reves-founder-copy h2,.reves-about-organisation h2 { font-family: var(--font-display); font-size: clamp(34px,4vw,50px); font-weight: 300; margin-bottom: 24px; }
+.reves-founder-copy p { font-size: 18px; line-height: 1.75; margin-bottom: 20px; }
+.reves-founder-copy > a { display: inline-block; margin-top: 12px; }
+.reves-about-organisation { margin-top: 70px; max-width: 940px; }
+.reves-about-organisation p { font-size: 20px; line-height: 1.7; }
+@media(max-width:780px) { .reves-about-heading { margin-bottom: 36px; }.reves-founder-story { grid-template-columns: 1fr; gap: 38px; }.reves-founder-story figure { max-width: 500px; margin-inline: auto; }.reves-founder-story figure img { border-radius: 30px 0 30px 0; }.reves-about-organisation { margin-top: 50px; } }
