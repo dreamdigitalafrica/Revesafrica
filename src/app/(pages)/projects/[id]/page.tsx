@@ -56,9 +56,9 @@ export default async function ProjectPost({ params }: Props) {
   const imageUrl = post.featuredImage ? `${pbUrl}api/files/${post.collectionId}/${post.id}/${post.featuredImage}` : "/images/projects/project-1.jpg";
 
   return (
-    <main className="w-full bg-[#f4f6fb] min-h-screen">
+    <main className="reves-story-page w-full bg-[#f4f6fb] min-h-screen">
       {/* Hero */}
-      <section className="relative w-full h-[50vh] md:h-[65vh] overflow-hidden">
+      <section className="reves-story-hero relative w-full overflow-hidden">
         <Image
           src={imageUrl}
           alt={post.featuredImageAlt || post.title}
@@ -78,27 +78,27 @@ export default async function ProjectPost({ params }: Props) {
         </Link>
 
         {/* Title overlay */}
-        <div className="absolute bottom-0 left-0 right-0 z-10 px-6 pb-10 md:px-16 max-w-5xl mx-auto">
+        <div className="reves-story-hero-copy relative z-10 w-full max-w-5xl mx-auto">
           {post.category && (
             <span className="inline-block mb-3 px-3 py-1 rounded-full bg-[#0C529C] text-white text-xs font-bold">
               {post.category}
             </span>
           )}
-          <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight max-w-3xl">
+          <h1 className="reves-story-title text-white">
             {post.title}
           </h1>
         </div>
       </section>
 
       {/* Content */}
-      <div className="max-w-3xl mx-auto px-4 md:px-6 py-14">
-        <article className="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-12">
+      <div className="reves-story-body mx-auto px-4 md:px-6 py-14">
+        <article className="reves-story-article bg-white">
           <p className="mb-8 text-sm text-gray-600">
             {post.author && <span>By {post.author} · </span>}
             {post.datePublished && <time dateTime={new Date(post.datePublished).toISOString()}>{new Date(post.datePublished).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "Africa/Lagos" })}</time>}
           </p>
           <div
-            className="prose prose-lg prose-gray max-w-none
+            className="reves-story-content prose prose-lg prose-gray max-w-none
               prose-headings:font-bold prose-headings:text-gray-900
               prose-p:text-gray-600 prose-p:leading-relaxed
               prose-a:text-[#0C529C] prose-a:no-underline hover:prose-a:underline
