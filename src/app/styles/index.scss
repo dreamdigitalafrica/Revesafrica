@@ -377,3 +377,18 @@ main.reves-story-page article .reves-story-content p { font-size: inherit; line-
 @media(max-width:1000px) { .reves-work-panel { min-height: 390px; }.reves-work-panel:first-child { border-radius: 36px 0 0 0; }.reves-work-panel:last-child { border-radius: 0 0 36px 0; } }
 @media(max-width:600px) { .reves-work-panel { min-height: 320px; }.reves-work-panel:first-child { border-radius: 28px 28px 0 0; }.reves-work-panel:last-child { border-radius: 0 0 28px 28px; }.reves-founder-headshot { border-radius: 30px 0 30px 0; } }
 @media(hover:none) { .reves-work-panel-label > span { opacity: 1; max-height: 30px; margin-top: 12px !important; transform: none; } }
+
+.reves-instagram { margin-top: 90px; padding-top: 48px; border-top: 1px solid var(--reves-line); }
+.reves-instagram-heading { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-bottom: 26px; }
+.reves-instagram-heading h2 { margin: 8px 0 0; }
+.reves-instagram-heading > a { display: flex; align-items: center; gap: 10px; font-family: var(--font-sans); font-size: 20px; text-decoration: underline; text-underline-offset: 5px; }
+.reves-instagram-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 16px; margin: 0; list-style: none; }
+.reves-instagram-track li { flex: 0 0 calc((100% - 60px)/4); min-width: 0; scroll-snap-align: start; }
+.reves-instagram-track a { display: block; }
+.reves-instagram-track img { aspect-ratio: 1; width: 100%; height: auto; object-fit: cover; border-radius: 8px; }
+.reves-instagram-track a > span { display: flex; justify-content: space-between; margin-top: 12px; font-family: var(--font-sans); font-size: 17px; }
+.reves-instagram-controls { display: flex; justify-content: flex-end; gap: 12px; margin-top: 18px; }
+.reves-instagram-controls button { min-width: 44px; min-height: 44px; padding: 10px 16px; border: 1px solid var(--reves-line); border-radius: 6px; font-family: var(--font-sans); }
+.reves-instagram a:focus-visible,.reves-instagram button:focus-visible { outline: 2px solid var(--reves-brand); outline-offset: 3px; }
+@media(max-width:1000px) { .reves-instagram-track li { flex-basis: calc((100% - 20px)/2); } }
+@media(max-width:600px) { .reves-instagram { margin-top: 60px; }.reves-instagram-heading { align-items: flex-start; flex-direction: column; }.reves-instagram-track li { flex-basis: 82%; } }

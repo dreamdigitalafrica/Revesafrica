@@ -64,6 +64,7 @@ const Footer = () => {
                 key={label}
                 href={href}
                 target="_blank"
+                rel="noopener noreferrer"
                 aria-label={label}
                 className="text-gray-400 hover:text-[#0C529C] transition-colors"
               >

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import InstagramFeed from "./instagram-feed";
 import { useState } from "react";
 import Link from "next/link";
 import { useRevesProject } from "@/lib/hook";
@@ -58,6 +59,7 @@ export default function OurWork() {
         <h2 id="more-work-title">More about our work</h2>
         <div><Link href="/projects">All projects <span aria-hidden="true">↗</span></Link><Link href="/about#mission">Our mission <span aria-hidden="true">↗</span></Link><Link href="/#contact-us">Partner with us <span aria-hidden="true">↗</span></Link></div>
       </section>
+      <InstagramFeed />
     </main>
   );
 }
