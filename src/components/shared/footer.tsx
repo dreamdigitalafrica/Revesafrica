@@ -11,7 +11,7 @@ import { MdLocationOn, MdEmail, MdPhone } from "react-icons/md";
 
 const quickLinks = [
   { name: "Our Mission", href: "/about#mission" },
-  { name: "Current Programs", href: "/projects" },
+  { name: "Our Work & Programs", href: "/programs" },
   { name: "Recent Impact", href: "/#projects" },
   { name: "Success Stories", href: "/blog" },
 ];

@@ -7,7 +7,7 @@ export interface IDropDown { donate: boolean; whoWeAre: boolean; }
 export type THandleDropDown = "donate" | "whoWeAre" | "both";
 const groups = [
  {label: "About Us", links: [{label:"About Us",href:"/about"},{label:"Our Mission",href:"/about#mission"},{label:"Our timeline",href:"/about#timeline"},{label:"Our Team",href:"/team"}]},
- {label:"Programs",links:[{label:"Current Programs",href:"/projects"},{label:"Recent Impact",href:"/#projects"},{label:"Partner With Us",href:"/#contact-us"}]},
+ {label:"Programs",links:[{label:"Our Work & Programs",href:"/programs"},{label:"Recent Impact",href:"/#projects"},{label:"Partner With Us",href:"/#contact-us"}]},
  {label:"Success Stories",links:[{label:"Success Stories",href:"/blog"},{label:"The Digital Literacy Project",href:"/projects/4pl0x8grg1er9qv"},{label:"The Big Smile Project",href:"/projects/j3fhhgfmav8nrwr"}]},
 ];
 function SearchPanel({close}:{close:()=>void}) {

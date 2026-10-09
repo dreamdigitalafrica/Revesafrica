@@ -9,7 +9,6 @@ const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   async redirects() {
     return [
-      { source: "/programs", destination: "/projects", permanent: true },
       { source: "/our-mission", destination: "/about#mission", permanent: true },
       { source: "/impact", destination: "/#projects", permanent: true },
       { source: "/donate", destination: "https://flutterwave.com/donate/fqla2cajv8yi", permanent: false },

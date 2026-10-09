@@ -5,7 +5,7 @@ import { IDropDown, THandleDropDown } from "./header";
 const navItems = [
   { name: "Our Mission", href: "/about#mission" },
   { name: "Impact", href: "/#projects" },
-  { name: "Programs", href: "/projects" },
+  { name: "Programs", href: "/programs" },
   { name: "About Us", href: "/about" },
 ];
 
