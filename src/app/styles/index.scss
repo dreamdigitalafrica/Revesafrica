@@ -202,8 +202,13 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline: 3px solid va
 .reves-story-controls button:disabled { opacity: .35; cursor: default; }
 .reves-original-pillars { background: white; padding-block: 85px; }
 .reves-original-pillars h2 { text-transform: uppercase; }
-.reves-original-pillars .grid > div { background: white; border: 0; box-shadow: none; padding: 24px 10px; border-radius: 0; }
-.reves-original-pillars h3 { font-size: 26px; }
+.reves-sdg-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 40px; width: calc(100% - 80px); max-width: 1200px; margin: 0 auto; padding: 0; list-style: none; }
+.reves-sdg-card { display: grid; grid-template-rows: 144px 2.4em auto; align-content: start; gap: 22px; min-width: 0; font-size: 26px; }
+.reves-sdg-icon { width: 144px; height: 144px; object-fit: contain; }
+.reves-sdg-card h3 { font-size: 26px; line-height: 1.2; margin: 0; text-wrap: balance; }
+.reves-sdg-card p { font-size: 18px; line-height: 1.65; margin: 0; }
+@media(max-width:1100px) { .reves-sdg-grid { max-width: 760px; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 48px 40px; } }
+@media(max-width:599px) { .reves-sdg-grid { width: calc(100% - 48px); max-width: 380px; grid-template-columns: 1fr; gap: 36px; }.reves-sdg-card { grid-template-rows: 120px auto auto; gap: 16px; padding-bottom: 32px; border-bottom: 1px solid var(--reves-line); }.reves-sdg-card:last-child { padding-bottom: 0; border-bottom: 0; }.reves-sdg-icon { width: 120px; height: 120px; } }
 .reves-original-pillars p { color: var(--reves-ink); }
 .reves-original-pillars .text-\[\#0C529C\] { color: var(--reves-ink); }
 .reves-home #contact-us { background: white; padding-block: 70px; border-top: 1px solid var(--reves-line); }
